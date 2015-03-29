@@ -17,5 +17,13 @@ namespace Cursach
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Parser p = new Parser();
+            string container = p.getRequest("http://www.riviera-sochi.ru/tours/339");
+            p.Check(container);
+            textBox1.Text = p.NAME;
+        }
+
     }
 }
