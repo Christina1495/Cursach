@@ -20,9 +20,9 @@ namespace Cursach
         private void button1_Click(object sender, EventArgs e)
         {
             Parser p = new Parser();
-            string container = p.getRequest("http://www.riviera-sochi.ru/tours/339");
+            string container = p.getRequest("http://www.riviera-sochi.ru/tours/275");
             p.Check(container);
-            textBox1.Text = p.NAME;
+            textBox1.Text = p.HOTEL + " " + p.DATE + " " + p.NAME;
         }
 
     }

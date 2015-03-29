@@ -116,7 +116,7 @@
             this.textBox1.Location = new System.Drawing.Point(16, 16);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 90);
+            this.textBox1.Size = new System.Drawing.Size(529, 261);
             this.textBox1.TabIndex = 4;
             // 
             // trackBar1
@@ -150,7 +150,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(327, 16);
+            this.button1.Location = new System.Drawing.Point(551, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
