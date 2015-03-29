@@ -23,29 +23,15 @@ namespace Cursach
         public string HOTEL
         { get { return Hotel; } }
 
-        bool Stop = false;
-        public bool STOP
-        { get { return Stop; } }
-
-        string block_work;
-        public string BLOCK_WORK
-        { get { return block_work; } }
-
-        string id;
-        public string ID
-        { get { return id; } }
-
-        string Price;
-        public string PRICE
-        { get { return Price; } }
-
-        string Duration;
-        public string DURATION
-        { get { return Duration; } }
-
-        string Resort;
-        public string RESORT
-        { get { return Resort; } }
+        //private string UTF8(string text)
+        //{
+        //    Encoding UTF8 = Encoding.UTF8;
+        //    Encoding Unicode = Encoding.Unicode;
+        //    byte[] in_bytes = Unicode.GetBytes(text);
+        //    byte[] out_bytes = Encoding.Convert(Unicode, UTF8, in_bytes);
+        //    text = UTF8.GetString(out_bytes);
+        //    return text;
+        //}
 
         public string getRequest(string url)
         {
@@ -72,7 +58,7 @@ namespace Cursach
             }
         }
 
-        public void Check(string container)//Метод обработки отдельной страницы тура(Название, Дата, Отели)
+        public void Check(string container)
         {
             Name = "";
             Date = "";
@@ -179,75 +165,6 @@ namespace Cursach
             {
                 Date = "ne ok";
             }
-        }
-
-        public string Check1(string Text, string Text1, int Length, int Length1, string block)
-        {
-            string Variable = "";
-            string temporary = "";
-            int index = block.IndexOf(Text);
-            if (index != -1)
-            {
-                for (int i = index + Length; i < block.Length; i++)
-                {
-                    temporary += block[i];
-                }
-                index = temporary.IndexOf(Text1);
-                if (index != -1)
-                {
-                    for (int i = 0; i < index - Length1; i++)
-                    {
-                        Variable += temporary[i];
-                    }
-                }
-            }
-            return Variable;
-        }
-
-        public string Block(string container)
-        {
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(container);
-            string BLOCK = "";
-            HtmlNode block = doc.DocumentNode.SelectSingleNode("//div[@class='entry']");
-            if (block != null)
-            {
-                BLOCK = block.OuterHtml;
-            }
-            return BLOCK;
-        }
-
-        public string Block1(string block)
-        {
-            string temporary_block = "";
-            block_work = "";
-            int index;
-            index = block.IndexOf("bottom");
-            if(index != -1)
-            {
-                for(int i = 0; i < index; i++)
-                {
-                    block_work += block[i];
-                }
-                for(int i = index + 6; i < block.Length; i++)
-                {
-                    temporary_block += block[i];
-                }
-                index = temporary_block.IndexOf("<a");
-                if(index == -1)
-                {
-                    Stop = true;
-                }
-            }
-            return temporary_block;
-        }
-
-        public void Check1(string block)
-        {
-            id = Check1("/tours/", ">", 7, 1, block);
-            Price = Check1("Цена:", "</span>", 14, 0, block);
-            Duration = Check1("Продолжительность:", "</span>", 27, 0, block);
-            Resort = Check1("g>Курорт:", "</span>", 18, 0, block);
         }
     }
 }
