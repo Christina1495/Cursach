@@ -281,6 +281,7 @@ namespace Cursach
 
         public void Check2(string block)
         {
+            Name_Ex = "";
             string temporary = "";
             int index = block.IndexOf("<h4>");
             if (index != -1)
