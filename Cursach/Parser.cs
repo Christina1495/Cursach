@@ -15,6 +15,14 @@ namespace Cursach
         public string NAME
         { get { return Name; } }
 
+        string Name_Ex;
+        public string NAME_EX
+        { get { return Name_Ex; } }
+
+        string Description;
+        public string DESCRIPTION
+        { get { return Description; } }
+
         string Date;
         public string DATE
         { get { return Date; } }
@@ -25,7 +33,8 @@ namespace Cursach
 
         bool Stop = false;
         public bool STOP
-        { get { return Stop; } }
+        { get { return Stop; }
+          set { Stop = value; }}
 
         string block_work;
         public string BLOCK_WORK
@@ -39,13 +48,25 @@ namespace Cursach
         public string PRICE
         { get { return Price; } }
 
+        string Price_Ex;
+        public string PRICE_EX
+        { get { return Price_Ex; } }
+
         string Duration;
         public string DURATION
         { get { return Duration; } }
 
+        string Duration_Ex;
+        public string DURATION_EX
+        { get { return Duration_Ex; } }
+
         string Resort;
         public string RESORT
         { get { return Resort; } }
+
+        string Resort_Ex;
+        public string RESORT_EX
+        { get { return Resort_Ex; } }
 
         public string getRequest(string url)
         {
@@ -214,15 +235,23 @@ namespace Cursach
             {
                 BLOCK = block.OuterHtml;
             }
+            else
+            {
+                block = doc.DocumentNode.SelectSingleNode("//div[@class='center_block']");
+                if (block != null)
+                {
+                    BLOCK = block.OuterHtml;
+                }
+            }
             return BLOCK;
         }
 
-        public string Block1(string block)
+        public string Block1(string block, string Text, string Text1)
         {
             string temporary_block = "";
             block_work = "";
             int index;
-            index = block.IndexOf("bottom");
+            index = block.IndexOf(Text);
             if(index != -1)
             {
                 for(int i = 0; i < index; i++)
@@ -233,7 +262,7 @@ namespace Cursach
                 {
                     temporary_block += block[i];
                 }
-                index = temporary_block.IndexOf("<a");
+                index = temporary_block.IndexOf(Text1);
                 if(index == -1)
                 {
                     Stop = true;
@@ -248,6 +277,32 @@ namespace Cursach
             Price = Check1("Цена:", "</span>", 14, 0, block);
             Duration = Check1("Продолжительность:", "</span>", 27, 0, block);
             Resort = Check1("g>Курорт:", "</span>", 18, 0, block);
+        }
+
+        public void Check2(string block)
+        {
+            string temporary = "";
+            int index = block.IndexOf("<h4>");
+            if (index != -1)
+            {
+                for(int i = index + 5; i < block.Length; i++)
+                {
+                    temporary += block[i];
+                }
+                index = temporary.IndexOf(">");
+                int index1 = temporary.IndexOf("</a>");
+                if (index != -1 || index1 != -1)
+                {
+                    for(int j = index + 1; j < index1; j++)
+                    {
+                        Name_Ex += temporary[j];
+                    }
+                }
+                Description = Check1("px;", "</p>", 17, 0, temporary);
+                Duration_Ex = Check1("Продолжительность:", "</span>", 18, 0, temporary);
+                Price_Ex = Check1("Цена от:", "</span>", 8, 0, temporary);
+                Resort_Ex = Check1("Курорт:", "</span>", 7, 0, temporary);
+            }
         }
     }
 }

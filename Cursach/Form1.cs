@@ -24,13 +24,23 @@ namespace Cursach
             string Block = p.Block(container);
             while (p.STOP == false)
             {
-                Block = p.Block1(Block);
+                Block = p.Block1(Block, "bottom", "<a");
                 p.Check1(p.BLOCK_WORK);
                 string URL = "http://www.riviera-sochi.ru/tours/" + p.ID;
                 container = p.getRequest(URL);
                 p.Check(container);
                 textBox1.Text += p.ID + " " + p.DURATION + " " + p.PRICE + " " + p.RESORT + " " + p.DATE + " " + p.HOTEL + " " + p.NAME;
             }
+            p.STOP = false;
+            container = p.getRequest("http://www.riviera-sochi.ru/excursions");
+            Block = p.Block(container);
+            while (p.STOP == false)
+            {
+                Block = p.Block1(Block, "bottom", "excursion_thumb");
+                p.Check2(p.BLOCK_WORK);
+                textBox1.Text += p.RESORT_EX + " " + p.DESCRIPTION + " " + p.DURATION_EX + " " + p.NAME_EX + " " + p.PRICE_EX;
+            }
+
         }
     }
 }
