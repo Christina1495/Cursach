@@ -49,30 +49,42 @@ namespace Cursach
         {
             Parser p = new Parser();
             string container = p.getRequest("http://www.riviera-sochi.ru/tours/");
-            string Block = p.Block(container);
+            string Block = p.Block(container, "//div[@class='entry']");
             int i = 0;
             string s = "";
             while (p.STOP == false)
-            {               
+            {
                 i++;
                 Block = p.Block1(Block, "bottom", "<a");
-                p.Check1(p.BLOCK_WORK);
+                p.Tour(p.BLOCK_WORK);
                 string URL = "http://www.riviera-sochi.ru/tours/" + p.ID;
                 container = p.getRequest(URL);
                 p.Check(container);
                 s = p.ID + " " + p.DURATION + " " + p.PRICE + " " + p.RESORT + " " + p.DATE + " " + p.HOTEL + " " + p.NAME;
                 Thread.Sleep(600);
-                backgroundWorker1.ReportProgress(i,s);               
+                backgroundWorker1.ReportProgress(i, s);
             }
             p.STOP = false;
             container = p.getRequest("http://www.riviera-sochi.ru/excursions");
-            Block = p.Block(container);
+            Block = p.Block(container, "//div[@class='center_block']");
             while (p.STOP == false)
             {
                 i++;
                 Block = p.Block1(Block, "bottom", "excursion_thumb");
-                p.Check2(p.BLOCK_WORK);
+                p.Excursions(p.BLOCK_WORK);
                 s = p.RESORT_EX + " " + p.DESCRIPTION + " " + p.DURATION_EX + " " + p.NAME_EX + " " + p.PRICE_EX;
+                Thread.Sleep(600);
+                backgroundWorker1.ReportProgress(i, s);
+            }
+            p.STOP = false;
+            container = p.getRequest("http://www.riviera-sochi.ru/resorts/");
+            Block = p.Block(container, "//div[@class='center_block']");
+            while (p.STOP == false)
+            {
+                i++;
+                Block = p.Block1(Block, "hotels_selector", "<h4>");
+                p.Resort_(p.BLOCK_WORK);
+                s = p.NAME_RES;
                 Thread.Sleep(600);
                 backgroundWorker1.ReportProgress(i, s);
             }

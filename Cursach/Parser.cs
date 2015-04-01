@@ -19,6 +19,10 @@ namespace Cursach
         public string NAME_EX
         { get { return Name_Ex; } }
 
+        string Name_Res;
+        public string NAME_RES
+        { get { return Name_Res; } }
+
         string Description;
         public string DESCRIPTION
         { get { return Description; } }
@@ -225,23 +229,15 @@ namespace Cursach
             return Variable;
         }
 
-        public string Block(string container)
+        public string Block(string container, string Text)
         {
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(container);
             string BLOCK = "";
-            HtmlNode block = doc.DocumentNode.SelectSingleNode("//div[@class='entry']");
+            HtmlNode block = doc.DocumentNode.SelectSingleNode(Text);
             if (block != null)
             {
                 BLOCK = block.OuterHtml;
-            }
-            else
-            {
-                block = doc.DocumentNode.SelectSingleNode("//div[@class='center_block']");
-                if (block != null)
-                {
-                    BLOCK = block.OuterHtml;
-                }
             }
             return BLOCK;
         }
@@ -271,7 +267,7 @@ namespace Cursach
             return temporary_block;
         }
 
-        public void Check1(string block)
+        public void Tour(string block)
         {
             id = Check1("/tours/", ">", 7, 1, block);
             Price = Check1("Цена:", "</span>", 14, 0, block);
@@ -279,7 +275,7 @@ namespace Cursach
             Resort = Check1("g>Курорт:", "</span>", 18, 0, block);
         }
 
-        public void Check2(string block)
+        public void Excursions(string block)
         {
             Name_Ex = "";
             string temporary = "";
@@ -303,6 +299,16 @@ namespace Cursach
                 Duration_Ex = Check1("Продолжительность:", "</span>", 18, 0, temporary);
                 Price_Ex = Check1("Цена от:", "</span>", 8, 0, temporary);
                 Resort_Ex = Check1("Курорт:", "</span>", 7, 0, temporary);
+            }
+        }
+
+        public void Resort_(string block)
+        {
+            Name_Res = Description = Check1("resorts/", "</a>", 8, 0, block);
+            int index = Name_Res.IndexOf(">");
+            if (index != -1)
+            {
+                Name_Res = Name_Res.Remove(0, index + 1);
             }
         }
     }
