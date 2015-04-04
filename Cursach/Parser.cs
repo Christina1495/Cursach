@@ -31,6 +31,10 @@ namespace Cursach
         public string DATE
         { get { return Date; } }
 
+        string Discount;
+        public string DISCOUNT
+        { get { return Discount; } }
+
         string Hotel;
         public string HOTEL
         { get { return Hotel; } }
@@ -67,10 +71,14 @@ namespace Cursach
         string Resort;
         public string RESORT
         { get { return Resort; } }
-
+        
         string Resort_Ex;
         public string RESORT_EX
         { get { return Resort_Ex; } }
+
+        string Hotels;
+        public string HOTELS
+        { get { return Hotels; } }
 
         public string getRequest(string url)
         {
@@ -275,6 +283,16 @@ namespace Cursach
             Resort = Check1("g>Курорт:", "</span>", 18, 0, block);
         }
 
+        public void Shares(string block)
+        {
+            Name = Check1("<a href", "</a>", 22, 0, block);
+            Name = Name.Replace("&quot;", "'");
+            Description = Check1("<p>","</p>", 3, 0, block);
+            Resort = Check1("Курорт:", "</span>", 17, 0, block);
+            Price = Check1("Цена:", "/сутки", 15, 0, block);
+            Discount = Check1("Скидка:", "</span>", 16, 0, block);
+        }
+
         public void Excursions(string block)
         {
             Name_Ex = "";
@@ -309,6 +327,45 @@ namespace Cursach
             if (index != -1)
             {
                 Name_Res = Name_Res.Remove(0, index + 1);
+            }
+        }
+
+        public void Hotels_(string container)
+        {
+            string block_;
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(container);
+            HtmlNode block = doc.DocumentNode.SelectSingleNode("//*[@id='tab1']");
+            if (block != null)
+            {
+                doc.LoadHtml(block.OuterHtml);
+                HtmlNode block1 = doc.DocumentNode.SelectSingleNode("//div[1]");
+                if (block1 != null)
+                {
+                    string Text = "";
+                    block_ = Block1(block1.OuterHtml, "</li>", "<li>");
+                    Hotels += Check1("<a", "</a", 21, 0, block_work);
+                    int index = Hotels.IndexOf(">");
+                    if (index != -1)
+                    {
+                        Hotels = Hotels.Remove(index, 1);
+                    }
+                    while (Stop != true)
+                    {
+                        block_ = Block1(block_, "</li>", "<li>");
+                        Text = Check1("<a", "</a", 21, 0, block_work);
+                        index = Text.IndexOf(">");
+                        if (index != -1)
+                        {
+                            Hotels += "," + Text.Remove(index, 1);
+                        }
+                        else
+                        {
+                            Hotels += "," + Text;
+                        }
+                    }
+                    Hotels = Hotels.Replace("&#39;", "'");
+                }
             }
         }
     }
