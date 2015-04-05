@@ -364,7 +364,7 @@ namespace Cursach
                             Hotels += "," + Text;
                         }
                     }
-                    Hotels = Hotels.Replace("&#39;", "'");
+                    Hotels = Hotels.Replace("&#39;", "");
                 }
             }
         }
