@@ -31,6 +31,10 @@ namespace Cursach
         public string DATE
         { get { return Date; } }
 
+        string Date_End;
+        public string DATE_END
+        { get { return Date_End; } }
+
         string Discount;
         public string DISCOUNT
         { get { return Discount; } }
@@ -119,7 +123,8 @@ namespace Cursach
                 {
                     Name += name.OuterHtml[i];
                 }
-                Name = Name.Replace("&quot;", "'");
+                Name = Name.Replace("&quot;", "");
+                Name = Name.Replace("'", "");
             }
             else
             {
@@ -147,6 +152,7 @@ namespace Cursach
                         }
                         temporary1 = "";
                     }
+                    Date_(Date);
                 }
 
                 index = temporary.IndexOf("Отели тура");
@@ -275,10 +281,64 @@ namespace Cursach
             return temporary_block;
         }
 
+        public void Date_(string date)
+        {
+            string Text = "Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь";
+            string[] arr_text = Text.Split(',');
+            string [] arr_m = new string [12];
+            arr_m[0] = "Янв,янв,.01";
+            arr_m[1] = "Фев,фев,.02";
+            arr_m[2] = "Мар,мар,.03";
+            arr_m[3] = "Апр,апр,.04";
+            arr_m[4] = "Май,май,Мая,мая,.05";
+            arr_m[5] = "Ию,ию,.06";
+            arr_m[6] = "Ию,ию,.07";
+            arr_m[7] = "Ав,ав,.08";
+            arr_m[8] = "Се,се,.09";
+            arr_m[9] = "Ок,ок,.10";
+            arr_m[10] = "Но,но,.11";
+            arr_m[11] = "Де,де,.12";
+            bool a = false;
+            for (int i = 0; i < arr_m.GetLength(0); i++)
+            {
+                string[] arr = arr_m[i].Split(',');                
+                for (int j = 0; j < arr.GetLength(0); j++)
+                {                    
+                    int index = date.IndexOf(arr[j]);
+                    int index1 = date.IndexOf("Ежедневно");
+                    if (index != -1 && index1 == -1)
+                    {
+                        if (a == false)
+                        {
+                            Date = arr_text[i];
+                            a = true;
+                        }
+                        else
+                        {
+                            Date_End = arr_text[i];
+                            a = false;
+                        }
+                    }
+                    if (a == true)
+                    {
+                        Date_End = Date;
+                    }
+                    if (index1 != -1)
+                    {
+                        Date = "Январь";
+                        Date_End = "Декабрь";
+                    }
+                }
+            }
+        }
+
         public void Tour(string block)
         {
             id = Check1("/tours/", ">", 7, 1, block);
             Price = Check1("Цена:", "</span>", 14, 0, block);
+            Price = Price.Replace("от ", "");
+            Price = Price.Replace(" рублей", "");
+            Price = Price.Trim();
             Duration = Check1("Продолжительность:", "</span>", 27, 0, block);
             Resort = Check1("g>Курорт:", "</span>", 18, 0, block);
         }
@@ -286,11 +346,15 @@ namespace Cursach
         public void Shares(string block)
         {
             Name = Check1("<a href", "</a>", 22, 0, block);
-            Name = Name.Replace("&quot;", "'");
+            Name = Name.Replace("&quot;", "").Replace("'", "").Replace('"', ' ').Replace("«", "").Replace("»", "").Replace("+", "").Trim();
             Description = Check1("<p>","</p>", 3, 0, block);
+            Description = Description.Replace("&quot;", "").Replace("'", "").Replace('"', ' ').Replace("«", "").Replace("»", "").Replace("+", "").Trim();
             Resort = Check1("Курорт:", "</span>", 17, 0, block);
+            Resort = Resort.Trim();
             Price = Check1("Цена:", "/сутки", 15, 0, block);
+            Price = Price.Replace("от", "").Replace("р.", "").Replace('"', ' ').Trim();
             Discount = Check1("Скидка:", "</span>", 16, 0, block);
+            Discount = Discount.Replace("%", "").Trim();
         }
 
         public void Excursions(string block)
@@ -315,8 +379,11 @@ namespace Cursach
                 }
                 Description = Check1("px;", "</p>", 17, 0, temporary);
                 Duration_Ex = Check1("Продолжительность:", "</span>", 18, 0, temporary);
+                Duration_Ex = Duration_Ex.Replace("часа", "").Replace("часов", "").Trim();
                 Price_Ex = Check1("Цена от:", "</span>", 8, 0, temporary);
+                Price_Ex = Price_Ex.Replace("руб.", "").Trim();
                 Resort_Ex = Check1("Курорт:", "</span>", 7, 0, temporary);
+                Resort_Ex = Resort_Ex.Trim();
             }
         }
 
