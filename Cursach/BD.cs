@@ -10,6 +10,18 @@ namespace Cursach
 {
     class BD
     {
+        string userName;
+        public string UserName
+        { get { return userName; } }
+
+        string userID;
+        public string UserID
+        { get { return userID; } }
+
+        string resortCB;
+        public string ResortCB
+        { get { return resortCB; } }
+
         public void Сreate()
         {
             //SQLiteConnection.CreateFile("base.sqlite");//Создание бд
@@ -189,11 +201,49 @@ namespace Cursach
         public void Registration(string FIO, string email, string password)
         {
             //<--FormRegistration +
-            Parser p = new Parser();
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");            
             connection.Open();
             SQLiteCommand command = new SQLiteCommand("INSERT INTO 'Customer' ('FIO', 'email', 'password') VALUES ('" + FIO + @"', '" + email + @"',  '" + password + @"');", connection);
             command.ExecuteNonQuery(); 
+            connection.Close();
+        }
+
+        public string Authorization(string email, string password)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Customer WHERE email = '" + email + "'";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                if (password.Trim() == record["password"].ToString())
+                {
+                    userID = record["id_customer"].ToString();
+                    userName = record["FIO"].ToString();
+                    return "ok";
+                }
+                else
+                {
+                    return "ne ok";
+                }
+            }
+            connection.Close();
+            return null;
+        }
+
+        public void ResortComboBox()
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Resort";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                resortCB += record["Name"].ToString() + ",";
+            }
+            resortCB = resortCB.Remove(resortCB.Length - 1, 1);
             connection.Close();
         }
     }

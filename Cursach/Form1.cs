@@ -13,16 +13,14 @@ namespace Cursach
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        string FIO;
+        string ID;
+        public Form1(string FIO_, string ID_)
         {
-            InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            f2.ShowDialog();
             //backgroundWorker1.RunWorkerAsync();
+            InitializeComponent();
+            FIO = FIO_;
+            ID = ID_;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -42,11 +40,65 @@ namespace Cursach
         {
             MessageBox.Show("OK");
         }
-        
-        private void button3_Click(object sender, EventArgs e)
+
+        private void hgkfjdbksjdbvkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormRegistration fr = new FormRegistration();
-            fr.ShowDialog();
+            Hide();
+            FormAuthorization fa = new FormAuthorization();
+            fa.ShowDialog();
+            this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            BD db = new BD();
+            db.ResortComboBox();
+            string[] RCB = db.ResortCB.Split(',');
+            comboBox1.Items.AddRange(RCB);
+            string[] DCB = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+            comboBox2.Items.AddRange(DCB);
+        }
+
+        private void администрированиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+        }
+
+        private void comboBox3_Click(object sender, EventArgs e)
+        {
+            comboBox3.Items.Clear();
+            string[] DCB = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+            int index = 100;
+            if (comboBox2.Text != "")
+            {               
+                string Text = "";
+                string Text1 = "";
+                for (int i = 0; i < DCB.GetLength(0); i++)
+                {
+                    if (DCB[i] == comboBox2.Text)
+                    {
+                        index = i;
+                    }
+                    if (i > index)
+                    {
+                        Text += DCB[i] + ",";
+                    }
+                    else
+                    {
+                        Text1 += DCB[i] + ",";
+                    }
+                }
+                Text += Text1;
+                Text = Text.Remove(Text.Length - 1, 1);
+                string[] DCB2 = Text.Split(',');
+                comboBox3.Items.AddRange(DCB2);
+                index = 100;
+            }
+            else
+            {
+                comboBox3.Items.AddRange(DCB);
+            }
         }
     }
 }

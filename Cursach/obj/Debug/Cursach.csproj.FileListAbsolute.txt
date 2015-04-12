@@ -14,3 +14,4 @@ C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.pdb
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\System.Data.SQLite.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.Form2.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormRegistration.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormAuthorization.resources
