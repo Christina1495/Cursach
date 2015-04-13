@@ -100,5 +100,11 @@ namespace Cursach
                 comboBox3.Items.AddRange(DCB);
             }
         }
+
+        private void договорНаУслугиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDogovor fd = new FormDogovor();
+            fd.ShowDialog();
+        }
     }
 }
