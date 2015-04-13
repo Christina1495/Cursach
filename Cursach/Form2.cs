@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data.Common;
 
+
 namespace Cursach
 {
     public partial class Form2 : Form
