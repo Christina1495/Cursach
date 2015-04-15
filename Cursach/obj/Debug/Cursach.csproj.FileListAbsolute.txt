@@ -33,3 +33,6 @@ C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDogovor.resou
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormRegistration.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.Properties.Resources.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.csproj.GenerateResource.Cache
+C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\itextsharp.dll
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDogovor.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormHotel.resources

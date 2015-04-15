@@ -27,12 +27,12 @@ namespace Cursach
         public string DESCRIPTION
         { get { return Description; } }
 
-        string Date;
-        public string DATE
+        int Date;
+        public int DATE
         { get { return Date; } }
 
-        string Date_End;
-        public string DATE_END
+        int Date_End;
+        public int DATE_END
         { get { return Date_End; } }
 
         string Discount;
@@ -112,7 +112,7 @@ namespace Cursach
         public void Check(string container)//Метод обработки отдельной страницы тура(Название, Дата, Отели)
         {
             Name = "";
-            Date = "";
+            string Date1 = "";
             Hotel = "";
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(container);
@@ -148,11 +148,11 @@ namespace Cursach
                     {
                         for (int j = 0; j < index; j++)
                         {
-                            Date += temporary1[j];
+                            Date1 += temporary1[j];
                         }
                         temporary1 = "";
                     }
-                    Date_(Date);
+                    Date_(Date1);
                 }
 
                 index = temporary.IndexOf("Отели тура");
@@ -216,7 +216,7 @@ namespace Cursach
             }
             else
             {
-                Date = "ne ok";
+                Date = -1;
             }
         }
 
@@ -283,8 +283,9 @@ namespace Cursach
 
         public void Date_(string date)
         {
-            string Text = "Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь";
-            string[] arr_text = Text.Split(',');
+            //string Text = "Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь";
+            //string[] arr_text = Text.Split(',');
+            int[] arr_text = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
             string [] arr_m = new string [12];
             arr_m[0] = "Янв,янв,.01";
             arr_m[1] = "Фев,фев,.02";
@@ -325,8 +326,8 @@ namespace Cursach
                     }
                     if (index1 != -1)
                     {
-                        Date = "Январь";
-                        Date_End = "Декабрь";
+                        Date = 1;
+                        Date_End = 12;
                     }
                 }
             }

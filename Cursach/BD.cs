@@ -22,6 +22,10 @@ namespace Cursach
         public string ResortCB
         { get { return resortCB; } }
 
+        string condition = "SELECT * FROM Tour";
+        public string Condition
+        { get { return condition; } }
+
         public void Сreate()
         {
             //SQLiteConnection.CreateFile("base.sqlite");//Создание бд
@@ -30,7 +34,7 @@ namespace Cursach
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Resort (id_resort INTEGER PRIMARY KEY, Name TEXT)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Customer (id_customer INTEGER PRIMARY KEY, FIO TEXT, email TEXT, password TEXT)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Hotel (id_hotel INTEGER PRIMARY KEY, hotel_name TEXT)", connection);
-            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour (id_tour INTEGER PRIMARY KEY, tour_name TEXT, price INTEGER, duration INTEGER, dateS TEXT, dataE TEXT, id_resort INTEGER)", connection);
+            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour (id_tour INTEGER PRIMARY KEY, tour_name TEXT, price INTEGER, duration INTEGER, dateS INTEGER, dataE INTEGER, id_resort INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour_Hotel (id_tour_hotel INTEGER PRIMARY KEY, id_tour INTEGER, id_hotel INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Excursion (id_excursion INTEGER PRIMARY KEY, exc_name TEXT, description_exc TEXT, duration_exc INTEGER, price_exc INTEGER, marks INTEGER, id_resort INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Discount (id_discount INTEGER PRIMARY KEY, id_resort INTEGER, name_tour TEXT, description TEXT, prices INTEGER, discount INTEGER)", connection);
@@ -246,5 +250,126 @@ namespace Cursach
             resortCB = resortCB.Remove(resortCB.Length - 1, 1);
             connection.Close();
         }
+
+        bool whereB = false;
+        public void Con(string Text)
+        {
+            string where = " WHERE ";
+            string and = " AND ";
+            if (Text != "")
+            {
+                if (whereB != true)
+                {
+                    condition += where + Text;
+                    whereB = true;
+                }
+                else
+                {
+                    condition += and + Text;
+                }
+            }
+        }
+
+        string conditionResort;
+        string conditionDateS;
+        string conditionDateE;
+        string conditionPriceMin;
+        string conditionPriceMax;
+        string conditionDurationMin;
+        string conditionDurationMax;
+
+        public void UserRequestsTour(string Resort, string dateS, string dateE, string priceMin, string priceMax, string DurationMin, string DurationMax)
+        {
+            condition = "SELECT * FROM Tour";
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            if(Resort != "")
+            {
+                SQLiteCommand sql = new SQLiteCommand(connection);
+                sql.CommandText = @"SELECT * FROM Resort WHERE Name = '" + Resort + @"'";
+                SQLiteDataReader reader = sql.ExecuteReader();
+                foreach (DbDataRecord record in reader)
+                {
+                    conditionResort = "id_resort = " + record["id_resort"].ToString();
+                }
+            }
+            else
+            {
+                conditionResort = "";
+            }
+            Con(conditionResort);
+            connection.Close();
+            int index = 0;
+            string[] dm = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+            if (dateS != "")
+            {                
+                for(int i = 0; i < 12; i++)
+                {
+                    if (dm[i] == dateS)
+                    {
+                        index = i;
+                    }
+                }
+                conditionDateS = "dateS > " + index.ToString();
+            }
+            else
+            {
+                conditionDateS = "";
+            }
+            Con(conditionDateS);
+            if (dateE != "")
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    if (dm[i] == dateE)
+                    {
+                        index = i + 2;
+                    }
+                }
+                conditionDateE = "dateS < " + index.ToString();
+            }
+            else
+            {
+                conditionDateE = "";
+            }
+            Con(conditionDateE);
+            if (priceMin != "")
+            {
+                conditionPriceMin = "price > " + priceMin;
+            }
+            else
+            {
+                conditionPriceMin = "";
+            }
+            Con(conditionPriceMin);
+            if (priceMax != "")
+            {
+                conditionPriceMax = "price < " + priceMax;
+            }
+            else
+            {
+                conditionPriceMax = "";
+            }
+            Con(conditionPriceMax);
+            if (DurationMin != "")
+            {
+                conditionDurationMin = "duration > " + DurationMin;
+            }
+            else
+            {
+                conditionDurationMin = "";
+            }
+            Con(conditionDurationMin);
+            if (DurationMax != "")
+            {
+                conditionDurationMax = "duration < " + DurationMax;
+            }
+            else
+            {
+                conditionDurationMax = "";
+            }
+            Con(conditionDurationMax);
+        }
+
     }
 }
