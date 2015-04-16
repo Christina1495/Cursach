@@ -36,3 +36,5 @@ C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.csproj.GenerateRe
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\itextsharp.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDogovor.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormHotel.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormChoiceTour.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDescription.resources

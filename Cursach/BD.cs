@@ -104,7 +104,7 @@ namespace Cursach
                 {
                     Text = record["id_resort"].ToString();
                 }
-                command = new SQLiteCommand("INSERT INTO 'Excursion' ('exc_name', 'description_exc', 'duration_exc', 'price_exc', 'id_resort') VALUES ('" + p.NAME_EX + @"', '" + p.DESCRIPTION + @"', '" + p.DURATION_EX + "', '" + p.PRICE_EX + "', '" + Text + "');", connection);
+                command = new SQLiteCommand("INSERT INTO 'Excursion' ('exc_name', 'description_exc', 'duration_exc', 'price_exc', 'marks', 'id_resort') VALUES ('" + p.NAME_EX + @"', '" + p.DESCRIPTION + @"', '" + p.DURATION_EX + "', '" + p.PRICE_EX + "', 5, '" + Text + "');", connection);
                 command.ExecuteNonQuery();
             }
             ///
@@ -371,5 +371,13 @@ namespace Cursach
             Con(conditionDurationMax);
         }
 
+        public void marks(int mNew, string mOld, string id)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("UPDATE Excursion SET marks = '" + Convert.ToString((mNew + Convert.ToInt32(mOld)) / 2) + "'WHERE id_excursion = '" + id + "'", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

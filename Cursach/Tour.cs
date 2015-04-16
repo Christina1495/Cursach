@@ -32,4 +32,19 @@ namespace Cursach
         public HotelList() { }
         public List<Hotel> list;
     }
+
+    public class Excursion
+    {
+        public string id;
+        public string name;
+        public string price;
+        public string duration;
+        public string description;
+        public string marks;
+    }
+    public class ExcursionList
+    {
+        public ExcursionList() { }
+        public List<Excursion> list;
+    }
 }

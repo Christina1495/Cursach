@@ -14,12 +14,19 @@ namespace Cursach
 {
     public partial class FormHotel : Form
     {
-        string IdTour;
-        string FIO; 
-        string ID;
-        string NameTour;
+        string IdTour = "";
+        string FIO = ""; 
+        string ID = "";
+        string NameTour = "";
+        string PriseTour = "";
+        string DurationTour = "";
+        string ResortTour = "";
+        string DateSTour = "";
+        string DateETour = "";
+        int Quantity;
+
         HotelList HL = new HotelList();
-        public FormHotel(string idTour, string FIO_, string ID_, string nameTour)
+        public FormHotel(string idTour, string FIO_, string ID_, string nameTour, string priseTour, string durationTour, string resortTour, string dateSTour, string dateETour, int quantity)
         {
             HL.list = new List<Hotel>();
             string idHotels = "";
@@ -28,7 +35,13 @@ namespace Cursach
             FIO = FIO_;
             ID = ID_;
             NameTour = nameTour;
+            PriseTour = priseTour;
+            DurationTour = durationTour;
+            ResortTour = resortTour;
+            DateSTour = dateSTour;
+            DateETour = dateETour;
             label1.Text = NameTour;
+            Quantity = quantity;
             BD db = new BD();
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
             connection.Open();
@@ -39,7 +52,6 @@ namespace Cursach
             {
                 idHotels += record["id_hotel"].ToString() + ",";
             }
-            //listBox1.Items.Add(idHotels);
             string[] arrHotels = idHotels.Split(',');
             for (int i = 0; i < arrHotels.GetLength(0); i++)
             {
@@ -57,10 +69,32 @@ namespace Cursach
             listBox1.Items.Clear();
             for (int i = 0; i < HL.list.Count; i++)
             {
-                listBox1.Items.Add(HL.list[i].name);
                 listBox1.Items.Add("----------------------------------------------------------------------------");
+                listBox1.Items.Add(HL.list[i].name);
             }
             connection.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                if (FIO != "")
+                {
+                    Hide();
+                    FormChoiceTour fct = new FormChoiceTour(IdTour, FIO, ID, NameTour, PriseTour, DurationTour, ResortTour, DateSTour, DateETour, HL.list[listBox1.SelectedIndex / 2].name, Quantity);
+                    fct.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Войдите в систему");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите отель");
+            }
         }
     }
 }

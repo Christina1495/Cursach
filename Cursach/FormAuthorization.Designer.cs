@@ -76,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(126, 191);
+            this.label3.Location = new System.Drawing.Point(104, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 13);
             this.label3.TabIndex = 5;
@@ -84,20 +84,26 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Location = new System.Drawing.Point(27, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(367, 159);
+            this.panel1.Size = new System.Drawing.Size(367, 165);
             this.panel1.TabIndex = 6;
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(24, 191);
+            this.linkLabel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.No;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(3, 144);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(109, 13);
             this.linkLabel1.TabIndex = 5;
@@ -120,17 +126,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackgroundImage = global::Cursach.Properties.Resources.Backgrounds_Blue_background_with_circles_035663_;
             this.ClientSize = new System.Drawing.Size(421, 226);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label3);
             this.Name = "FormAuthorization";
             this.Text = "Авторизация";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
