@@ -24,9 +24,9 @@ namespace Cursach
         string DateSTour = "";
         string DateETour = "";
         int Quantity;
-
+        int kol_tur;
         HotelList HL = new HotelList();
-        public FormHotel(string idTour, string FIO_, string ID_, string nameTour, string priseTour, string durationTour, string resortTour, string dateSTour, string dateETour, int quantity)
+        public FormHotel(string idTour, string FIO_, string ID_, string nameTour, string priseTour, string durationTour, string resortTour, string dateSTour, string dateETour, int quantity, int kol_tourists)
         {
             HL.list = new List<Hotel>();
             string idHotels = "";
@@ -42,6 +42,7 @@ namespace Cursach
             DateETour = dateETour;
             label1.Text = NameTour;
             Quantity = quantity;
+            kol_tur = kol_tourists;
             BD db = new BD();
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
             connection.Open();
@@ -82,7 +83,7 @@ namespace Cursach
                 if (FIO != "")
                 {
                     Hide();
-                    FormChoiceTour fct = new FormChoiceTour(IdTour, FIO, ID, NameTour, PriseTour, DurationTour, ResortTour, DateSTour, DateETour, HL.list[listBox1.SelectedIndex / 2].name, Quantity);
+                    FormChoiceTour fct = new FormChoiceTour(IdTour, FIO, ID, NameTour, PriseTour, DurationTour, ResortTour, DateSTour, DateETour, HL.list[listBox1.SelectedIndex / 2].name, Quantity,kol_tur);
                     fct.ShowDialog();
                     this.Close();
                 }

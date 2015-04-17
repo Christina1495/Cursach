@@ -41,6 +41,8 @@ namespace Cursach
                     textBox4.Text = "";
                     MessageBox.Show("Неверный пароль");
                 }
+                MessageBox.Show("Спасибо за регистрацию, теперь вы можите авторизироваться!");
+                this.Close();
             }
             else
             {
