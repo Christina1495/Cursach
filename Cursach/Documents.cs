@@ -16,9 +16,14 @@ namespace Cursach
 {
     class Documents
     {
+
+        public Documents()
+        {
+
+        }
         Random r = new Random();
         ReadFile rf = new ReadFile();
-        public void Dogovor(string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa)
+        public void Dogovor(string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank)
         {
             var doc = new Document();
             PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + @"\doc\Document.pdf", FileMode.Create));
@@ -158,7 +163,7 @@ namespace Cursach
             cell1.Rowspan = 2;
             cell1.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cell1);
-            cell1 = new PdfPCell(new Phrase("Турист" + Fio, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+            cell1 = new PdfPCell(new Phrase("Турист " + Fio, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black))));
             cell1.BorderColor = new BaseColor(Color.White);
             cell1.Rowspan = 2;
@@ -170,7 +175,7 @@ namespace Cursach
             cell2.Rowspan = 2;
             cell2.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cell2);
-            cell2 = new PdfPCell(new Phrase("Адрес: ", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+            cell2 = new PdfPCell(new Phrase("Адрес: " + address, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black))));
             cell2.BorderColor = new BaseColor(Color.White);
             cell2.Rowspan = 2;
@@ -182,7 +187,7 @@ namespace Cursach
             cell3.Rowspan = 2;
             cell3.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cell3);
-            cell3 = new PdfPCell(new Phrase("0000", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+            cell3 = new PdfPCell(new Phrase("Расчетный счет: " + paylist + " Банк: " + Bank, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black))));
             cell3.BorderColor = new BaseColor(Color.White);
             cell3.Rowspan = 3;
@@ -204,9 +209,38 @@ namespace Cursach
             doc.Close();
         }
 
-        public void PaymentAccount()
+        public void PaymentAccount(string Fio, string usluga,  string ex, int summa, int col, string address, string paylist, string bank)
         {
+            var doc = new Document();
+            PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + @"\doc\PayList.pdf", FileMode.Create));
+            doc.Open();
+            BaseFont baseFont = BaseFont.CreateFont(@"times.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            iTextSharp.text.Phrase j = new Phrase("Продавец: ООО \"Ривьера-Сочи\", ООО \"Компания \"Ривьера-Сочи\"" + r.Next(1, 30),
+                new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)));
+            Paragraph a1 = new Paragraph(j);
+            a1.Add(Environment.NewLine);
+            //a1.Alignment = Element.ALIGN_CENTER;
+            a1.Add("Адрес: 354000, г.Сочи, ул. Конституции СССР, 18/В"); a1.Add(Environment.NewLine);
+            a1.Add("ИНН: 123467890"); a1.Add(Environment.NewLine);
+            a1.Add("Расчетный счет: 12345678901234567890"); a1.Add(Environment.NewLine);
+            a1.Add("БИК:123456789"); a1.Add(Environment.NewLine);
+            a1.Add("Банк: ОАО «Бин-Банк» г. Сочи"); a1.Add(Environment.NewLine);
+            a1.SpacingAfter = 5;
+            doc.Add(a1);
 
+            iTextSharp.text.Phrase j2 = new Phrase("Покупатель: " + Fio,
+                new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)));
+            Paragraph a2 = new Paragraph(j2);
+            a2.Add(Environment.NewLine);
+            //a1.Alignment = Element.ALIGN_CENTER;
+            a2.Add("Адрес: " + address); a2.Add(Environment.NewLine);
+            a2.Add("Расчетный счет:" + paylist ); a2.Add(Environment.NewLine);
+            a2.Add("Банк: " + bank); a2.Add(Environment.NewLine);
+            a2.SpacingAfter = 5;
+            doc.Add(a2);
+            doc.Close();
         }
     }
 }

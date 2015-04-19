@@ -21,10 +21,13 @@ namespace Cursach
         public Form1(string FIO_, string ID_)
         {
             //backgroundWorker1.RunWorkerAsync();
+            DateTime CurrentTime = DateTime.Now;
             InitializeComponent();
             FIO = FIO_;
             ID = ID_;
             label8.Text = "" + FIO + "";
+            string d = CurrentTime.ToString("dd.MM.yyyy");
+            label6.Text = "Сегодня: " + d ;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -154,16 +157,11 @@ namespace Cursach
             f2.ShowDialog();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-            FormDogovor fd = new FormDogovor();
-            fd.ShowDialog();
-        }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
-            FormDogovor fd = new FormDogovor();
-            fd.ShowDialog();
+            //FormDogovor fd = new FormDogovor();
+            //fd.ShowDialog();
             // отчет
         }
 

@@ -143,12 +143,14 @@ namespace Cursach
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Documents d = new Documents();
+            //Documents d = new Documents();
             string dop = "";
             if (flag) dop = "экскурсии";
             else dop = "нет";
             int dates = Convert.ToInt32(comboBox2.Text);
-            d.Dogovor(FIO,NameTour,HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, kol_tourist, allCost);
+            FormDogovor FD = new FormDogovor(FIO, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, kol_tourist, allCost);
+            FD.Show();
+            //d.Dogovor(FIO,NameTour,HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, kol_tourist, allCost);
         }
 
         private void FormChoiceTour_Load(object sender, EventArgs e)
