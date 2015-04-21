@@ -16,20 +16,20 @@ namespace Cursach
 {
     class Documents
     {
-
-        public Documents()
-        {
-
-        }
         Random r = new Random();
         ReadFile rf = new ReadFile();
+        DateTime now = DateTime.Now;
+        string path;
+        string Number;
         public void Dogovor(string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank)
         {
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + @"\doc\Document.pdf", FileMode.Create));
+            Number = now.ToString("ddMMyyyy") +""+ now.ToString("Hmss");
+            path = "\\" + "dogovor" + "\\" + Number + ".pdf";
+            PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + path, FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"times.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-            iTextSharp.text.Phrase j = new Phrase("Договор №" + r.Next(1, 30),
+            iTextSharp.text.Phrase j = new Phrase("Договор №" + Number,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
             Paragraph a1 = new Paragraph(j);
@@ -211,8 +211,13 @@ namespace Cursach
 
         public void PaymentAccount(string Fio, string usluga,  string ex, int summa, int col, string address, string paylist, string bank)
         {
+            string dop;
+            if (ex == "нет") 
+                dop = " ";
+            else dop = "экскурсии";
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + @"\doc\PayList.pdf", FileMode.Create));
+            path = "\\paylist\\" + Number + ".pdf";
+            PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + path, FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"times.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             iTextSharp.text.Phrase j = new Phrase("Продавец: ООО \"Ривьера-Сочи\", ООО \"Компания \"Ривьера-Сочи\"" + r.Next(1, 30),
@@ -240,6 +245,63 @@ namespace Cursach
             a2.Add("Банк: " + bank); a2.Add(Environment.NewLine);
             a2.SpacingAfter = 5;
             doc.Add(a2);
+
+            iTextSharp.text.Phrase j3 = new Phrase("Счет № " + Number + " от " + now.ToString("dd.MM.yyyy"),
+                new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)));
+            Paragraph a3 = new Paragraph(j3);
+            a3.Add(Environment.NewLine);
+            a3.Alignment = Element.ALIGN_CENTER;
+            a3.SpacingAfter = 5;
+            doc.Add(a3);
+
+            PdfPTable table = new PdfPTable(7);
+            PdfPCell cell = new PdfPCell(new Phrase(" № ", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black))));
+            cell.BorderColor = new BaseColor(Color.Black);
+            table.AddCell(cell);
+            PdfPCell cell1 = new PdfPCell(new Phrase("Наименование", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black))));
+            cell1.Colspan = 2;
+            cell1.BorderColor = new BaseColor(Color.Black);
+            cell1.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(cell1);
+            table.AddCell(new PdfPCell(new Phrase("Ед. из.", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)))));
+            table.AddCell(new PdfPCell(new Phrase("Кол-во", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)))));
+            table.AddCell(new PdfPCell(new Phrase("Цена", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)))));
+            table.AddCell(new PdfPCell(new Phrase("Сумма", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)))));
+            table.AddCell("1");
+            PdfPCell cell3 = new PdfPCell(new Phrase(usluga +" и "+ dop, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black))));
+            cell3.Colspan = 2;
+            table.AddCell(cell3);
+            table.AddCell(new PdfPCell(new Phrase("чел", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)))));
+            table.AddCell(col.ToString());
+            
+            table.AddCell((summa/col).ToString());
+            table.AddCell(summa.ToString());
+            PdfPCell cell2 = new PdfPCell(new Phrase(" Итого ", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black))));
+            cell2.Colspan = 4;
+            table.AddCell(cell2);
+            table.AddCell("");
+            table.AddCell("");
+            table.AddCell(summa.ToString());
+
+            doc.Add(table);
+            Paragraph a5 = new Paragraph();
+            a5.Add(Environment.NewLine);
+            a3.Alignment = Element.ALIGN_CENTER;
+            a5.Add(new Phrase("Подпись турагента: _____________________/____________            М.П.", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black))));
+            doc.Add(a5);
+
+
             doc.Close();
         }
     }

@@ -307,7 +307,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(907, 23);
             this.panel2.TabIndex = 17;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label8
             // 
@@ -329,7 +328,6 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Отчет";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel3
             // 

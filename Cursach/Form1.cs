@@ -133,8 +133,7 @@ namespace Cursach
         {
             if (listBox1.SelectedIndex != -1)
             {
-                int kol_tourists = Convert.ToInt32(numericUpDown1.Value);
-                FormHotel fh = new FormHotel(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, Convert.ToInt32(numericUpDown1.Value), kol_tourists);
+                FormHotel fh = new FormHotel(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, Convert.ToInt32(numericUpDown1.Value));
                 fh.ShowDialog();
             }
             else
@@ -157,17 +156,5 @@ namespace Cursach
             f2.ShowDialog();
         }
 
-        
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //FormDogovor fd = new FormDogovor();
-            //fd.ShowDialog();
-            // отчет
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

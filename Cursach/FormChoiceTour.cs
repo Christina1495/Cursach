@@ -25,10 +25,10 @@ namespace Cursach
         string HotelTour = "";
         int Quantity;
         int allCost;
-        int kol_tourist;
+        
         ExcursionList EL = new ExcursionList();
 
-        public FormChoiceTour(string idTour, string FIO_, string ID_, string nameTour, string priseTour, string durationTour, string resortTour, string dateSTour, string dateETour, string hotelTour, int quantity, int kol_tourists)
+        public FormChoiceTour(string idTour, string FIO_, string ID_, string nameTour, string priseTour, string durationTour, string resortTour, string dateSTour, string dateETour, string hotelTour, int quantity)
         {
             EL.list = new List<Excursion>();
             InitializeComponent();
@@ -42,7 +42,6 @@ namespace Cursach
             DateETour = dateETour;
             HotelTour = hotelTour;
             Quantity = quantity;
-            kol_tourist = kol_tourists;
             label1.Text = FIO;
             //label2.Text = "Тур: " + NameTour + Environment.NewLine + "Отель: " + HotelTour;
             textBox1.Text = "Тур: " + NameTour + Environment.NewLine + "Отель: " + HotelTour;
@@ -110,47 +109,16 @@ namespace Cursach
             connection.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex != -1)
-            {
-                FormDescription fd = new FormDescription(EL.list[listBox1.SelectedIndex / 2].name, EL.list[listBox1.SelectedIndex / 2].description);
-                fd.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Выберите экскурсию");
-            }
-        }
-
-        bool flag = false;
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex != -1)
-            {
-                textBox1.Text += Environment.NewLine + "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name;
-               // label2.Text += Environment.NewLine + "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name;
-                allCost += Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price);
-                label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
-                flag = true;
-            }
-            else
-            {
-                MessageBox.Show("Выберите экскурсию");
-            }
-        }
+        bool flag = false;  
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Documents d = new Documents();
             string dop = "";
             if (flag) dop = "экскурсии";
             else dop = "нет";
             int dates = Convert.ToInt32(comboBox2.Text);
-            FormDogovor FD = new FormDogovor(FIO, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, kol_tourist, allCost);
+            FormDogovor FD = new FormDogovor(FIO, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, Quantity, allCost);
             FD.Show();
-            //d.Dogovor(FIO,NameTour,HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, kol_tourist, allCost);
         }
 
         private void FormChoiceTour_Load(object sender, EventArgs e)
@@ -171,6 +139,34 @@ namespace Cursach
                     listBox1.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     listBox1.Items.Add(EL.list[i].name + "   Цена: " + EL.list[i].price + "руб.   Продолжительность: " + EL.list[i].duration + "   Оценка: " + EL.list[i].marks);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Выберите экскурсию");
+            }
+        }
+
+        private void информацияОбЭкскурсииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                FormDescription fd = new FormDescription(EL.list[listBox1.SelectedIndex / 2].name, EL.list[listBox1.SelectedIndex / 2].description);
+                fd.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Выберите экскурсию");
+            }
+        }
+
+        private void добавитьЭкскурсиюВТурToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                textBox1.Text += Environment.NewLine + "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name;
+                allCost += Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price);
+                label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
+                flag = true;
             }
             else
             {

@@ -49,7 +49,7 @@ namespace Cursach
                 paylist = textBox6.Text;
                 bank = textBox7.Text;
                 d.Dogovor(Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank);
-                d.PaymentAccount(Fio, usluga, ex, summa, col, address, paylist, bank);
+                d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
                 MessageBox.Show("Done");
             }
             else
