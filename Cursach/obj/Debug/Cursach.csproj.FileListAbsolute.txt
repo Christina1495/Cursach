@@ -41,3 +41,5 @@ C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDescription.reso
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormChoiceTour.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDescription.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormHotel.resources
+C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPersonal.resources
+C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPayment.resources

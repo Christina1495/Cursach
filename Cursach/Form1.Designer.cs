@@ -57,6 +57,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -300,6 +301,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label7);
@@ -356,6 +358,16 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 18;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(536, 1);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(136, 23);
+            this.button4.TabIndex = 18;
+            this.button4.Text = "Личный Кабинет";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -415,6 +427,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -26,6 +26,9 @@ namespace Cursach
             FIO = FIO_;
             ID = ID_;
             label8.Text = "" + FIO + "";
+            if (label8.Text == "")
+                button4.Visible = false;
+            else button4.Visible = true;
             string d = CurrentTime.ToString("dd.MM.yyyy");
             label6.Text = "Сегодня: " + d ;
         }
@@ -154,6 +157,12 @@ namespace Cursach
         {
             Form2 f2 = new Form2();
             f2.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormPersonal FP = new FormPersonal(FIO, ID);
+            FP.Show();
         }
 
     }

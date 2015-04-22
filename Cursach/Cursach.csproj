@@ -99,6 +99,18 @@
     <Compile Include="FormHotel.Designer.cs">
       <DependentUpon>FormHotel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPayment.Designer.cs">
+      <DependentUpon>FormPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonal.Designer.cs">
+      <DependentUpon>FormPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadFile.cs" />
+    <Compile Include="SaveFile.cs" />
     <Compile Include="Tour.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -130,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHotel.resx">
       <DependentUpon>FormHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPayment.resx">
+      <DependentUpon>FormPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonal.resx">
+      <DependentUpon>FormPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistration.resx">
       <DependentUpon>FormRegistration.cs</DependentUpon>

@@ -304,5 +304,10 @@ namespace Cursach
 
             doc.Close();
         }
+
+        public void ClientBank()
+        {
+            
+        }
     }
 }
