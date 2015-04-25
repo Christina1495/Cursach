@@ -136,8 +136,12 @@ namespace Cursach
         {
             if (listBox1.SelectedIndex != -1)
             {
-                FormHotel fh = new FormHotel(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, Convert.ToInt32(numericUpDown1.Value));
-                fh.ShowDialog();
+                Hide();
+                FormChoiceTour fct = new FormChoiceTour(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, "", Convert.ToInt32(numericUpDown1.Value));
+                fct.ShowDialog();
+                this.Close();
+                //FormHotel fh = new FormHotel(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, Convert.ToInt32(numericUpDown1.Value));
+                //fh.ShowDialog();
             }
             else
             {
@@ -163,6 +167,12 @@ namespace Cursach
         {
             FormPersonal FP = new FormPersonal(FIO, ID);
             FP.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BD db = new BD();
+            db.Сreate();
         }
 
     }

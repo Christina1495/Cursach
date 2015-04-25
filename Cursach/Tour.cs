@@ -47,4 +47,21 @@ namespace Cursach
         public ExcursionList() { }
         public List<Excursion> list;
     }
+
+    public class CustomerTour
+    {
+        public string id;
+        public string nameTour;
+        public string price;
+        public string date;
+        public string contract;
+        public string status;
+        public string paid;
+        public string idTour;
+    }
+    public class CustomerTourList
+    {
+        public CustomerTourList() { }
+        public List<CustomerTour> list;
+    }
 }

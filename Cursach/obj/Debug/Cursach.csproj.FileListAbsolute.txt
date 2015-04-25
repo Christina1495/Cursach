@@ -5,7 +5,6 @@ C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\Cursach.pdb
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\HtmlAgilityPack.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\HtmlAgilityPack.xml
-C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.csprojResolveAssemblyReference.cache
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.Form1.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.Properties.Resources.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.csproj.GenerateResource.Cache
@@ -43,3 +42,6 @@ C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDescription.r
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormHotel.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPersonal.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPayment.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPayment.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPersonal.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.csprojResolveAssemblyReference.cache

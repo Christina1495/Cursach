@@ -19,9 +19,10 @@ namespace Cursach
         Random r = new Random();
         ReadFile rf = new ReadFile();
         DateTime now = DateTime.Now;
+        BD db = new BD();
         string path;
         string Number;
-        public void Dogovor(string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank)
+        public void Dogovor(string ID, string IDTour, string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank, int TourPr, string ExPr, string ExId)
         {
             var doc = new Document();
             Number = now.ToString("ddMMyyyy") +""+ now.ToString("Hmss");
@@ -207,6 +208,8 @@ namespace Cursach
             table.AddCell(cell4);
             doc.Add(table);
             doc.Close();
+            string dateDOG = now.ToString("dd.MM.yyyy");
+            db.CustomerTour(ID, IDTour, Convert.ToString(Number), Convert.ToString(TourPr), dateDOG, ExId, ExPr, Convert.ToString(summa));
         }
 
         public void PaymentAccount(string Fio, string usluga,  string ex, int summa, int col, string address, string paylist, string bank)

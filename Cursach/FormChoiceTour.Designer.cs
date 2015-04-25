@@ -34,54 +34,60 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button5 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.информацияОбЭкскурсииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьЭкскурсиюВТурToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button5 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.выбратьОтельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.listBox2);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(715, 187);
+            this.panel1.Size = new System.Drawing.Size(715, 226);
             this.panel1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(19, 81);
+            this.textBox1.Location = new System.Drawing.Point(9, 81);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(511, 103);
+            this.textBox1.Size = new System.Drawing.Size(422, 103);
             this.textBox1.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(626, 152);
+            this.button1.Location = new System.Drawing.Point(295, 190);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -105,11 +111,21 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(271, 48);
+            this.label4.Location = new System.Drawing.Point(261, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(170, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Продолжительность";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(9, 190);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Экскурсии";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -152,20 +168,32 @@
             // 
             this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 205);
+            this.listBox1.Location = new System.Drawing.Point(12, 244);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(715, 173);
+            this.listBox1.Size = new System.Drawing.Size(715, 134);
             this.listBox1.TabIndex = 9;
             // 
-            // button2
+            // contextMenuStrip1
             // 
-            this.button2.Location = new System.Drawing.Point(545, 152);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Экскурсии";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.информацияОбЭкскурсииToolStripMenuItem,
+            this.добавитьЭкскурсиюВТурToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 48);
+            // 
+            // информацияОбЭкскурсииToolStripMenuItem
+            // 
+            this.информацияОбЭкскурсииToolStripMenuItem.Name = "информацияОбЭкскурсииToolStripMenuItem";
+            this.информацияОбЭкскурсииToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.информацияОбЭкскурсииToolStripMenuItem.Text = "Информация об экскурсии";
+            this.информацияОбЭкскурсииToolStripMenuItem.Click += new System.EventHandler(this.информацияОбЭкскурсииToolStripMenuItem_Click);
+            // 
+            // добавитьЭкскурсиюВТурToolStripMenuItem
+            // 
+            this.добавитьЭкскурсиюВТурToolStripMenuItem.Name = "добавитьЭкскурсиюВТурToolStripMenuItem";
+            this.добавитьЭкскурсиюВТурToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.добавитьЭкскурсиюВТурToolStripMenuItem.Text = "Добавить экскурсию в тур";
+            this.добавитьЭкскурсиюВТурToolStripMenuItem.Click += new System.EventHandler(this.добавитьЭкскурсиюВТурToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -203,32 +231,44 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // contextMenuStrip1
+            // listBox2
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.информацияОбЭкскурсииToolStripMenuItem,
-            this.добавитьЭкскурсиюВТурToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 48);
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(456, 81);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(221, 134);
+            this.listBox2.TabIndex = 9;
             // 
-            // информацияОбЭкскурсииToolStripMenuItem
+            // contextMenuStrip2
             // 
-            this.информацияОбЭкскурсииToolStripMenuItem.Name = "информацияОбЭкскурсииToolStripMenuItem";
-            this.информацияОбЭкскурсииToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.информацияОбЭкскурсииToolStripMenuItem.Text = "Информация об экскурсии";
-            this.информацияОбЭкскурсииToolStripMenuItem.Click += new System.EventHandler(this.информацияОбЭкскурсииToolStripMenuItem_Click);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выбратьОтельToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(156, 26);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
-            // добавитьЭкскурсиюВТурToolStripMenuItem
+            // выбратьОтельToolStripMenuItem
             // 
-            this.добавитьЭкскурсиюВТурToolStripMenuItem.Name = "добавитьЭкскурсиюВТурToolStripMenuItem";
-            this.добавитьЭкскурсиюВТурToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.добавитьЭкскурсиюВТурToolStripMenuItem.Text = "Добавить экскурсию в тур";
-            this.добавитьЭкскурсиюВТурToolStripMenuItem.Click += new System.EventHandler(this.добавитьЭкскурсиюВТурToolStripMenuItem_Click);
+            this.выбратьОтельToolStripMenuItem.Name = "выбратьОтельToolStripMenuItem";
+            this.выбратьОтельToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.выбратьОтельToolStripMenuItem.Text = "Выбрать отель";
+            this.выбратьОтельToolStripMenuItem.Click += new System.EventHandler(this.выбратьОтельToolStripMenuItem_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(376, 192);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormChoiceTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(739, 413);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.listBox1);
@@ -238,9 +278,10 @@
             this.Load += new System.EventHandler(this.FormChoiceTour_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -264,5 +305,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem информацияОбЭкскурсииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьЭкскурсиюВТурToolStripMenuItem;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem выбратьОтельToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
     }
 }

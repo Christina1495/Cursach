@@ -14,6 +14,7 @@ namespace Cursach
 {
     public partial class FormChoiceTour : Form
     {
+        string IDTour = "";
         string FIO = "";
         string ID = "";
         string NameTour = "";
@@ -25,14 +26,21 @@ namespace Cursach
         string HotelTour = "";
         int Quantity;
         int allCost;
-        
+        string ExCost = "";
+        string ExId = "";
+        int TourCost;
+        bool H = false;
+        HotelList HL = new HotelList();
         ExcursionList EL = new ExcursionList();
 
         public FormChoiceTour(string idTour, string FIO_, string ID_, string nameTour, string priseTour, string durationTour, string resortTour, string dateSTour, string dateETour, string hotelTour, int quantity)
         {
+            HL.list = new List<Hotel>();
+            string idHotels = "";
             EL.list = new List<Excursion>();
             InitializeComponent();
             FIO = FIO_;
+            IDTour = idTour;
             ID = ID_;
             NameTour = nameTour;
             PriseTour = Convert.ToInt32(priseTour);
@@ -43,8 +51,7 @@ namespace Cursach
             HotelTour = hotelTour;
             Quantity = quantity;
             label1.Text = FIO;
-            //label2.Text = "Тур: " + NameTour + Environment.NewLine + "Отель: " + HotelTour;
-            textBox1.Text = "Тур: " + NameTour + Environment.NewLine + "Отель: " + HotelTour;
+            textBox1.Text = "Тур: " + NameTour + Environment.NewLine;
             label3.Text = "Курорт: " + ResortTour;
             label4.Text = "Продолжительность: " + DurationTour;
             for (int i = 0; i < 31; i++)
@@ -70,7 +77,39 @@ namespace Cursach
                 }
             }
             allCost = PriseTour * Quantity;
+            TourCost = allCost;
             label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
+            BD db = new BD();
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Tour_Hotel WHERE id_tour = '" + IDTour + "'";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                idHotels += record["id_hotel"].ToString() + ",";
+            }
+            string[] arrHotels = idHotels.Split(',');
+            for (int i = 0; i < arrHotels.GetLength(0); i++)
+            {
+                Hotel H = new Hotel();
+                SQLiteCommand sql1 = new SQLiteCommand(connection);
+                sql1.CommandText = @"SELECT * FROM Hotel WHERE id_hotel = '" + arrHotels[i] + "'";
+                SQLiteDataReader reader1 = sql1.ExecuteReader();
+                foreach (DbDataRecord record in reader1)
+                {
+                    H.id = record["id_hotel"].ToString();
+                    H.name = record["hotel_name"].ToString();
+                    HL.list.Add(H);
+                }
+            }
+            listBox1.Items.Clear();
+            for (int i = 0; i < HL.list.Count; i++)
+            {
+                listBox2.Items.Add("--------------------------------------------------------");
+                listBox2.Items.Add(HL.list[i].name);
+            }
+            connection.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -116,9 +155,16 @@ namespace Cursach
             string dop = "";
             if (flag) dop = "экскурсии";
             else dop = "нет";
-            int dates = Convert.ToInt32(comboBox2.Text);
-            FormDogovor FD = new FormDogovor(FIO, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, Quantity, allCost);
-            FD.Show();
+            if (comboBox2.Text != "")
+            {
+                int dates = Convert.ToInt32(comboBox2.Text);
+                FormDogovor FD = new FormDogovor(ID, FIO, IDTour, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, Quantity, allCost, TourCost, ExCost, ExId);
+                FD.Show();
+            }
+            else
+            {
+                MessageBox.Show("Выберите дату");
+            }
         }
 
         private void FormChoiceTour_Load(object sender, EventArgs e)
@@ -164,6 +210,8 @@ namespace Cursach
             if (listBox1.SelectedIndex != -1)
             {
                 textBox1.Text += Environment.NewLine + "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name;
+                ExId += EL.list[listBox1.SelectedIndex / 2].id + "|";
+                ExCost += Convert.ToString(Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price)) + "|";
                 allCost += Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price);
                 label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
                 flag = true;
@@ -171,6 +219,42 @@ namespace Cursach
             else
             {
                 MessageBox.Show("Выберите экскурсию");
+            }
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void выбратьОтельToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           ////////
+        }
+
+        private void button3_Click(object sender, EventArgs e)//переделать 
+        {
+            if(H == true)
+            {
+                int index = textBox1.Text.IndexOf("Отель: ");
+                if(index != -1)
+                {
+                    int index2 = textBox1.Text.IndexOf(" * ");
+                    if (index2 != -1)
+                    {
+                        textBox1.Text = textBox1.Text.Remove(index, index2 - index + 3);
+                    }
+                }
+            }
+            if (listBox2.SelectedIndex != -1)
+            {
+                HotelTour = HL.list[listBox2.SelectedIndex / 2].name;
+                textBox1.Text += "Отель: " + HL.list[listBox2.SelectedIndex / 2].name + " * ";
+                H = true;
+            }
+            else
+            {
+                MessageBox.Show("Выберите отель");
             }
         }
     }

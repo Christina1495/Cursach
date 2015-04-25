@@ -13,8 +13,10 @@ namespace Cursach
 {
     public partial class FormDogovor : Form
     {
+        BD db = new BD();
         Documents d = new Documents();
         string Fio;
+        string ID;
         string usluga;
         string hotel;
         int date;
@@ -26,10 +28,16 @@ namespace Cursach
         string address;
         string paylist;
         string bank;
+        string IDTour;
+        int TourPR;
+        string ExPR = "";
+        string ExID = "";
 
-        public FormDogovor(string Fio_, string usluga_, string hotel_, int date_, string datas_, int col_, string ex_, int kol_tur_, int summa_)
+        public FormDogovor(string Id_, string Fio_, string idTour, string usluga_, string hotel_, int date_, string datas_, int col_, string ex_, int kol_tur_, int summa_, int TourPr, string ExPr, string ExId)
         {
             InitializeComponent();
+            ID = Id_;
+            IDTour = idTour;
             Fio = Fio_;
             usluga = usluga_;
             hotel = hotel_;
@@ -39,6 +47,9 @@ namespace Cursach
             ex = ex_;
             kol_tur = kol_tur_;
             summa = summa_;
+            TourPR = TourPr;
+            ExPR = ExPr;
+            ExID = ExId;
         }
         
         private void button1_Click_1(object sender, EventArgs e)
@@ -48,7 +59,7 @@ namespace Cursach
                 address = textBox1.Text + ", г. " + textBox2.Text + ", " + textBox3.Text + ", " + textBox4.Text + ", " + textBox5.Text;
                 paylist = textBox6.Text;
                 bank = textBox7.Text;
-                d.Dogovor(Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank);
+                d.Dogovor(ID, IDTour, Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank, TourPR, ExPR, ExID);
                 d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
                 MessageBox.Show("Done");
             }
@@ -56,6 +67,11 @@ namespace Cursach
             {
                 MessageBox.Show("Вы заполнили не все обязательные поля!");
             }
+        }
+
+        private void FormDogovor_Load(object sender, EventArgs e)
+        {
+
         }
 
 

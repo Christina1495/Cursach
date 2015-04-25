@@ -38,11 +38,13 @@ namespace Cursach
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour_Hotel (id_tour_hotel INTEGER PRIMARY KEY, id_tour INTEGER, id_hotel INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Excursion (id_excursion INTEGER PRIMARY KEY, exc_name TEXT, description_exc TEXT, duration_exc INTEGER, price_exc INTEGER, marks INTEGER, id_resort INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Discount (id_discount INTEGER PRIMARY KEY, id_resort INTEGER, name_tour TEXT, description TEXT, prices INTEGER, discount INTEGER)", connection);
-            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Customer_Tour (id_CusTour INTEGER PRIMARY KEY, id_customer INTEGER, id_tour INTEGER, prices INTEGER, contract INTEGER, date_contract INTEGER)", connection);
+            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Customer_Tour (id_CusTour INTEGER PRIMARY KEY, id_customer INTEGER, id_tour INTEGER, prices INTEGER, contract INTEGER, date_contract TEXT, allSum INTEGER, status INTEGER, paid INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour_Excursion (id_tour_excursion INTEGER PRIMARY KEY, price_TourExc INTEGER, id_excursion INTEGER, id_CusTour INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Date_Tour (id_datetour INTEGER PRIMARY KEY, amount INTEGER, date TEXT, id_tour INTEGER)", connection);
-            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Bank_Customer (id_bank_customer INTEGER PRIMARY KEY, data_price TEXT, sum_contract INTEGER, id_custour INTEGER)", connection);
-            //SQLiteCommand create = new SQLiteCommand("DROP TABLE Tour", connection);
+            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Bank_Customer (id_bank_customer INTEGER PRIMARY KEY, paid INTEGER, data_price TEXT, id_custour INTEGER)", connection);
+            //SQLiteCommand create = new SQLiteCommand("DELETE FROM 'Date_Tour'", connection);
+            //SQLiteCommand create = new SQLiteCommand("DROP TABLE Bank_Customer", connection);
+            //SQLiteCommand command = new SQLiteCommand("DROP TABLE Customer_Tour", connection);
             ///
             connection.Open();
             //create.ExecuteNonQuery();
@@ -225,10 +227,13 @@ namespace Cursach
                 {
                     userID = record["id_customer"].ToString();
                     userName = record["FIO"].ToString();
+                    connection.Close();
                     return "ok";
+                    
                 }
                 else
                 {
+                    connection.Close();
                     return "ne ok";
                 }
             }
@@ -377,6 +382,64 @@ namespace Cursach
             connection.Open();
             SQLiteCommand command = new SQLiteCommand("UPDATE Excursion SET marks = '" + Convert.ToString((mNew + Convert.ToInt32(mOld)) / 2) + "'WHERE id_excursion = '" + id + "'", connection);
             command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void CustomerTour(string id_customer, string id_tour, string contract, string prices, string date_contract, string ExId, string ExPr, string allSum)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("INSERT INTO 'Customer_Tour' ('id_CusTour', 'id_customer', 'id_tour', 'prices', 'contract', 'date_contract', 'allSum', 'status', 'paid') VALUES ('" + contract + @"', '" + id_customer + @"', '" + id_tour + @"', '" + prices + @"', '" + contract + @"', '" + date_contract + @"', '" + allSum + @"', '0', '0');", connection);
+            command.ExecuteNonQuery();
+            if (ExPr != "")
+            {
+                string[] ExIdArr = ExId.Split('|');
+                string[] ExPrArr = ExPr.Split('|');
+                for (int i = 0; i < ExIdArr.GetLength(0) - 1; i++)
+                {
+                    SQLiteCommand command1 = new SQLiteCommand("INSERT INTO 'Tour_Excursion' ('price_TourExc', 'id_excursion', 'id_CusTour') VALUES ('" + ExPrArr[i] + @"', '" + ExIdArr[i] + @"', '" + contract + @"');", connection);
+                    command1.ExecuteNonQuery();
+                }
+            }
+            connection.Close();
+        }
+
+        public void BankCustomer(string paid, string date, string id, string sum, string price)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("INSERT INTO 'Bank_Customer' ('paid', 'data_price', 'id_custour') VALUES ('" + paid + @"', '" + date + @"', '" + id + @"');", connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("UPDATE Customer_Tour SET paid = '" + sum + "'WHERE id_CusTour = '" + id + "'", connection);
+            command.ExecuteNonQuery();
+            if(Convert.ToInt32(sum) >= Convert.ToInt32(price))
+            {
+                command = new SQLiteCommand("UPDATE Customer_Tour SET status = 1 WHERE id_CusTour = '" + id + "'", connection);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public void DateTour(string sum, string date, string idTour)
+        {
+            bool Update = false;
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Date_Tour WHERE date = '" + date + "' AND id_tour = '" + idTour + "'";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                Update = true;
+                int summa = Convert.ToInt32(sum) + Convert.ToInt32(record["amount"].ToString());
+                SQLiteCommand command = new SQLiteCommand("UPDATE Date_Tour SET amount = '" + summa + "' WHERE id_datetour = '" + record["id_datetour"].ToString() + "'", connection);
+                command.ExecuteNonQuery();
+            }
+            if (Update == false)
+            {
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO 'Date_Tour' ('amount', 'date', 'id_tour') VALUES ('" + sum + @"', '" + date + @"', '" + idTour + @"');", connection);
+                command.ExecuteNonQuery();
+            }
             connection.Close();
         }
     }
