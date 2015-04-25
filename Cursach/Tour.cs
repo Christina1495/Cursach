@@ -64,4 +64,20 @@ namespace Cursach
         public CustomerTourList() { }
         public List<CustomerTour> list;
     }
+
+    public class Discount
+    {
+        public string id;
+        public string nameTour;
+        public string price;
+        public string nameResort;
+        public string discount;
+        public string description;
+        public string idResort;
+    }
+    public class DiscountList
+    {
+        public DiscountList() { }
+        public List<Discount> list;
+    }
 }

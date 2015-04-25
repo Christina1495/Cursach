@@ -63,6 +63,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -74,6 +80,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -360,6 +367,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.button2);
@@ -395,7 +404,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(897, 299);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Туры";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -406,12 +415,16 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(897, 299);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Акции";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.numericUpDown4);
             this.panel5.Controls.Add(this.listBox2);
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
@@ -423,8 +436,65 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(3, 3);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(885, 277);
+            this.listBox2.Size = new System.Drawing.Size(885, 251);
             this.listBox2.TabIndex = 0;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(14, 266);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(110, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Количество человек";
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(130, 264);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(45, 20);
+            this.numericUpDown4.TabIndex = 18;
+            this.numericUpDown4.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(530, 271);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(287, 13);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "тут лист с акциями, формировать документ и почту тут";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(328, 2);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(82, 13);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "отчет с турами";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(435, 6);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(140, 13);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "проверка на авторизацию";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(387, 28);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(278, 13);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "проверка на админа, чередоать с личным кабинетом";
             // 
             // Form1
             // 
@@ -432,6 +502,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(928, 396);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
@@ -452,7 +523,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -493,6 +567,12 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
     }
 }
 

@@ -18,9 +18,9 @@ namespace Cursach
         string FIO;
         string ID;
         TourList TL = new TourList();
+        DiscountList DL = new DiscountList();
         public Form1(string FIO_, string ID_)
         {
-            //backgroundWorker1.RunWorkerAsync();
             DateTime CurrentTime = DateTime.Now;
             InitializeComponent();
             FIO = FIO_;
@@ -34,7 +34,32 @@ namespace Cursach
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {            
+        {
+            DL.list.Clear();
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Discount";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                Discount D = new Discount();
+                D.nameTour = record["name_tour"].ToString();
+                D.id = record["id_discount"].ToString();
+                D.price = record["prices"].ToString();
+                D.discount = record["discount"].ToString();
+                D.description = record["description"].ToString();
+                D.idResort = record["id_resort"].ToString();
+                SQLiteCommand sql1 = new SQLiteCommand(connection);
+                sql1.CommandText = @"SELECT * FROM Resort WHERE id_resort = '" + record["id_resort"].ToString() +"'";
+                SQLiteDataReader reader1 = sql1.ExecuteReader();
+                foreach (DbDataRecord record1 in reader1)
+                {
+                    D.nameResort = record1["Name"].ToString();
+                }
+                DL.list.Add(D);
+            }
+            connection.Close();
             //Thread.Sleep(600);
             //backgroundWorker1.ReportProgress(i, s);           
         }
@@ -48,13 +73,22 @@ namespace Cursach
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-           //MessageBox.Show("OK");
+            listBox2.Items.Clear();
+            for (int i = 0; i < DL.list.Count; i++)
+            {
+                listBox2.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                listBox2.Items.Add("Описание: " + DL.list[i].description);
+                listBox2.Items.Add("Курорт: " + DL.list[i].nameResort + "  Тур: " + DL.list[i].nameTour + "   Цена: " + DL.list[i].price + "руб.  Скидка: " + DL.list[i].discount + "%");
+                
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            backgroundWorker1.RunWorkerAsync();
             BD db = new BD();
             TL.list = new List<Tour>();
+            DL.list = new List<Discount>();
             db.ResortComboBox();
             string[] RCB = db.ResortCB.Split(',');
             comboBox1.Items.AddRange(RCB);
@@ -140,12 +174,20 @@ namespace Cursach
                 FormChoiceTour fct = new FormChoiceTour(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, "", Convert.ToInt32(numericUpDown1.Value));
                 fct.ShowDialog();
                 this.Close();
-                //FormHotel fh = new FormHotel(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, Convert.ToInt32(numericUpDown1.Value));
-                //fh.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Выберите тур");
+                if (listBox2.SelectedIndex != -1)
+                {
+                    Hide();
+                    FormChoiceTour fct = new FormChoiceTour(DL.list[listBox2.SelectedIndex / 3].id, FIO, ID, DL.list[listBox2.SelectedIndex / 3].nameTour, DL.list[listBox2.SelectedIndex / 3].price, "10", DL.list[listBox2.SelectedIndex / 3].nameResort, "Января", "Декабрь", "", Convert.ToInt32(numericUpDown4.Value));
+                    fct.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Выберите тур");
+                }
             }
         }
 
@@ -171,8 +213,14 @@ namespace Cursach
 
         private void button3_Click(object sender, EventArgs e)
         {
-            BD db = new BD();
-            db.Сreate();
+            //backgroundWorker1.RunWorkerAsync();
+            //BD db = new BD();
+            //db.Сreate();
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

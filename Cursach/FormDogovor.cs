@@ -62,6 +62,10 @@ namespace Cursach
                 d.Dogovor(ID, IDTour, Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank, TourPR, ExPR, ExID);
                 d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
                 MessageBox.Show("Done");
+                Hide();
+                Form1 f1 = new Form1(Fio, ID);
+                f1.ShowDialog();
+                this.Close();
             }
             else
             {

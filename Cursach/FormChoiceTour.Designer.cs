@@ -30,12 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,10 +48,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button5 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.выбратьОтельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,6 +62,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.listBox2);
@@ -75,15 +79,15 @@
             this.panel1.Size = new System.Drawing.Size(715, 226);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // button3
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(9, 81);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(422, 103);
-            this.textBox1.TabIndex = 8;
+            this.button3.Location = new System.Drawing.Point(376, 192);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -94,6 +98,24 @@
             this.button1.Text = "Документы";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(456, 81);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(221, 134);
+            this.listBox2.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(9, 81);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(422, 103);
+            this.textBox1.TabIndex = 8;
             // 
             // label5
             // 
@@ -117,16 +139,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Продолжительность";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(9, 190);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Экскурсии";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -137,6 +149,16 @@
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Курорт";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(9, 190);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Экскурсии";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox2
             // 
@@ -231,14 +253,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(456, 81);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(221, 134);
-            this.listBox2.TabIndex = 9;
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -254,15 +268,33 @@
             this.выбратьОтельToolStripMenuItem.Text = "Выбрать отель";
             this.выбратьОтельToolStripMenuItem.Click += new System.EventHandler(this.выбратьОтельToolStripMenuItem_Click);
             // 
-            // button3
+            // label2
             // 
-            this.button3.Location = new System.Drawing.Point(376, 192);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(235, 381);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(426, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "кнопка 3 должна быть контекс. меню для listBox2, но что-то он у меня не работает";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(90, 190);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(129, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Удалить экскурсии";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(226, 394);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(303, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Сделать закрытие формы с переходом на главную форму";
             // 
             // FormChoiceTour
             // 
@@ -270,11 +302,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(739, 413);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
             this.Name = "FormChoiceTour";
             this.Text = "FormChoiceTour";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChoiceTour_FormClosing);
             this.Load += new System.EventHandler(this.FormChoiceTour_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -283,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -309,5 +345,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem выбратьОтельToolStripMenuItem;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
     }
 }

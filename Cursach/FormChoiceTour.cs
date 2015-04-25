@@ -54,7 +54,7 @@ namespace Cursach
             textBox1.Text = "Тур: " + NameTour + Environment.NewLine;
             label3.Text = "Курорт: " + ResortTour;
             label4.Text = "Продолжительность: " + DurationTour;
-            for (int i = 0; i < 31; i++)
+            for (int i = 1; i < 31; i++)
             {
                 comboBox2.Items.Add(i);
             }
@@ -158,8 +158,10 @@ namespace Cursach
             if (comboBox2.Text != "")
             {
                 int dates = Convert.ToInt32(comboBox2.Text);
+                Hide();
                 FormDogovor FD = new FormDogovor(ID, FIO, IDTour, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, Quantity, allCost, TourCost, ExCost, ExId);
-                FD.Show();
+                FD.ShowDialog();
+                this.Close();
             }
             else
             {
@@ -209,7 +211,7 @@ namespace Cursach
         {
             if (listBox1.SelectedIndex != -1)
             {
-                textBox1.Text += Environment.NewLine + "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name;
+                textBox1.Text += "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name + Environment.NewLine;
                 ExId += EL.list[listBox1.SelectedIndex / 2].id + "|";
                 ExCost += Convert.ToString(Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price)) + "|";
                 allCost += Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price);
@@ -242,20 +244,35 @@ namespace Cursach
                     int index2 = textBox1.Text.IndexOf(" * ");
                     if (index2 != -1)
                     {
-                        textBox1.Text = textBox1.Text.Remove(index, index2 - index + 3);
+                        textBox1.Text = textBox1.Text.Remove(index - 1, index2 - index + 3);
                     }
                 }
             }
             if (listBox2.SelectedIndex != -1)
             {
                 HotelTour = HL.list[listBox2.SelectedIndex / 2].name;
-                textBox1.Text += "Отель: " + HL.list[listBox2.SelectedIndex / 2].name + " * ";
+                textBox1.Text += "Отель: " + HL.list[listBox2.SelectedIndex / 2].name + " * " + Environment.NewLine;
                 H = true;
             }
             else
             {
                 MessageBox.Show("Выберите отель");
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int index = textBox1.Text.IndexOf("Экскурсия: ");
+            if(index != -1)
+            {
+                textBox1.Text = textBox1.Text.Remove(index - 1);
+            }
+        }
+
+        private void FormChoiceTour_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Form1 f1 = new Form1(FIO, ID);
+            //f1.ShowDialog();
         }
     }
 }

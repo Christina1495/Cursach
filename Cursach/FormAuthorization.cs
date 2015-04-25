@@ -29,13 +29,19 @@ namespace Cursach
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            Hide();
             BD db = new BD();
             string Message = db.Authorization(textBox1.Text, textBox2.Text);
-            Form1 f1 = new Form1(db.UserName, db.UserID);
-            f1.ShowDialog();
-            this.Close();
+            if (Message == "ok")
+            {
+                Hide();
+                Form1 f1 = new Form1(db.UserName, db.UserID);
+                f1.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Проверьте данные");
+            }
         }
     }
 }
