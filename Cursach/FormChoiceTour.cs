@@ -231,15 +231,10 @@ namespace Cursach
 
         private void выбратьОтельToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           ////////
-        }
-
-        private void button3_Click(object sender, EventArgs e)//переделать 
-        {
-            if(H == true)
+            if (H == true)
             {
                 int index = textBox1.Text.IndexOf("Отель: ");
-                if(index != -1)
+                if (index != -1)
                 {
                     int index2 = textBox1.Text.IndexOf(" * ");
                     if (index2 != -1)
@@ -260,6 +255,32 @@ namespace Cursach
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)//переделать 
+        {
+            //if(H == true)
+            //{
+            //    int index = textBox1.Text.IndexOf("Отель: ");
+            //    if(index != -1)
+            //    {
+            //        int index2 = textBox1.Text.IndexOf(" * ");
+            //        if (index2 != -1)
+            //        {
+            //            textBox1.Text = textBox1.Text.Remove(index - 1, index2 - index + 3);
+            //        }
+            //    }
+            //}
+            //if (listBox2.SelectedIndex != -1)
+            //{
+            //    HotelTour = HL.list[listBox2.SelectedIndex / 2].name;
+            //    textBox1.Text += "Отель: " + HL.list[listBox2.SelectedIndex / 2].name + " * " + Environment.NewLine;
+            //    H = true;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Выберите отель");
+            //}
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             int index = textBox1.Text.IndexOf("Экскурсия: ");
@@ -272,7 +293,7 @@ namespace Cursach
         private void FormChoiceTour_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Form1 f1 = new Form1(FIO, ID);
-            //f1.ShowDialog();
+            //f1.Show();
         }
     }
 }

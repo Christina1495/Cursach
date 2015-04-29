@@ -57,17 +57,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -367,8 +366,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.button2);
@@ -376,6 +374,15 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(902, 25);
             this.panel4.TabIndex = 18;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(213, 5);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 13);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "СПИСОК ВЕЩЕЙ!!!!!";
             // 
             // label6
             // 
@@ -422,7 +429,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.numericUpDown4);
             this.panel5.Controls.Add(this.listBox2);
@@ -431,13 +438,15 @@
             this.panel5.Size = new System.Drawing.Size(891, 293);
             this.panel5.TabIndex = 0;
             // 
-            // listBox2
+            // button5
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(3, 3);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(885, 251);
-            this.listBox2.TabIndex = 0;
+            this.button5.Location = new System.Drawing.Point(209, 261);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(437, 23);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "отправляется клиентам, но это кнопку надо сделать в админке";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label13
             // 
@@ -460,32 +469,13 @@
             0,
             0});
             // 
-            // label14
+            // listBox2
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(530, 271);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(287, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "тут лист с акциями, формировать документ и почту тут";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(328, 2);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(82, 13);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "отчет с турами";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(435, 6);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(140, 13);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "проверка на авторизацию";
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(3, 3);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(885, 251);
+            this.listBox2.TabIndex = 0;
             // 
             // label17
             // 
@@ -569,10 +559,9 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button5;
     }
 }
 

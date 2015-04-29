@@ -19,6 +19,8 @@ namespace Cursach
         string ID;
         TourList TL = new TourList();
         DiscountList DL = new DiscountList();
+        Documents doc = new Documents();
+
         public Form1(string FIO_, string ID_)
         {
             DateTime CurrentTime = DateTime.Now;
@@ -77,15 +79,16 @@ namespace Cursach
             for (int i = 0; i < DL.list.Count; i++)
             {
                 listBox2.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                listBox2.Items.Add("Описание: " + DL.list[i].description);
+                listBox2.Items.Add((i+1).ToString() + ") Описание: " + DL.list[i].description);
                 listBox2.Items.Add("Курорт: " + DL.list[i].nameResort + "  Тур: " + DL.list[i].nameTour + "   Цена: " + DL.list[i].price + "руб.  Скидка: " + DL.list[i].discount + "%");
                 
             }
+            doc.SalePDF(DL.list);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            backgroundWorker1.RunWorkerAsync();
+            //backgroundWorker1.RunWorkerAsync();
             BD db = new BD();
             TL.list = new List<Tour>();
             DL.list = new List<Discount>();
@@ -94,6 +97,7 @@ namespace Cursach
             comboBox1.Items.AddRange(RCB);
             string[] DCB = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
             comboBox2.Items.AddRange(DCB);
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void comboBox3_Click(object sender, EventArgs e)
@@ -134,6 +138,7 @@ namespace Cursach
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             TL.list.Clear();
             BD db = new BD();
             db.UserRequestsTour(comboBox1.Text, comboBox2.Text, comboBox3.Text, textBox1.Text, textBox2.Text, Convert.ToString(numericUpDown2.Value - 1), Convert.ToString(numericUpDown3.Value + 1));
@@ -162,13 +167,15 @@ namespace Cursach
             {
                 listBox1.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 listBox1.Items.Add(TL.list[i].name + "   Цена: " + TL.list[i].price + "руб.   Продолжительность: " + TL.list[i].duration + "   Курорт: " + TL.list[i].resort + "   Даты тура: c " + TL.list[i].dateS + " до " + TL.list[i].dateE);
+                
             }
+            doc.Calc(TL.list);
             connection.Close();
         }
 
         private void button2_Click_1(object sender, EventArgs e) 
         {
-            if (listBox1.SelectedIndex != -1)
+            if ((listBox1.SelectedIndex != -1) && (label8.Text != ""))
             {
                 Hide();
                 FormChoiceTour fct = new FormChoiceTour(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, "", Convert.ToInt32(numericUpDown1.Value));
@@ -186,8 +193,13 @@ namespace Cursach
                 }
                 else
                 {
-                    MessageBox.Show("Выберите тур");
+                    if (label8.Text == "") MessageBox.Show("Авторизируйтесь");
+                    else
+                    {
+                        if (listBox2.SelectedIndex == -1) MessageBox.Show("Выберите тур");
+                    }
                 }
+                
             }
         }
 
@@ -213,14 +225,31 @@ namespace Cursach
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //backgroundWorker1.RunWorkerAsync();
-            //BD db = new BD();
-            //db.Сreate();
+            //Documents doc = new Documents();
+            //for (int i = 0; i < listBox1.Items.Count; i++)
+            //{
+            //    doc.Calc(listBox1.Items[i].ToString());
+            //}
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Mail m = new Mail();
+                m.MailSalePDF();
+                MessageBox.Show("Done");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
 
     }

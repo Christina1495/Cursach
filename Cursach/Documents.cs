@@ -11,6 +11,13 @@ using iTextSharp.text;
 using iTextSharp;
 using System.IO;
 using iTextSharp.text.pdf;
+using AODL;
+using AODL.Document;
+using AODL.Document.TextDocuments;
+using AODL.Document.SpreadsheetDocuments;
+using AODL.Document.Content.Tables;
+using AODL.Document.Styles;
+using AODL.Document.Content.Text;
 
 namespace Cursach
 {
@@ -33,7 +40,7 @@ namespace Cursach
             iTextSharp.text.Phrase j = new Phrase("Договор №" + Number,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a1 = new Paragraph(j);
+            iTextSharp.text.Paragraph a1 = new iTextSharp.text.Paragraph(j);
             a1.Add(Environment.NewLine);
             a1.Alignment = Element.ALIGN_CENTER;
             a1.SpacingAfter = 5;
@@ -43,14 +50,14 @@ namespace Cursach
             iTextSharp.text.Phrase j2 = new Phrase("  " + st + Fio + " " + st1,
                new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                    new BaseColor(Color.Black)));
-            Paragraph a2 = new Paragraph(j2);
+            iTextSharp.text.Paragraph a2 = new iTextSharp.text.Paragraph(j2);
             a2.SpacingAfter = 5;
             doc.Add(a2);
             st = rf.text(@"doc\part3.txt");
             iTextSharp.text.Phrase j4 = new Phrase("1. Предмет Договора",
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a4 = new Paragraph(j4);
+            iTextSharp.text.Paragraph a4 = new iTextSharp.text.Paragraph(j4);
             a4.Add(Environment.NewLine);
             a4.Alignment = Element.ALIGN_CENTER;
             a4.SpacingAfter = 5;
@@ -58,7 +65,7 @@ namespace Cursach
             iTextSharp.text.Phrase j3 = new Phrase(st,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a3 = new Paragraph(j3);
+            iTextSharp.text.Paragraph a3 = new iTextSharp.text.Paragraph(j3);
             a3.Add(Environment.NewLine);
             a3.SpacingAfter = 5;
             doc.Add(a3);
@@ -66,14 +73,14 @@ namespace Cursach
             iTextSharp.text.Phrase j5 = new Phrase(st,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a5 = new Paragraph(j5);
+            iTextSharp.text.Paragraph a5 = new iTextSharp.text.Paragraph(j5);
             a5.Add(Environment.NewLine);
             a5.SpacingAfter = 3;
             doc.Add(a5);
             iTextSharp.text.Phrase j6 = new Phrase("Наименование туристических услуг: " + usluga,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a6 = new Paragraph(j6);
+            iTextSharp.text.Paragraph a6 = new iTextSharp.text.Paragraph(j6);
             a6.Add(Environment.NewLine);
             a6.SpacingAfter = 3;
             doc.Add(a6);
@@ -81,21 +88,21 @@ namespace Cursach
             iTextSharp.text.Phrase j7 = new Phrase("Размещение в отеле: " + hotel,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a7 = new Paragraph(j7);
+            iTextSharp.text.Paragraph a7 = new iTextSharp.text.Paragraph(j7);
             a7.Add(Environment.NewLine);
             a7.SpacingAfter = 3;
             doc.Add(a7);
             iTextSharp.text.Phrase j8 = new Phrase("Дата заезда: " + date + " " + datas,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a8 = new Paragraph(j8);
+            iTextSharp.text.Paragraph a8 = new iTextSharp.text.Paragraph(j8);
             a8.Add(Environment.NewLine);
             a8.SpacingAfter = 3;
             doc.Add(a8);
             iTextSharp.text.Phrase j9 = new Phrase("Общее количество дней тура: " + col.ToString() + " (дней/ночей)",
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a9 = new Paragraph(j9);
+            iTextSharp.text.Paragraph a9 = new iTextSharp.text.Paragraph(j9);
             a9.Add(Environment.NewLine);
             a9.SpacingAfter = 3;
             doc.Add(a9);
@@ -103,28 +110,28 @@ namespace Cursach
             iTextSharp.text.Phrase j10 = new Phrase("Дополнительные услуги, входящие в стоимость тура: " + ex,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a10 = new Paragraph(j10);
+            iTextSharp.text.Paragraph a10 = new iTextSharp.text.Paragraph(j10);
             a10.Add(Environment.NewLine);
             a10.SpacingAfter = 3;
             doc.Add(a10);
             iTextSharp.text.Phrase j11 = new Phrase("Количество Туристов: " + kol_tur.ToString(),
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a11 = new Paragraph(j11);
+            iTextSharp.text.Paragraph a11 = new iTextSharp.text.Paragraph(j11);
             a11.Add(Environment.NewLine);
             a11.SpacingAfter = 3;
             doc.Add(a11);
             st = rf.text(@"doc\part5.txt");
             iTextSharp.text.Phrase j12 = new Phrase(st, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a12 = new Paragraph(j12);
+            iTextSharp.text.Paragraph a12 = new iTextSharp.text.Paragraph(j12);
             a12.Add(Environment.NewLine);
             a12.SpacingAfter = 5;
             doc.Add(a12);
             iTextSharp.text.Phrase j13 = new Phrase("2. Условия оплаты",
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a13 = new Paragraph(j13);
+            iTextSharp.text.Paragraph a13 = new iTextSharp.text.Paragraph(j13);
             a13.Add(Environment.NewLine);
             a13.Alignment = Element.ALIGN_CENTER;
             a13.SpacingAfter = 5;
@@ -132,21 +139,21 @@ namespace Cursach
             iTextSharp.text.Phrase j15 = new Phrase("2.1. Стоимость туристических услуг на момент заключения настоящего Договора составляет: " + summa.ToString(),
                new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                    new BaseColor(Color.Black)));
-            Paragraph a15 = new Paragraph(j15);
+            iTextSharp.text.Paragraph a15 = new iTextSharp.text.Paragraph(j15);
             a15.Add(Environment.NewLine);
             a15.SpacingAfter = 3;
             doc.Add(a15);
             st = rf.text(@"doc\part6.txt");
             iTextSharp.text.Phrase j14 = new Phrase(st, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a14 = new Paragraph(j14);
+            iTextSharp.text.Paragraph a14 = new iTextSharp.text.Paragraph(j14);
             a14.Add(Environment.NewLine);
             a14.SpacingAfter = 5;
             doc.Add(a14);
             st = rf.text(@"doc\part7.txt");
             iTextSharp.text.Phrase j16 = new Phrase(st, new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a16 = new Paragraph(j16);
+            iTextSharp.text.Paragraph a16 = new iTextSharp.text.Paragraph(j16);
             a16.Add(Environment.NewLine);
             a16.SpacingAfter = 5;
             doc.Add(a16);
@@ -226,7 +233,7 @@ namespace Cursach
             iTextSharp.text.Phrase j = new Phrase("Продавец: ООО \"Ривьера-Сочи\", ООО \"Компания \"Ривьера-Сочи\"" + r.Next(1, 30),
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a1 = new Paragraph(j);
+            iTextSharp.text.Paragraph a1 = new iTextSharp.text.Paragraph(j);
             a1.Add(Environment.NewLine);
             //a1.Alignment = Element.ALIGN_CENTER;
             a1.Add("Адрес: 354000, г.Сочи, ул. Конституции СССР, 18/В"); a1.Add(Environment.NewLine);
@@ -240,7 +247,7 @@ namespace Cursach
             iTextSharp.text.Phrase j2 = new Phrase("Покупатель: " + Fio,
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a2 = new Paragraph(j2);
+            iTextSharp.text.Paragraph a2 = new iTextSharp.text.Paragraph(j2);
             a2.Add(Environment.NewLine);
             //a1.Alignment = Element.ALIGN_CENTER;
             a2.Add("Адрес: " + address); a2.Add(Environment.NewLine);
@@ -252,7 +259,7 @@ namespace Cursach
             iTextSharp.text.Phrase j3 = new Phrase("Счет № " + Number + " от " + now.ToString("dd.MM.yyyy"),
                 new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black)));
-            Paragraph a3 = new Paragraph(j3);
+            iTextSharp.text.Paragraph a3 = new iTextSharp.text.Paragraph(j3);
             a3.Add(Environment.NewLine);
             a3.Alignment = Element.ALIGN_CENTER;
             a3.SpacingAfter = 5;
@@ -297,7 +304,7 @@ namespace Cursach
             table.AddCell(summa.ToString());
 
             doc.Add(table);
-            Paragraph a5 = new Paragraph();
+            iTextSharp.text.Paragraph a5 = new iTextSharp.text.Paragraph();
             a5.Add(Environment.NewLine);
             a3.Alignment = Element.ALIGN_CENTER;
             a5.Add(new Phrase("Подпись турагента: _____________________/____________            М.П.", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
@@ -308,9 +315,53 @@ namespace Cursach
             doc.Close();
         }
 
-        public void ClientBank()
+        public void Calc(List<Tour> l)
         {
+            SpreadsheetDocument spd = new SpreadsheetDocument();
+            spd.New();
+            TextDocument doc = new TextDocument();
+            doc.New();
+            Table table = new Table(spd, "First", "tablefirst");
+
+            for (int i=l.Count-1; i>-1;i--)
+            {
+                Cell cell = table.CreateCell("cell {0}");
+                cell.OfficeValueType = "string";
+                cell.CellStyle.CellProperties.Border = Border.NormalSolid;
+                AODL.Document.Content.Text.Paragraph p = ParagraphBuilder.CreateSpreadsheetParagraph(spd);
+                p.TextContent.Add(new SimpleText(spd, l[i].name + "   Цена: " + l[i].price + "руб.   Продолжительность: " + l[i].duration + "   Курорт: " + l[i].resort + "   Даты тура: c " + l[i].dateS + " до " + l[i].dateE));
+                cell.Content.Add(p);
+                table.InsertCellAt(i+2, 4, cell);
+            }
             
+            spd.TableCollection.Add(table);
+            spd.SaveTo(@"D:\список_туров.ods");
+        }
+
+        public  void SalePDF(List<Discount> dis)
+        {
+            var doc = new Document();
+            path = "\\" + "doc" + "\\" + "SaleList.pdf";
+            PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + path, FileMode.Create));
+            doc.Open();
+            BaseFont baseFont = BaseFont.CreateFont(@"times.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            iTextSharp.text.Paragraph a1;
+            iTextSharp.text.Phrase j;
+            for (int i = 0; i < dis.Count; i++)
+            {
+                j = new Phrase((i+1).ToString() + ") Описание: " + dis[i].description,
+                    new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                        new BaseColor(Color.Black)));
+                
+                a1 = new iTextSharp.text.Paragraph(j);
+                a1.Add(Environment.NewLine);
+                
+                a1.SpacingAfter = 5;
+                a1.Add("Курорт: " + dis[i].nameResort + "  Тур: " + dis[i].nameTour + "   Цена: " + dis[i].price + "руб.  Скидка: " + dis[i].discount + "%");
+                a1.Add("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                doc.Add(a1);
+            }
+            doc.Close();   
         }
     }
 }
