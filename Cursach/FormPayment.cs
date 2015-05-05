@@ -19,6 +19,7 @@ namespace Cursach
         string PAID;
         string PRICE;
         string IDTour;
+        BD db = new BD();
         public FormPayment(string id_, string FIO_, string id, string date, string paid, string price, string idTour)
         {
             InitializeComponent();
@@ -29,10 +30,12 @@ namespace Cursach
             PAID = paid;
             PRICE = price;
             IDTour = idTour;
+            db.FormDog(ID_);
+            label2.Text += PRICE;
         }
+
         DateTime Now = DateTime.Now;
         List<string> clientBank;
-        BD db = new BD();
         private void button1_Click(object sender, EventArgs e)
         {            
             clientBank = new List<string>();
@@ -55,7 +58,7 @@ namespace Cursach
             clientBank.Add("Номер=");
             clientBank.Add("Дата=" + Now.ToString("dd.MM.yyyy"));
             clientBank.Add("Сумма=" + textBox2.Text);
-            clientBank.Add("ПлательщикСчет=" + textBox1.Text);
+            clientBank.Add("ПлательщикСчет=" + db.Account);
             listBox1.DataSource = clientBank;
             //SaveFile sf = new SaveFile();// посмотри путь, у меня не находит 
             //for (int i = 0; i < listBox1.Items.Count; i++)
@@ -65,14 +68,16 @@ namespace Cursach
             int sum = Convert.ToInt32(textBox2.Text) + Convert.ToInt32(PAID);
             db.BankCustomer(textBox2.Text, DATE, ID, Convert.ToString(sum), PRICE);
             db.DateTour(textBox2.Text, Now.ToString("MM.yyyy"), IDTour);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
+            MessageBox.Show("Оплата произведена");
             Hide();
             FormPersonal FP = new FormPersonal(FIO, ID_);
             FP.Show();
             this.Close();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

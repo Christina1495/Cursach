@@ -335,7 +335,7 @@ namespace Cursach
             }
             
             spd.TableCollection.Add(table);
-            spd.SaveTo(@"D:\список_туров.ods");
+            spd.SaveTo(@"doc\список_туров.ods");
         }
 
         public  void SalePDF(List<Discount> dis)

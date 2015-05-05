@@ -79,7 +79,7 @@ namespace Cursach
             if (listBox1.SelectedIndex != -1)
             {
                 Hide();
-                FormPayment FP = new FormPayment(ID, FIO, CTL.list[listBox1.SelectedIndex / 2].id, d, CTL.list[listBox1.SelectedIndex / 2].paid, CTL.list[listBox1.SelectedIndex / 2].price, CTL.list[listBox1.SelectedIndex / 2].idTour);
+                FormPayment FP = new FormPayment(ID, FIO, CTL.list[listBox1.SelectedIndex / 2].id, d, CTL.list[listBox1.SelectedIndex / 2].paid, Convert.ToString(Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].price) - Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].paid)), CTL.list[listBox1.SelectedIndex / 2].idTour);
                 FP.Show();
                 this.Close();
             }

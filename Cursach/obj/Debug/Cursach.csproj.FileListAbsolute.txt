@@ -47,3 +47,5 @@ C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormPersonal.resourc
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.csprojResolveAssemblyReference.cache
 C:\Users\Christina_R\Desktop\Cursach\Cursach\bin\Debug\AODL.dll
 C:\Users\Christina_R\Desktop\Cursach\Cursach\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\AODL.dll
+C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\ICSharpCode.SharpZipLib.dll

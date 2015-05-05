@@ -88,7 +88,6 @@ namespace Cursach
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //backgroundWorker1.RunWorkerAsync();
             BD db = new BD();
             TL.list = new List<Tour>();
             DL.list = new List<Discount>();
@@ -137,8 +136,7 @@ namespace Cursach
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             TL.list.Clear();
             BD db = new BD();
             db.UserRequestsTour(comboBox1.Text, comboBox2.Text, comboBox3.Text, textBox1.Text, textBox2.Text, Convert.ToString(numericUpDown2.Value - 1), Convert.ToString(numericUpDown3.Value + 1));
@@ -175,7 +173,7 @@ namespace Cursach
 
         private void button2_Click_1(object sender, EventArgs e) 
         {
-            if ((listBox1.SelectedIndex != -1) && (label8.Text != ""))
+            if (listBox1.SelectedIndex != -1 && label8.Text != "")
             {
                 Hide();
                 FormChoiceTour fct = new FormChoiceTour(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, "", Convert.ToInt32(numericUpDown1.Value));
@@ -184,7 +182,7 @@ namespace Cursach
             }
             else
             {
-                if (listBox2.SelectedIndex != -1)
+                if (listBox2.SelectedIndex != -1 && label8.Text != "")
                 {
                     Hide();
                     FormChoiceTour fct = new FormChoiceTour(DL.list[listBox2.SelectedIndex / 3].id, FIO, ID, DL.list[listBox2.SelectedIndex / 3].nameTour, DL.list[listBox2.SelectedIndex / 3].price, "10", DL.list[listBox2.SelectedIndex / 3].nameResort, "Января", "Декабрь", "", Convert.ToInt32(numericUpDown4.Value));
@@ -225,9 +223,11 @@ namespace Cursach
 
         private void button3_Click(object sender, EventArgs e)
         {
+            BD db = new BD();
             //Documents doc = new Documents();
             //for (int i = 0; i < listBox1.Items.Count; i++)
             //{
+            //db.Resort();
             //    doc.Calc(listBox1.Items[i].ToString());
             //}
         }

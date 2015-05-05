@@ -26,13 +26,41 @@ namespace Cursach
         public string Condition
         { get { return condition; } }
 
+        string city = "";
+        public string City
+        { get { return city; } }
+
+        string street = "";
+        public string Street
+        { get { return street; } }
+
+        string house = "";
+        public string House
+        { get { return house; } }
+
+        string apartment = "";
+        public string Apartment
+        { get { return apartment; } }
+
+        string postcode = "";
+        public string Postcode
+        { get { return postcode; } }
+
+        string account = "";
+        public string Account
+        { get { return account; } }
+
+        string bank = "";
+        public string Bank
+        { get { return bank; } }
+
         public void Сreate()
         {
             //SQLiteConnection.CreateFile("base.sqlite");//Создание бд
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
             ///Создание таблиц
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Resort (id_resort INTEGER PRIMARY KEY, Name TEXT)", connection);
-            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Customer (id_customer INTEGER PRIMARY KEY, FIO TEXT, email TEXT, password TEXT)", connection);
+            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Customer (id_customer INTEGER PRIMARY KEY, FIO TEXT, email TEXT, password TEXT, city TEXT, street TEXT, house TEXT, apartment TEXT, postcode TEXT, account TEXT, bank TEXT)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Hotel (id_hotel INTEGER PRIMARY KEY, hotel_name TEXT)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour (id_tour INTEGER PRIMARY KEY, tour_name TEXT, price INTEGER, duration INTEGER, dateS INTEGER, dataE INTEGER, id_resort INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour_Hotel (id_tour_hotel INTEGER PRIMARY KEY, id_tour INTEGER, id_hotel INTEGER)", connection);
@@ -42,9 +70,9 @@ namespace Cursach
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour_Excursion (id_tour_excursion INTEGER PRIMARY KEY, price_TourExc INTEGER, id_excursion INTEGER, id_CusTour INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Date_Tour (id_datetour INTEGER PRIMARY KEY, amount INTEGER, date TEXT, id_tour INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Bank_Customer (id_bank_customer INTEGER PRIMARY KEY, paid INTEGER, data_price TEXT, id_custour INTEGER)", connection);
-            //SQLiteCommand create = new SQLiteCommand("DELETE FROM 'Date_Tour'", connection);
+            //SQLiteCommand create = new SQLiteCommand("DELETE FROM 'Resort'", connection);
             //SQLiteCommand create = new SQLiteCommand("DROP TABLE Bank_Customer", connection);
-            //SQLiteCommand command = new SQLiteCommand("DROP TABLE Customer_Tour", connection);
+            //SQLiteCommand create = new SQLiteCommand("DROP TABLE Customer", connection);
             ///
             connection.Open();
             //create.ExecuteNonQuery();
@@ -239,6 +267,42 @@ namespace Cursach
             }
             connection.Close();
             return null;
+        }
+
+        public void Customer(string id, string city, string street, string house, string apartment, string postcode, string account, string bank)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("UPDATE Customer SET city = '" + city + "', street = '" + street + "', house = '" + house + "', apartment = '" + apartment + "', postcode = '" + postcode + "', account = '" + account + "', bank = '" + bank + "' WHERE id_customer = '" + id + "'", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void FormDog(string id)
+        {
+            city = "";
+            street = "";
+            house = "";
+            apartment = "";
+            postcode = "";
+            account = "";
+            bank = "";
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Customer WHERE id_customer = '" + id + "'";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                city = record["city"].ToString();
+                street = record["street"].ToString();
+                house = record["house"].ToString();
+                apartment = record["apartment"].ToString();
+                postcode = record["postcode"].ToString();
+                account = record["account"].ToString();
+                bank = record["bank"].ToString();
+            }
+            connection.Close();
         }
 
         public void ResortComboBox()
@@ -440,6 +504,33 @@ namespace Cursach
                 SQLiteCommand command = new SQLiteCommand("INSERT INTO 'Date_Tour' ('amount', 'date', 'id_tour') VALUES ('" + sum + @"', '" + date + @"', '" + idTour + @"');", connection);
                 command.ExecuteNonQuery();
             }
+            connection.Close();
+        }
+
+        public void UPDATE(string Text, string id)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("UPDATE " + Text + " WHERE " + id + "", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void INSERT(string Text)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("INSERT INTO " + Text + ";", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void DELETE(string Text, string id)
+        {
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand("DELETE FROM " + Text + " WHERE " + id + "", connection);
+            command.ExecuteNonQuery();
             connection.Close();
         }
     }

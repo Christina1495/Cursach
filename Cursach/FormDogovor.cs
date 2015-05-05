@@ -50,12 +50,21 @@ namespace Cursach
             TourPR = TourPr;
             ExPR = ExPr;
             ExID = ExId;
+            db.FormDog(ID);
+            textBox1.Text = db.Postcode;
+            textBox2.Text = db.City;
+            textBox3.Text = db.Street;
+            textBox4.Text = db.House;
+            textBox5.Text = db.Apartment;
+            textBox6.Text = db.Account;
+            textBox7.Text = db.Bank;
         }
         
         private void button1_Click_1(object sender, EventArgs e)
         {
             if ((textBox2.Text != "") && (textBox6.Text != "") && (textBox7.Text != ""))
             {
+                db.Customer(ID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox1.Text, textBox6.Text, textBox7.Text);
                 address = textBox1.Text + ", г. " + textBox2.Text + ", " + textBox3.Text + ", " + textBox4.Text + ", " + textBox5.Text;
                 paylist = textBox6.Text;
                 bank = textBox7.Text;
