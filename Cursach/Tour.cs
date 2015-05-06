@@ -80,4 +80,17 @@ namespace Cursach
         public DiscountList() { }
         public List<Discount> list;
     }
+
+    public class Date_Tour
+    {
+        public string idTour;
+        public string price;
+        public string nameTour;
+        public string date;
+    }
+    public class Date_TourList
+    {
+        public Date_TourList() { }
+        public List<Date_Tour> list;
+    }
 }

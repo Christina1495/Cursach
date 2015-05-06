@@ -12,7 +12,7 @@ namespace Cursach
 {
     class Mail
     {
-        public void MailSalePDF()
+        public void MailSalePDF(string email, string name)
         {
             MailMessage message;
             NetworkCredential credential;
@@ -25,9 +25,9 @@ namespace Cursach
             //for (int i = 0; i < email.Length; i++)
             //{
 
-                message = new MailMessage { Subject = "Акции", Body = "Sale!!!" };
+                message = new MailMessage { Subject = name + "Акции для вас!", Body = "Sale!!!" };
                 message.From = new MailAddress("cursach.oop@rambler.ru");//от кого
-                message.To.Add("Rikki0188@mail.ru");//кому
+                message.To.Add(email);//кому
                 message.SubjectEncoding = Encoding.GetEncoding(1251);
                 message.BodyEncoding = Encoding.GetEncoding(1251);
 

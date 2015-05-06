@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data.Common;
+using System.Threading;
 
 
 namespace Cursach
@@ -16,6 +17,7 @@ namespace Cursach
     public partial class Form2 : Form
     {
         BD db = new BD();
+        Date_TourList DTL = new Date_TourList();
         public Form2()
         {
             InitializeComponent();
@@ -78,14 +80,24 @@ namespace Cursach
             dt = new DataTable();
             dt.Load(sdr);
             dataGridView11.DataSource = dt;
+            sql.CommandText = @"SELECT * FROM Category";
+            sdr = sql.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView12.DataSource = dt;
+            sql.CommandText = @"SELECT * FROM Stuff";
+            sdr = sql.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView13.DataSource = dt;
             sdr.Close();
             connection.Close();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
-        }
+            DTL.list = new List<Date_Tour>();
+       }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -505,7 +517,10 @@ namespace Cursach
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            db.Hotel();
+            db.Tour();
+            db.Excursion();
+            db.Discount();
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -515,7 +530,117 @@ namespace Cursach
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            MessageBox.Show("ok");
+            Hide();
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+            this.Close();
+        }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DTL.list.Clear();
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Date_Tour";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            foreach (DbDataRecord record in reader)
+            {
+                Date_Tour DT = new Date_Tour();
+                DT.idTour = record["id_tour"].ToString();
+                DT.price = record["amount"].ToString();
+                DT.date = record["date"].ToString();
+                SQLiteCommand sql1 = new SQLiteCommand(connection);
+                sql1.CommandText = @"SELECT * FROM Tour WHERE id_tour = '" + record["id_tour"].ToString() + "'";
+                SQLiteDataReader reader1 = sql1.ExecuteReader();
+                foreach (DbDataRecord record1 in reader1)
+                {
+                    DT.nameTour = record1["tour_name"].ToString();
+                }
+                DTL.list.Add(DT);
+            }
+            connection.Close();
+        }
+
+        private void toolStripButton34_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.UPDATE("Category SET cat_name = '" + dataGridView12.SelectedCells[1].Value.ToString() + "'", "id_cat = '" + dataGridView12.SelectedCells[0].Value.ToString() + "'");
+            }
+            catch
+            {
+                MessageBox.Show("Сторка не выбрана");
+            }
+        }
+
+        private void toolStripButton35_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.DELETE("'Category'", "id_cat = '" + dataGridView12.SelectedCells[0].Value.ToString() + "'");
+                db.DELETE("'Stuff'", "id_cat = '" + dataGridView12.SelectedCells[0].Value.ToString() + "'");
+                dataGridView12.Rows.RemoveAt(dataGridView12.SelectedRows[0].Index);
+            }
+            catch
+            {
+                MessageBox.Show("Сторка не выбрана");
+            }
+        }
+
+        private void toolStripButton36_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.INSERT("'Category' ('cat_name') VALUES ('" + dataGridView12.SelectedCells[1].Value.ToString() + @"')");
+            }
+            catch
+            {
+                MessageBox.Show("Сторка не выбрана");
+            }
+        }
+
+        private void toolStripButton37_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.UPDATE("Stuff SET id_cat = '" + dataGridView13.SelectedCells[1].Value.ToString() + "'stuff_name = '" + dataGridView13.SelectedCells[2].Value.ToString() + "'", "id_stuff = '" + dataGridView13.SelectedCells[0].Value.ToString() + "'");
+            }
+            catch
+            {
+                MessageBox.Show("Сторка не выбрана");
+            }
+        }
+
+        private void toolStripButton38_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.DELETE("'Stuff'", "id_stuff = '" + dataGridView13.SelectedCells[0].Value.ToString() + "'");
+                dataGridView13.Rows.RemoveAt(dataGridView13.SelectedRows[0].Index);
+            }
+            catch
+            {
+                MessageBox.Show("Сторка не выбрана");
+            }
+        }
+
+        private void toolStripButton39_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.INSERT("'Stuff' ('id_cat', 'stuff_name') VALUES ('" + dataGridView13.SelectedCells[1].Value.ToString() + @"', '" + dataGridView13.SelectedCells[2].Value.ToString() + @"')");
+            }
+            catch
+            {
+                MessageBox.Show("Сторка не выбрана");
+            }
         }
     }
 }

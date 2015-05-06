@@ -70,6 +70,8 @@ namespace Cursach
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Tour_Excursion (id_tour_excursion INTEGER PRIMARY KEY, price_TourExc INTEGER, id_excursion INTEGER, id_CusTour INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Date_Tour (id_datetour INTEGER PRIMARY KEY, amount INTEGER, date TEXT, id_tour INTEGER)", connection);
             //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Bank_Customer (id_bank_customer INTEGER PRIMARY KEY, paid INTEGER, data_price TEXT, id_custour INTEGER)", connection);
+            //SQLiteCommand create = new SQLiteCommand("CREATE TABLE Category (id_cat INTEGER PRIMARY KEY, cat_name TEXT)", connection);
+            SQLiteCommand create = new SQLiteCommand("CREATE TABLE Stuff (id_stuff INTEGER PRIMARY KEY, id_cat INTEGER ,stuff_name TEXT)", connection);
             //SQLiteCommand create = new SQLiteCommand("DELETE FROM 'Resort'", connection);
             //SQLiteCommand create = new SQLiteCommand("DROP TABLE Bank_Customer", connection);
             //SQLiteCommand create = new SQLiteCommand("DROP TABLE Customer", connection);
@@ -141,7 +143,7 @@ namespace Cursach
             connection.Close();
         }
 
-        public void Resort()
+        public void Resort()//Не торгать его
         {
             Parser p = new Parser();
             string container = p.getRequest("http://www.riviera-sochi.ru/resorts/");
