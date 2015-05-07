@@ -721,31 +721,7 @@ namespace Cursach
             Array.Resize(ref e_mail, i);
             Array.Resize(ref ename, i);
 
-            for (int j = 0; j < e_mail.Length; j++)
-            {
-                MailMessage message;
-                NetworkCredential credential;
-                SmtpClient client = new SmtpClient("smtp.rambler.ru", 587);
-                credential = new NetworkCredential("cursach.oop", "0123456789");
-                client.Credentials = credential;
-                var b = File.ReadAllBytes("doc\\SaleList.pdf");
-                var stream = new MemoryStream(b);
-                var attachment1 = new Attachment(stream, "SaleList.pdf", MediaTypeNames.Application.Pdf);
-                message = new MailMessage { Subject = ename[j] + ", Акции для вас!", Body = (j + 1).ToString() };
-                message.From = new MailAddress("cursach.oop@rambler.ru");//от кого
-                message.To.Add(e_mail[j]);//кому
-                message.SubjectEncoding = Encoding.GetEncoding(1251);
-                message.BodyEncoding = Encoding.GetEncoding(1251);
-                try
-                {
-                    message.Attachments.Add(attachment1);
-                    client.Send(message);
-                }
-                finally
-                {
-                    client.Dispose();
-                }
-            } 
+            m.MailSalePDF(e_mail, ename);
         }
 
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
