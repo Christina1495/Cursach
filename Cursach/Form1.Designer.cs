@@ -67,7 +67,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -296,7 +295,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(10, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 23);
+            this.label5.Size = new System.Drawing.Size(137, 23);
             this.label5.TabIndex = 14;
             this.label5.Text = "Авторизация ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -306,7 +305,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(689, -1);
+            this.label7.Location = new System.Drawing.Point(695, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(207, 23);
             this.label7.TabIndex = 16;
@@ -327,7 +326,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(536, 1);
+            this.button4.Location = new System.Drawing.Point(766, 0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 23);
             this.button4.TabIndex = 18;
@@ -478,30 +477,20 @@
             this.listBox2.Size = new System.Drawing.Size(885, 251);
             this.listBox2.TabIndex = 0;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(387, 28);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(278, 13);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "проверка на админа, чередоать с личным кабинетом";
-            // 
             // backgroundWorker2
             // 
             this.backgroundWorker2.WorkerReportsProgress = true;
             this.backgroundWorker2.WorkerSupportsCancellation = true;
-            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
-            this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
-            this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
+            //this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            //this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
+            //this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(928, 396);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
@@ -525,7 +514,6 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -568,7 +556,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button5;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;

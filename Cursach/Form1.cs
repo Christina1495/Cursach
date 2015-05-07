@@ -29,8 +29,24 @@ namespace Cursach
             ID = ID_;
             label8.Text = "" + FIO + "";
             if (label8.Text == "")
+            {
                 button4.Visible = false;
-            else button4.Visible = true;
+                label7.Visible = false;
+            }
+
+            else
+                if (label8.Text == "Admin")
+                {
+                    label7.Visible = true;
+                    button4.Visible = false;
+                }
+                    
+                else
+                {
+                    label7.Visible = false;
+                    button4.Visible = true;
+                }
+                 
             string d = CurrentTime.ToString("dd.MM.yyyy");
             label6.Text = "Сегодня: " + d ;
         }
@@ -253,40 +269,42 @@ namespace Cursach
             //}
             
         }
-        Mail m = new Mail();
-        string ename = "";
-        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
-        {
-            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
-            connection.Open();
-            SQLiteCommand sql = new SQLiteCommand(connection);
-            sql.CommandText = @"SELECT * FROM Customer";
-            SQLiteDataReader reader = sql.ExecuteReader();
-            foreach (DbDataRecord record in reader)
-            {
-                ename = record["FIO"].ToString();
-                string em = record["email"].ToString();
-                Thread.Sleep(600);
-                backgroundWorker2.ReportProgress(1, em);
-            }
-            connection.Close();
-        }       
+        //Mail m = new Mail();
+        //string ename = "";
+        //private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+        //    connection.Open();
+        //    SQLiteCommand sql = new SQLiteCommand(connection);
+        //    sql.CommandText = @"SELECT * FROM Customer";
+        //    SQLiteDataReader reader = sql.ExecuteReader();
+            
+        //    foreach (DbDataRecord record in reader)
+        //    {
+        //        ename = record["FIO"].ToString();
+        //        string em = record["email"].ToString();
+        //        Thread.Sleep(600);
+        //        backgroundWorker2.ReportProgress(1, em);
+                
+        //    }
+        //    connection.Close();
+        //}       
 
-        private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            try
-            {
-                m.MailSalePDF((string)e.UserState, ename);
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
-        }
+        //private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        m.MailSalePDF((string)e.UserState, ename);
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        MessageBox.Show(exc.ToString());
+        //    }
+        //}
 
-        private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            MessageBox.Show("okok");
-        }
+        //private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        //{
+        //    MessageBox.Show("okok");
+        //}
     }
 }

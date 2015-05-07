@@ -566,6 +566,23 @@ namespace Cursach
                 DTL.list.Add(DT);
             }
             connection.Close();
+            int[] excel = new int[12];
+            string[] dates = { "01.2015", "02.2015", "03.2015", "04.2015", "05.2015", "06.2015", "07.2015", "08.2015", "09.2015", "10.2015", "11.2015", "12.2015" };
+            for (int i=0; i<DTL.list.Count; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    if (DTL.list[i].date == dates[j]) excel[j] += Convert.ToInt32(DTL.list[i].price);
+                }
+                
+            }
+
+            ExcelDiagram ed = new ExcelDiagram();
+            string path = ed.excel(excel);
+            pictureBox1.Image = new Bitmap(path);
+
+
+           
         }
 
         private void toolStripButton34_Click(object sender, EventArgs e)
@@ -642,5 +659,39 @@ namespace Cursach
                 MessageBox.Show("Сторка не выбрана");
             }
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        Mail m = new Mail();
+        private void bMail_Click(object sender, EventArgs e)
+        {
+            string[] e_mail = new string[1];
+            string[] ename = new string[1];
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            connection.Open();
+            SQLiteCommand sql = new SQLiteCommand(connection);
+            sql.CommandText = @"SELECT * FROM Customer";
+            SQLiteDataReader reader = sql.ExecuteReader();
+            int i=0;
+            foreach (DbDataRecord record in reader)
+            {
+                ename[i] = record["FIO"].ToString();
+                e_mail[i] = record["email"].ToString();
+                Thread.Sleep(600);
+                i++;
+                Array.Resize(ref e_mail, i+1);
+                Array.Resize(ref ename, i + 1);
+            }
+            connection.Close();
+            Array.Resize(ref e_mail, i);
+            Array.Resize(ref ename, i);
+            m.MailSalePDF(e_mail, ename);
+            MessageBox.Show("Письма отправлены");
+        }
+
+        
     }
 }
