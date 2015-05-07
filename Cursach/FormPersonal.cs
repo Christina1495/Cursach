@@ -87,6 +87,12 @@ namespace Cursach
             {
                 MessageBox.Show("Выберите, что хотите оплатить");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormListThings flt = new FormListThings();
+            flt.Show();
         }        
     }
 }

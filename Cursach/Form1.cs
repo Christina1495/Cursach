@@ -239,14 +239,7 @@ namespace Cursach
 
         private void button3_Click(object sender, EventArgs e)
         {
-            BD db = new BD();
-            //db.Сreate();
-            //Documents doc = new Documents();
-            //for (int i = 0; i < listBox1.Items.Count; i++)
-            //{
-            //db.Resort();
-            //    doc.Calc(listBox1.Items[i].ToString());
-            //}
+            /////
         }
 
         private void tabPage2_Click(object sender, EventArgs e)

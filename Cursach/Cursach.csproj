@@ -109,6 +109,12 @@
     <Compile Include="FormHotel.Designer.cs">
       <DependentUpon>FormHotel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListThings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListThings.Designer.cs">
+      <DependentUpon>FormListThings.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHotel.resx">
       <DependentUpon>FormHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListThings.resx">
+      <DependentUpon>FormListThings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPayment.resx">
       <DependentUpon>FormPayment.cs</DependentUpon>

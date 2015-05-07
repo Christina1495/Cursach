@@ -57,7 +57,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -367,7 +366,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.button2);
@@ -375,15 +373,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(902, 25);
             this.panel4.TabIndex = 18;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(213, 5);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(109, 13);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "СПИСОК ВЕЩЕЙ!!!!!";
             // 
             // label6
             // 
@@ -542,7 +531,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label18;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Label label14;
     }

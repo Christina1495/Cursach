@@ -49,3 +49,4 @@ C:\Users\Christina_R\Desktop\Cursach\Cursach\bin\Debug\AODL.dll
 C:\Users\Christina_R\Desktop\Cursach\Cursach\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\AODL.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormListThings.resources
