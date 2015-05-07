@@ -52,6 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -62,12 +63,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -324,6 +323,18 @@
             this.panel2.Size = new System.Drawing.Size(902, 23);
             this.panel2.TabIndex = 17;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(737, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(168, 23);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Личный Кабинет ";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -419,7 +430,6 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.numericUpDown4);
             this.panel5.Controls.Add(this.listBox2);
@@ -427,16 +437,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(891, 293);
             this.panel5.TabIndex = 0;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(209, 261);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(437, 23);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "отправляется клиентам, но это кнопку надо сделать в админке";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label13
             // 
@@ -471,18 +471,6 @@
             // 
             this.backgroundWorker2.WorkerReportsProgress = true;
             this.backgroundWorker2.WorkerSupportsCancellation = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(737, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(168, 23);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Личный Кабинет ";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // Form1
             // 
@@ -555,7 +543,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button5;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Label label14;
     }
