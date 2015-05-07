@@ -30,21 +30,21 @@ namespace Cursach
             label8.Text = "" + FIO + "";
             if (label8.Text == "")
             {
-                button4.Visible = false;
                 label7.Visible = false;
+                label14.Visible = false;
             }
 
             else
                 if (label8.Text == "Admin")
                 {
                     label7.Visible = true;
-                    button4.Visible = false;
+                    label14.Visible = false;
                 }
                     
                 else
                 {
                     label7.Visible = false;
-                    button4.Visible = true;
+                    label14.Visible = true;
                 }
                  
             string d = CurrentTime.ToString("dd.MM.yyyy");
@@ -240,7 +240,7 @@ namespace Cursach
         private void button3_Click(object sender, EventArgs e)
         {
             BD db = new BD();
-            db.Сreate();
+            //db.Сreate();
             //Documents doc = new Documents();
             //for (int i = 0; i < listBox1.Items.Count; i++)
             //{
@@ -268,6 +268,12 @@ namespace Cursach
             //    MessageBox.Show(exc.ToString());
             //}
             
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            FormPersonal FP = new FormPersonal(FIO, ID);
+            FP.Show();
         }
         //Mail m = new Mail();
         //string ename = "";

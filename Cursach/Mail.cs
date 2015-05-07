@@ -29,25 +29,21 @@ namespace Cursach
                  var b = File.ReadAllBytes("doc\\SaleList.pdf");
                  var stream = new MemoryStream(b);
                  var attachment1 = new Attachment(stream, "SaleList.pdf", MediaTypeNames.Application.Pdf);
-                 
-                      message = new MailMessage { Subject = ename[i] + ", Акции для вас!", Body = (i+1).ToString()};
-                      message.From = new MailAddress("cursach.oop@rambler.ru");//от кого
-                      message.To.Add(email[i]);//кому
-                      message.SubjectEncoding = Encoding.GetEncoding(1251);
-                      message.BodyEncoding = Encoding.GetEncoding(1251);
-
-                      try
-                      {
-                          message.Attachments.Add(attachment1);
-                          client.Send(message);
-                      }
-                      finally
-                      {
-                          client.Dispose();
-                      }
-
-            }
-            
+                 message = new MailMessage { Subject = ename[i] + ", Акции для вас!", Body = (i+1).ToString()};
+                 message.From = new MailAddress("cursach.oop@rambler.ru");//от кого
+                 message.To.Add(email[i]);//кому
+                 message.SubjectEncoding = Encoding.GetEncoding(1251);
+                 message.BodyEncoding = Encoding.GetEncoding(1251);
+                 try
+                 {
+                    message.Attachments.Add(attachment1);
+                    client.Send(message);
+                 }
+                 finally
+                 {
+                    client.Dispose();
+                 }
+            }            
         }
     }
 }

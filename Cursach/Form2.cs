@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data.Common;
 using System.Threading;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
+using System.Net.Mime;
 
 
 namespace Cursach
@@ -666,7 +670,35 @@ namespace Cursach
         }
 
         Mail m = new Mail();
+        
         private void bMail_Click(object sender, EventArgs e)
+        {
+            //string[] e_mail = new string[1];
+            //string[] ename = new string[1];
+            //SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
+            //connection.Open();
+            //SQLiteCommand sql = new SQLiteCommand(connection);
+            //sql.CommandText = @"SELECT * FROM Customer";
+            //SQLiteDataReader reader = sql.ExecuteReader();
+            //int i = 0;
+            //foreach (DbDataRecord record in reader)
+            //{
+            //    ename[i] = record["FIO"].ToString();
+            //    e_mail[i] = record["email"].ToString();
+            //    Thread.Sleep(600);
+            //    i++;
+            //    Array.Resize(ref e_mail, i + 1);
+            //    Array.Resize(ref ename, i + 1);
+            //}
+            //connection.Close();
+            //Array.Resize(ref e_mail, i);
+            //Array.Resize(ref ename, i);
+            backgroundWorker2.RunWorkerAsync();
+            //m.MailSalePDF(e_mail, ename);
+            //MessageBox.Show("Письма отправлены");
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
             string[] e_mail = new string[1];
             string[] ename = new string[1];
@@ -675,23 +707,50 @@ namespace Cursach
             SQLiteCommand sql = new SQLiteCommand(connection);
             sql.CommandText = @"SELECT * FROM Customer";
             SQLiteDataReader reader = sql.ExecuteReader();
-            int i=0;
+            int i = 0;
             foreach (DbDataRecord record in reader)
             {
                 ename[i] = record["FIO"].ToString();
                 e_mail[i] = record["email"].ToString();
                 Thread.Sleep(600);
                 i++;
-                Array.Resize(ref e_mail, i+1);
+                Array.Resize(ref e_mail, i + 1);
                 Array.Resize(ref ename, i + 1);
             }
             connection.Close();
             Array.Resize(ref e_mail, i);
             Array.Resize(ref ename, i);
-            m.MailSalePDF(e_mail, ename);
-            MessageBox.Show("Письма отправлены");
+
+            for (int j = 0; j < e_mail.Length; j++)
+            {
+                MailMessage message;
+                NetworkCredential credential;
+                SmtpClient client = new SmtpClient("smtp.rambler.ru", 587);
+                credential = new NetworkCredential("cursach.oop", "0123456789");
+                client.Credentials = credential;
+                var b = File.ReadAllBytes("doc\\SaleList.pdf");
+                var stream = new MemoryStream(b);
+                var attachment1 = new Attachment(stream, "SaleList.pdf", MediaTypeNames.Application.Pdf);
+                message = new MailMessage { Subject = ename[j] + ", Акции для вас!", Body = (j + 1).ToString() };
+                message.From = new MailAddress("cursach.oop@rambler.ru");//от кого
+                message.To.Add(e_mail[j]);//кому
+                message.SubjectEncoding = Encoding.GetEncoding(1251);
+                message.BodyEncoding = Encoding.GetEncoding(1251);
+                try
+                {
+                    message.Attachments.Add(attachment1);
+                    client.Send(message);
+                }
+                finally
+                {
+                    client.Dispose();
+                }
+            } 
         }
 
-        
+        private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Письма отправлены");
+        }        
     }
 }
