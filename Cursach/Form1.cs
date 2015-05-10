@@ -27,28 +27,28 @@ namespace Cursach
             InitializeComponent();
             FIO = FIO_;
             ID = ID_;
-            label8.Text = "" + FIO + "";
-            if (label8.Text == "")
+            l_Client.Text = "" + FIO + "";
+            if (l_Client.Text == "")
             {
-                label7.Visible = false;
-                label14.Visible = false;
+                l_admin.Visible = false;
+                l_cabinet.Visible = false;
             }
 
             else
-                if (label8.Text == "Admin")
+                if (l_Client.Text == "Admin")
                 {
-                    label7.Visible = true;
-                    label14.Visible = false;
+                    l_admin.Visible = true;
+                    l_cabinet.Visible = false;
                 }
                     
                 else
                 {
-                    label7.Visible = false;
-                    label14.Visible = true;
+                    l_admin.Visible = false;
+                    l_cabinet.Visible = true;
                 }
                  
             string d = CurrentTime.ToString("dd.MM.yyyy");
-            label6.Text = "Сегодня: " + d ;
+            l_datenow.Text = "Сегодня: " + d ;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -109,24 +109,24 @@ namespace Cursach
             DL.list = new List<Discount>();
             db.ResortComboBox();
             string[] RCB = db.ResortCB.Split(',');
-            comboBox1.Items.AddRange(RCB);
+            cb_resort.Items.AddRange(RCB);
             string[] DCB = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
-            comboBox2.Items.AddRange(DCB);
+            cb_DataStart.Items.AddRange(DCB);
             backgroundWorker1.RunWorkerAsync();
         }
 
         private void comboBox3_Click(object sender, EventArgs e)
         {
-            comboBox3.Items.Clear();
+            cb_DataEnd.Items.Clear();
             string[] DCB = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
             int index = 100;
-            if (comboBox2.Text != "")
+            if (cb_DataStart.Text != "")
             {               
                 string Text = "";
                 string Text1 = "";
                 for (int i = 0; i < DCB.GetLength(0); i++)
                 {
-                    if (DCB[i] == comboBox2.Text)
+                    if (DCB[i] == cb_DataStart.Text)
                     {
                         index = i;
                     }
@@ -142,12 +142,12 @@ namespace Cursach
                 Text += Text1;
                 Text = Text.Remove(Text.Length - 1, 1);
                 string[] DCB2 = Text.Split(',');
-                comboBox3.Items.AddRange(DCB2);
+                cb_DataEnd.Items.AddRange(DCB2);
                 index = 100;
             }
             else
             {
-                comboBox3.Items.AddRange(DCB);
+                cb_DataEnd.Items.AddRange(DCB);
             }
         }
 
@@ -155,7 +155,7 @@ namespace Cursach
         {            
             TL.list.Clear();
             BD db = new BD();
-            db.UserRequestsTour(comboBox1.Text, comboBox2.Text, comboBox3.Text, textBox1.Text, textBox2.Text, Convert.ToString(numericUpDown2.Value - 1), Convert.ToString(numericUpDown3.Value + 1));
+            db.UserRequestsTour(cb_resort.Text, cb_DataStart.Text, cb_DataEnd.Text, tb_priceMin.Text, tb_priceMax.Text, Convert.ToString(nud_countdayS.Value - 1), Convert.ToString(nud_countdayE.Value + 1));
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
             connection.Open();
             SQLiteCommand sql = new SQLiteCommand(connection);
@@ -176,11 +176,11 @@ namespace Cursach
                 T.dateE = Date[Convert.ToInt32(record["dataE"].ToString()) - 1];
                 TL.list.Add(T);
             }
-            listBox1.Items.Clear();
+            lb_tourlist.Items.Clear();
             for (int i = 0; i < TL.list.Count; i++)
             {
-                listBox1.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                listBox1.Items.Add(TL.list[i].name + "   Цена: " + TL.list[i].price + "руб.   Продолжительность: " + TL.list[i].duration + "   Курорт: " + TL.list[i].resort + "   Даты тура: c " + TL.list[i].dateS + " до " + TL.list[i].dateE);
+                lb_tourlist.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                lb_tourlist.Items.Add(TL.list[i].name + "   Цена: " + TL.list[i].price + "руб.   Продолжительность: " + TL.list[i].duration + "   Курорт: " + TL.list[i].resort + "   Даты тура: c " + TL.list[i].dateS + " до " + TL.list[i].dateE);
                 
             }
             doc.Calc(TL.list);
@@ -189,16 +189,16 @@ namespace Cursach
 
         private void button2_Click_1(object sender, EventArgs e) 
         {
-            if (listBox1.SelectedIndex != -1 && label8.Text != "")
+            if (lb_tourlist.SelectedIndex != -1 && l_Client.Text != "")
             {
                 Hide();
-                FormChoiceTour fct = new FormChoiceTour(TL.list[listBox1.SelectedIndex / 2].id, FIO, ID, TL.list[listBox1.SelectedIndex / 2].name, TL.list[listBox1.SelectedIndex / 2].price, TL.list[listBox1.SelectedIndex / 2].duration, TL.list[listBox1.SelectedIndex / 2].resort, TL.list[listBox1.SelectedIndex / 2].dateS, TL.list[listBox1.SelectedIndex / 2].dateE, "", Convert.ToInt32(numericUpDown1.Value));
+                FormChoiceTour fct = new FormChoiceTour(TL.list[lb_tourlist.SelectedIndex / 2].id, FIO, ID, TL.list[lb_tourlist.SelectedIndex / 2].name, TL.list[lb_tourlist.SelectedIndex / 2].price, TL.list[lb_tourlist.SelectedIndex / 2].duration, TL.list[lb_tourlist.SelectedIndex / 2].resort, TL.list[lb_tourlist.SelectedIndex / 2].dateS, TL.list[lb_tourlist.SelectedIndex / 2].dateE, "", Convert.ToInt32(nud_count.Value));
                 fct.ShowDialog();
                 this.Close();
             }
             else
             {
-                if (listBox2.SelectedIndex != -1 && label8.Text != "")
+                if (listBox2.SelectedIndex != -1 && l_Client.Text != "")
                 {
                     Hide();
                     FormChoiceTour fct = new FormChoiceTour(DL.list[listBox2.SelectedIndex / 3].id, FIO, ID, DL.list[listBox2.SelectedIndex / 3].nameTour, DL.list[listBox2.SelectedIndex / 3].price, "10", DL.list[listBox2.SelectedIndex / 3].nameResort, "Января", "Декабрь", "", Convert.ToInt32(numericUpDown4.Value));
@@ -207,7 +207,7 @@ namespace Cursach
                 }
                 else
                 {
-                    if (label8.Text == "") MessageBox.Show("Авторизируйтесь");
+                    if (l_Client.Text == "") MessageBox.Show("Авторизируйтесь");
                     else
                     {
                         if (listBox2.SelectedIndex == -1) MessageBox.Show("Выберите тур");
