@@ -21,6 +21,9 @@ using AODL.Document.Content.Text;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Класс "Document" для создания текстовых отчетов.
+    /// </summary>
     class Documents
     {
         Random r = new Random();
@@ -29,7 +32,26 @@ namespace Cursach
         BD db = new BD();
         string path;
         string Number;
-
+        /// <summary>
+        /// Формирует договор об оказанной услуги
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="IDTour"></param>
+        /// <param name="Fio">ФИО клиента</param>
+        /// <param name="usluga">Услуга</param>
+        /// <param name="hotel">Отель</param>
+        /// <param name="date">Дата</param>
+        /// <param name="datas">Дата начала</param>
+        /// <param name="col">Количество дней</param>
+        /// <param name="ex">экскурсии</param>
+        /// <param name="kol_tur">Кол-во туристов</param>
+        /// <param name="summa">общая сумма за тур</param>
+        /// <param name="address">Адресс</param>
+        /// <param name="paylist">расчетный счет</param>
+        /// <param name="Bank">Банк рассчетного счета</param>
+        /// <param name="TourPr">Цена тура</param>
+        /// <param name="ExPr">Цена Экскурсий</param>
+        /// <param name="ExId">Номер экскурсий</param>
         public void Dogovor(string ID, string IDTour, string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank, int TourPr, string ExPr, string ExId)
         {
             var doc = new Document();
@@ -220,6 +242,17 @@ namespace Cursach
             db.CustomerTour(ID, IDTour, Convert.ToString(Number), Convert.ToString(TourPr), dateDOG, ExId, ExPr, Convert.ToString(summa));
         }
 
+        /// <summary>
+        /// Формирует Счет к оказаной услуге.
+        /// </summary>
+        /// <param name="Fio"></param>
+        /// <param name="usluga"></param>
+        /// <param name="ex"></param>
+        /// <param name="summa"></param>
+        /// <param name="col"></param>
+        /// <param name="address"></param>
+        /// <param name="paylist"></param>
+        /// <param name="bank"></param>
         public void PaymentAccount(string Fio, string usluga,  string ex, int summa, int col, string address, string paylist, string bank)
         {
             string dop;
@@ -316,6 +349,10 @@ namespace Cursach
             doc.Close();
         }
 
+        /// <summary>
+        /// Формирует отчет в OpenOffice.Calc о всех подходящих турах
+        /// </summary>
+        /// <param name="l"></param>
         public void Calc(List<Tour> l)
         {
             SpreadsheetDocument spd = new SpreadsheetDocument();
@@ -338,7 +375,10 @@ namespace Cursach
             spd.TableCollection.Add(table);
             spd.SaveTo(@"doc\список_туров.ods");
         }
-
+        /// <summary>
+        /// Формирует отчет в PDF о скидках
+        /// </summary>
+        /// <param name="dis"></param>
         public  void SalePDF(List<Discount> dis)
         {
             var doc = new Document();
@@ -365,35 +405,55 @@ namespace Cursach
             doc.Close();   
 
         }
-
+ 
         DateTime Now = DateTime.Now;
         List<string> clientBank;
-        public void Client_Bank(string Fio, int summa, int price, int prisenow, string paylist )
+        /// <summary>
+        /// формирует счет об оплате "Клиент-Банк"
+        /// </summary>
+        /// <param name="Fio"></param>
+        /// <param name="summa"></param>
+        /// <param name="price"></param>
+        /// <param name="prisenow"></param>
+        /// <param name="paylist"></param>
+        public void Client_Bank(string Fio, int summa, int price, int prisenow, string paylist , string Number2 )
         {
             clientBank = new List<string>();
+            clientBank.Add("");
             clientBank.Add("1CCLIENTBANKExchenge");
             clientBank.Add("Версияфората=1.01");
             clientBank.Add("Кодировка=Windows");
-            clientBank.Add("ДатаНачала");
-            clientBank.Add("ДатаКонца");
             clientBank.Add("РасчСчет=" + paylist);
             clientBank.Add("СекцияРасчСчет");
-            clientBank.Add("ДатаНачала");
-            clientBank.Add("ДатаКонца");
             clientBank.Add("РасчСчет=" + paylist);
             clientBank.Add("Всего=" + summa);
             clientBank.Add("Поступило="+ price);
-            clientBank.Add("Остаток" + (summa-price));
+            clientBank.Add("Остаток=" + (summa-price));
             clientBank.Add("КонецРасчСчет");
             clientBank.Add("СекцияДокумент=Движение по счету");
-            clientBank.Add("Номер=" + Number);
+            if (price == 0)
+            {
+                clientBank.Add("Номер=" + Number);
+            }
+            else
+            {
+                clientBank.Add("Номер=" + Number2);
+            }
+            
             clientBank.Add("Дата=" + Now.ToString("dd.MM.yyyy"));
             clientBank.Add("Сумма=" + prisenow.ToString());
             clientBank.Add("ПлательщикСчет=" + Fio);
             SaveFile sf = new SaveFile(); 
             for (int i = 0; i < clientBank.Count; i++)
             {
-                sf.SaveAll(Application.StartupPath + @"\ClientBank\" + Now.ToString("ddMMyyyy") + ".txt", clientBank[i].ToString());
+                if (price == 0)
+                {
+                    sf.SaveAll(Application.StartupPath + @"\ClientBank\" + Number + ".txt", clientBank[i].ToString());
+                }
+                else
+                {
+                    sf.SaveAll(Application.StartupPath + @"\ClientBank\" + Number2 + ".txt", clientBank[i].ToString());
+                }
             }
         }
 

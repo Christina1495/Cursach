@@ -231,11 +231,7 @@ namespace Cursach
             f2.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            FormPersonal FP = new FormPersonal(FIO, ID);
-            FP.Show();
-        }
+        
 
         private void button3_Click(object sender, EventArgs e)
         {

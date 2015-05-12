@@ -24,6 +24,7 @@ namespace Cursach
             FIO = FIO_;
             ID = ID_;
             label1.Text = FIO;
+            
         }
 
         private void FormPersonal_Load(object sender, EventArgs e)
@@ -75,11 +76,12 @@ namespace Cursach
 
         private void button1_Click(object sender, EventArgs e)
         {
+            BD db = new BD();
             string d = CurrentTime.ToString("dd.MM.yyyy");
             if (listBox1.SelectedIndex != -1)
             {
                 Hide();
-                FormPayment FP = new FormPayment(ID, FIO, CTL.list[listBox1.SelectedIndex / 2].id, d, CTL.list[listBox1.SelectedIndex / 2].paid, Convert.ToString(Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].price) - Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].paid)), CTL.list[listBox1.SelectedIndex / 2].idTour);
+                FormPayment FP = new FormPayment(ID, FIO, CTL.list[listBox1.SelectedIndex / 2].id, d, CTL.list[listBox1.SelectedIndex / 2].paid, Convert.ToString(Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].price) - Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].paid)), CTL.list[listBox1.SelectedIndex / 2].idTour, CTL.list[listBox1.SelectedIndex / 2].contract, CTL.list[listBox1.SelectedIndex / 2].price );
                 FP.Show();
                 this.Close();
             }
