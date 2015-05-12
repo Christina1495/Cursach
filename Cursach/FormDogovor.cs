@@ -70,6 +70,7 @@ namespace Cursach
                 bank = textBox7.Text;
                 d.Dogovor(ID, IDTour, Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank, TourPR, ExPR, ExID);
                 d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
+                d.Client_Bank(Fio, summa, 0, 0, paylist);
                 MessageBox.Show("Done");
                 Hide();
                 Form1 f1 = new Form1(Fio, ID);

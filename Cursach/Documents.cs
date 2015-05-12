@@ -29,6 +29,7 @@ namespace Cursach
         BD db = new BD();
         string path;
         string Number;
+
         public void Dogovor(string ID, string IDTour, string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank, int TourPr, string ExPr, string ExId)
         {
             var doc = new Document();
@@ -362,6 +363,39 @@ namespace Cursach
                 doc.Add(a1);
             }
             doc.Close();   
+
         }
+
+        DateTime Now = DateTime.Now;
+        List<string> clientBank;
+        public void Client_Bank(string Fio, int summa, int price, int prisenow, string paylist )
+        {
+            clientBank = new List<string>();
+            clientBank.Add("1CCLIENTBANKExchenge");
+            clientBank.Add("Версияфората=1.01");
+            clientBank.Add("Кодировка=Windows");
+            clientBank.Add("ДатаНачала");
+            clientBank.Add("ДатаКонца");
+            clientBank.Add("РасчСчет=" + paylist);
+            clientBank.Add("СекцияРасчСчет");
+            clientBank.Add("ДатаНачала");
+            clientBank.Add("ДатаКонца");
+            clientBank.Add("РасчСчет=" + paylist);
+            clientBank.Add("Всего=" + summa);
+            clientBank.Add("Поступило="+ price);
+            clientBank.Add("Остаток" + (summa-price));
+            clientBank.Add("КонецРасчСчет");
+            clientBank.Add("СекцияДокумент=Движение по счету");
+            clientBank.Add("Номер=" + Number);
+            clientBank.Add("Дата=" + Now.ToString("dd.MM.yyyy"));
+            clientBank.Add("Сумма=" + prisenow.ToString());
+            clientBank.Add("ПлательщикСчет=" + Fio);
+            SaveFile sf = new SaveFile(); 
+            for (int i = 0; i < clientBank.Count; i++)
+            {
+                sf.SaveAll(Application.StartupPath + @"\ClientBank\" + Now.ToString("ddMMyyyy") + ".txt", clientBank[i].ToString());
+            }
+        }
+
     }
 }
