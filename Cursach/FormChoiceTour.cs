@@ -51,12 +51,12 @@ namespace Cursach
             HotelTour = hotelTour;
             Quantity = quantity;
             label1.Text = FIO;
-            textBox1.Text = "Тур: " + NameTour + Environment.NewLine;
+            tb_info.Text = "Тур: " + NameTour + Environment.NewLine;
             label3.Text = "Курорт: " + ResortTour;
             label4.Text = "Продолжительность: " + DurationTour;
             for (int i = 1; i < 31; i++)
             {
-                comboBox2.Items.Add(i);
+                cb_day.Items.Add(i);
             }
             bool S = false;
             string[] Date = { "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" };
@@ -69,7 +69,7 @@ namespace Cursach
                 }
                 if(S == true)
                 {
-                    comboBox1.Items.Add(DCB[i]);
+                    cb_month.Items.Add(DCB[i]);
                 }
                 if(Date[i] == DateETour)
                 {
@@ -103,11 +103,11 @@ namespace Cursach
                     HL.list.Add(H);
                 }
             }
-            listBox1.Items.Clear();
+            lb_ex.Items.Clear();
             for (int i = 0; i < HL.list.Count; i++)
             {
-                listBox2.Items.Add("--------------------------------------------------------");
-                listBox2.Items.Add(HL.list[i].name);
+                lb_hotel.Items.Add("--------------------------------------------------------");
+                lb_hotel.Items.Add(HL.list[i].name);
             }
             connection.Close();
         }
@@ -139,11 +139,11 @@ namespace Cursach
                 E.marks = record["marks"].ToString();
                 EL.list.Add(E);
             }
-            listBox1.Items.Clear();
+            lb_ex.Items.Clear();
             for (int i = 0; i < EL.list.Count; i++)
             {
-                listBox1.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                listBox1.Items.Add(EL.list[i].name + "   Цена: " + EL.list[i].price + "руб.   Продолжительность: " + EL.list[i].duration + "   Оценка: " + EL.list[i].marks);
+                lb_ex.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                lb_ex.Items.Add(EL.list[i].name + "   Цена: " + EL.list[i].price + "руб.   Продолжительность: " + EL.list[i].duration + "   Оценка: " + EL.list[i].marks);
             }
             connection.Close();
         }
@@ -155,11 +155,11 @@ namespace Cursach
             string dop = "";
             if (flag) dop = "экскурсии";
             else dop = "нет";
-            if (comboBox2.Text != "")
+            if (cb_day.Text != "")
             {
-                int dates = Convert.ToInt32(comboBox2.Text);
+                int dates = Convert.ToInt32(cb_day.Text);
                 Hide();
-                FormDogovor FD = new FormDogovor(ID, FIO, IDTour, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, Quantity, allCost, TourCost, ExCost, ExId);
+                FormDogovor FD = new FormDogovor(ID, FIO, IDTour, NameTour, HotelTour, dates, DateSTour, Convert.ToInt32(DurationTour), dop, Quantity, allCost, TourCost, ExCost, ExId, listEx);
                 FD.ShowDialog();
                 this.Close();
             }
@@ -177,15 +177,15 @@ namespace Cursach
         private void button5_Click(object sender, EventArgs e)
         {
             BD db = new BD();
-            if (listBox1.SelectedIndex != -1)
+            if (lb_ex.SelectedIndex != -1)
             {
-                db.marks(Convert.ToInt32(numericUpDown1.Value), EL.list[listBox1.SelectedIndex / 2].marks, EL.list[listBox1.SelectedIndex / 2].id);
-                EL.list[listBox1.SelectedIndex / 2].marks = Convert.ToString((Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].marks)) / 2);
-                listBox1.Items.Clear();
+                db.marks(Convert.ToInt32(nud_marks.Value), EL.list[lb_ex.SelectedIndex / 2].marks, EL.list[lb_ex.SelectedIndex / 2].id);
+                EL.list[lb_ex.SelectedIndex / 2].marks = Convert.ToString((Convert.ToInt32(nud_marks.Value) + Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].marks)) / 2);
+                lb_ex.Items.Clear();
                 for (int i = 0; i < EL.list.Count; i++)
                 {
-                    listBox1.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                    listBox1.Items.Add(EL.list[i].name + "   Цена: " + EL.list[i].price + "руб.   Продолжительность: " + EL.list[i].duration + "   Оценка: " + EL.list[i].marks);
+                    lb_ex.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    lb_ex.Items.Add(EL.list[i].name + "   Цена: " + EL.list[i].price + "руб.   Продолжительность: " + EL.list[i].duration + "   Оценка: " + EL.list[i].marks);
                 }
             }
             else
@@ -196,9 +196,9 @@ namespace Cursach
 
         private void информацияОбЭкскурсииToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
+            if (lb_ex.SelectedIndex != -1)
             {
-                FormDescription fd = new FormDescription(EL.list[listBox1.SelectedIndex / 2].name, EL.list[listBox1.SelectedIndex / 2].description);
+                FormDescription fd = new FormDescription(EL.list[lb_ex.SelectedIndex / 2].name, EL.list[lb_ex.SelectedIndex / 2].description);
                 fd.ShowDialog();
             }
             else
@@ -207,14 +207,17 @@ namespace Cursach
             }
         }
 
+        List<string> listEx = new List<string>();
+
         private void добавитьЭкскурсиюВТурToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
+            if (lb_ex.SelectedIndex != -1)
             {
-                textBox1.Text += "Экскурсия: " + EL.list[listBox1.SelectedIndex / 2].name + Environment.NewLine;
-                ExId += EL.list[listBox1.SelectedIndex / 2].id + "|";
-                ExCost += Convert.ToString(Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price)) + "|";
-                allCost += Quantity * Convert.ToInt32(EL.list[listBox1.SelectedIndex / 2].price);
+                tb_info.Text += "Экскурсия: " + EL.list[lb_ex.SelectedIndex / 2].name + Environment.NewLine;
+                listEx.Add("Экскурсия:" + EL.list[lb_ex.SelectedIndex / 2].name + " Цена:" + EL.list[lb_ex.SelectedIndex / 2].price);
+                ExId += EL.list[lb_ex.SelectedIndex / 2].id + "|";
+                ExCost += Convert.ToString(Quantity * Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].price)) + "|";
+                allCost += Quantity * Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].price);
                 label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
                 flag = true;
             }
@@ -233,20 +236,20 @@ namespace Cursach
         {
             if (H == true)
             {
-                int index = textBox1.Text.IndexOf("Отель: ");
+                int index = tb_info.Text.IndexOf("Отель: ");
                 if (index != -1)
                 {
-                    int index2 = textBox1.Text.IndexOf(" * ");
+                    int index2 = tb_info.Text.IndexOf(" * ");
                     if (index2 != -1)
                     {
-                        textBox1.Text = textBox1.Text.Remove(index - 1, index2 - index + 3);
+                        tb_info.Text = tb_info.Text.Remove(index - 1, index2 - index + 3);
                     }
                 }
             }
-            if (listBox2.SelectedIndex != -1)
+            if (lb_hotel.SelectedIndex != -1)
             {
-                HotelTour = HL.list[listBox2.SelectedIndex / 2].name;
-                textBox1.Text += "Отель: " + HL.list[listBox2.SelectedIndex / 2].name + " * " + Environment.NewLine;
+                HotelTour = HL.list[lb_hotel.SelectedIndex / 2].name;
+                tb_info.Text += "Отель: " + HL.list[lb_hotel.SelectedIndex / 2].name + " * " + Environment.NewLine;
                 H = true;
             }
             else
@@ -283,10 +286,10 @@ namespace Cursach
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int index = textBox1.Text.IndexOf("Экскурсия: ");
+            int index = tb_info.Text.IndexOf("Экскурсия: ");
             if(index != -1)
             {
-                textBox1.Text = textBox1.Text.Remove(index - 1);
+                tb_info.Text = tb_info.Text.Remove(index - 1);
             }
         }
 

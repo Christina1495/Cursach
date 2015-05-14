@@ -91,12 +91,12 @@ namespace Cursach
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            listBox2.Items.Clear();
+            lb_sale.Items.Clear();
             for (int i = 0; i < DL.list.Count; i++)
             {
-                listBox2.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                listBox2.Items.Add((i+1).ToString() + ") Описание: " + DL.list[i].description);
-                listBox2.Items.Add("Курорт: " + DL.list[i].nameResort + "  Тур: " + DL.list[i].nameTour + "   Цена: " + DL.list[i].price + "руб.  Скидка: " + DL.list[i].discount + "%");
+                lb_sale.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                lb_sale.Items.Add((i+1).ToString() + ") Описание: " + DL.list[i].description);
+                lb_sale.Items.Add("Курорт: " + DL.list[i].nameResort + "  Тур: " + DL.list[i].nameTour + "   Цена: " + DL.list[i].price + "руб.  Скидка: " + DL.list[i].discount + "%");
                 
             }
             doc.SalePDF(DL.list);
@@ -198,10 +198,10 @@ namespace Cursach
             }
             else
             {
-                if (listBox2.SelectedIndex != -1 && l_Client.Text != "")
+                if (lb_sale.SelectedIndex != -1 && l_Client.Text != "")
                 {
                     Hide();
-                    FormChoiceTour fct = new FormChoiceTour(DL.list[listBox2.SelectedIndex / 3].id, FIO, ID, DL.list[listBox2.SelectedIndex / 3].nameTour, DL.list[listBox2.SelectedIndex / 3].price, "10", DL.list[listBox2.SelectedIndex / 3].nameResort, "Января", "Декабрь", "", Convert.ToInt32(numericUpDown4.Value));
+                    FormChoiceTour fct = new FormChoiceTour(DL.list[lb_sale.SelectedIndex / 3].id, FIO, ID, DL.list[lb_sale.SelectedIndex / 3].nameTour, DL.list[lb_sale.SelectedIndex / 3].price, "10", DL.list[lb_sale.SelectedIndex / 3].nameResort, "Января", "Декабрь", "", Convert.ToInt32(nud_amount2.Value));
                     fct.ShowDialog();
                     this.Close();
                 }
@@ -210,7 +210,7 @@ namespace Cursach
                     if (l_Client.Text == "") MessageBox.Show("Авторизируйтесь");
                     else
                     {
-                        if (listBox2.SelectedIndex == -1) MessageBox.Show("Выберите тур");
+                        if (lb_sale.SelectedIndex == -1) MessageBox.Show("Выберите тур");
                     }
                 }
                 

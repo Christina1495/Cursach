@@ -48,6 +48,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -56,6 +57,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBox4);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.checkBox3);
             this.panel1.Controls.Add(this.checkBox2);
@@ -212,11 +214,21 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(97, 289);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(114, 17);
+            this.checkBox4.TabIndex = 5;
+            this.checkBox4.Text = "Деловая встреча";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
             // FormListThings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 468);
+            this.ClientSize = new System.Drawing.Size(460, 468);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormListThings";
@@ -252,5 +264,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }

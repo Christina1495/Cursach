@@ -24,9 +24,9 @@ namespace Cursach
             panel2.Visible = false;
             panel3.Visible = false;
         }
-        
-        
-        bool b = false, ex = false, p = false;
+
+
+        bool b = false, ex = false, p = false, of = false;
 
         List<string> mylist;
         private void button1_Click(object sender, EventArgs e)
@@ -36,7 +36,8 @@ namespace Cursach
             if (checkBox1.Checked) b = true; else b = false;
             if (checkBox2.Checked) ex = true; else ex = false;
             if (checkBox3.Checked) p = true; else p = false;
-  
+            if (checkBox4.Checked) of = true; else of = false;
+
             if (b == true)
             {
                 mylist.Add("===================");
@@ -57,6 +58,13 @@ namespace Cursach
                 mylist.Add("Вечеринка/ужин:");
                 mylist.Add("===================");
                 InList(3);
+            }
+            if (of == true)
+            {
+                mylist.Add("===================");
+                mylist.Add("Деловая встреча:");
+                mylist.Add("===================");
+                InList(7);
             }
             mylist.Add("===================");
             mylist.Add("Личные вещи:");

@@ -32,8 +32,9 @@ namespace Cursach
         int TourPR;
         string ExPR = "";
         string ExID = "";
+        List<string> listEx = new List<string>();
 
-        public FormDogovor(string Id_, string Fio_, string idTour, string usluga_, string hotel_, int date_, string datas_, int col_, string ex_, int kol_tur_, int summa_, int TourPr, string ExPr, string ExId)
+        public FormDogovor(string Id_, string Fio_, string idTour, string usluga_, string hotel_, int date_, string datas_, int col_, string ex_, int kol_tur_, int summa_, int TourPr, string ExPr, string ExId, List<string> ListEx)
         {
             InitializeComponent();
             ID = Id_;
@@ -58,6 +59,7 @@ namespace Cursach
             textBox5.Text = db.Apartment;
             textBox6.Text = db.Account;
             textBox7.Text = db.Bank;
+            listEx = ListEx;
         }
         
         private void button1_Click_1(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Cursach
                 address = textBox1.Text + ", г. " + textBox2.Text + ", " + textBox3.Text + ", " + textBox4.Text + ", " + textBox5.Text;
                 paylist = textBox6.Text;
                 bank = textBox7.Text;
-                d.Dogovor(ID, IDTour, Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank, TourPR, ExPR, ExID);
+                d.Dogovor(ID, IDTour, Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank, TourPR, ExPR, ExID, listEx);
                 
                 d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
                 d.Client_Bank(Fio, summa, 0, 0, paylist,"");

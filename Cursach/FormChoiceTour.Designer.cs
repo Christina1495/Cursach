@@ -30,88 +30,88 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.b_exdel = new System.Windows.Forms.Button();
+            this.b_doc = new System.Windows.Forms.Button();
+            this.lb_hotel = new System.Windows.Forms.ListBox();
+            this.cms_ex = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.выбратьОтельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_info = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.b_ex = new System.Windows.Forms.Button();
+            this.cb_day = new System.Windows.Forms.ComboBox();
+            this.cb_month = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lb_ex = new System.Windows.Forms.ListBox();
+            this.cms_hotel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.информацияОбЭкскурсииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьЭкскурсиюВТурToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button5 = new System.Windows.Forms.Button();
+            this.nud_marks = new System.Windows.Forms.NumericUpDown();
+            this.b_marks = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.cms_ex.SuspendLayout();
+            this.cms_hotel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_marks)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.listBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.b_exdel);
+            this.panel1.Controls.Add(this.b_doc);
+            this.panel1.Controls.Add(this.lb_hotel);
+            this.panel1.Controls.Add(this.tb_info);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.b_ex);
+            this.panel1.Controls.Add(this.cb_day);
+            this.panel1.Controls.Add(this.cb_month);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(715, 226);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // b_exdel
             // 
-            this.button4.Location = new System.Drawing.Point(90, 190);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Удалить экскурсии";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.b_exdel.Location = new System.Drawing.Point(90, 190);
+            this.b_exdel.Name = "b_exdel";
+            this.b_exdel.Size = new System.Drawing.Size(129, 23);
+            this.b_exdel.TabIndex = 12;
+            this.b_exdel.Text = "Удалить экскурсии";
+            this.b_exdel.UseVisualStyleBackColor = true;
+            this.b_exdel.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button1
+            // b_doc
             // 
-            this.button1.Location = new System.Drawing.Point(295, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Документы";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.b_doc.Location = new System.Drawing.Point(295, 190);
+            this.b_doc.Name = "b_doc";
+            this.b_doc.Size = new System.Drawing.Size(75, 23);
+            this.b_doc.TabIndex = 7;
+            this.b_doc.Text = "Документы";
+            this.b_doc.UseVisualStyleBackColor = true;
+            this.b_doc.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox2
+            // lb_hotel
             // 
-            this.listBox2.ContextMenuStrip = this.contextMenuStrip2;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(456, 81);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(221, 134);
-            this.listBox2.TabIndex = 9;
+            this.lb_hotel.ContextMenuStrip = this.cms_ex;
+            this.lb_hotel.FormattingEnabled = true;
+            this.lb_hotel.Location = new System.Drawing.Point(456, 81);
+            this.lb_hotel.Name = "lb_hotel";
+            this.lb_hotel.Size = new System.Drawing.Size(221, 134);
+            this.lb_hotel.TabIndex = 9;
             // 
-            // contextMenuStrip2
+            // cms_ex
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cms_ex.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выбратьОтельToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(156, 26);
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            this.cms_ex.Name = "contextMenuStrip2";
+            this.cms_ex.Size = new System.Drawing.Size(156, 26);
+            this.cms_ex.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // выбратьОтельToolStripMenuItem
             // 
@@ -120,15 +120,15 @@
             this.выбратьОтельToolStripMenuItem.Text = "Выбрать отель";
             this.выбратьОтельToolStripMenuItem.Click += new System.EventHandler(this.выбратьОтельToolStripMenuItem_Click);
             // 
-            // textBox1
+            // tb_info
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(9, 81);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(422, 103);
-            this.textBox1.TabIndex = 8;
+            this.tb_info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_info.Location = new System.Drawing.Point(9, 81);
+            this.tb_info.Multiline = true;
+            this.tb_info.Name = "tb_info";
+            this.tb_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_info.Size = new System.Drawing.Size(422, 103);
+            this.tb_info.TabIndex = 8;
             // 
             // label5
             // 
@@ -163,31 +163,31 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Курорт";
             // 
-            // button2
+            // b_ex
             // 
-            this.button2.Location = new System.Drawing.Point(9, 190);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Экскурсии";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.b_ex.Location = new System.Drawing.Point(9, 190);
+            this.b_ex.Name = "b_ex";
+            this.b_ex.Size = new System.Drawing.Size(75, 23);
+            this.b_ex.TabIndex = 10;
+            this.b_ex.Text = "Экскурсии";
+            this.b_ex.UseVisualStyleBackColor = true;
+            this.b_ex.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox2
+            // cb_day
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(508, 18);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(42, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cb_day.FormattingEnabled = true;
+            this.cb_day.Location = new System.Drawing.Point(508, 18);
+            this.cb_day.Name = "cb_day";
+            this.cb_day.Size = new System.Drawing.Size(42, 21);
+            this.cb_day.TabIndex = 3;
             // 
-            // comboBox1
+            // cb_month
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(556, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cb_month.FormattingEnabled = true;
+            this.cb_month.Location = new System.Drawing.Point(556, 18);
+            this.cb_month.Name = "cb_month";
+            this.cb_month.Size = new System.Drawing.Size(121, 21);
+            this.cb_month.TabIndex = 2;
             // 
             // label1
             // 
@@ -199,22 +199,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ФИО";
             // 
-            // listBox1
+            // lb_ex
             // 
-            this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 244);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(715, 134);
-            this.listBox1.TabIndex = 9;
+            this.lb_ex.ContextMenuStrip = this.cms_hotel;
+            this.lb_ex.FormattingEnabled = true;
+            this.lb_ex.Location = new System.Drawing.Point(12, 244);
+            this.lb_ex.Name = "lb_ex";
+            this.lb_ex.Size = new System.Drawing.Size(715, 134);
+            this.lb_ex.TabIndex = 9;
             // 
-            // contextMenuStrip1
+            // cms_hotel
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cms_hotel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.информацияОбЭкскурсииToolStripMenuItem,
             this.добавитьЭкскурсиюВТурToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 48);
+            this.cms_hotel.Name = "contextMenuStrip1";
+            this.cms_hotel.Size = new System.Drawing.Size(226, 48);
             // 
             // информацияОбЭкскурсииToolStripMenuItem
             // 
@@ -232,39 +232,39 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.nud_marks);
+            this.panel2.Controls.Add(this.b_marks);
             this.panel2.Location = new System.Drawing.Point(12, 383);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(120, 27);
             this.panel2.TabIndex = 17;
             // 
-            // numericUpDown1
+            // nud_marks
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(76, 4);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nud_marks.Location = new System.Drawing.Point(76, 4);
+            this.nud_marks.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown1.TabIndex = 18;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nud_marks.Name = "nud_marks";
+            this.nud_marks.Size = new System.Drawing.Size(38, 20);
+            this.nud_marks.TabIndex = 18;
+            this.nud_marks.Value = new decimal(new int[] {
             5,
             0,
             0,
             0});
             // 
-            // button5
+            // b_marks
             // 
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(67, 21);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Оценить ";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.b_marks.Location = new System.Drawing.Point(3, 3);
+            this.b_marks.Name = "b_marks";
+            this.b_marks.Size = new System.Drawing.Size(67, 21);
+            this.b_marks.TabIndex = 18;
+            this.b_marks.Text = "Оценить ";
+            this.b_marks.UseVisualStyleBackColor = true;
+            this.b_marks.Click += new System.EventHandler(this.button5_Click);
             // 
             // label6
             // 
@@ -283,7 +283,7 @@
             this.ClientSize = new System.Drawing.Size(739, 413);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lb_ex);
             this.Controls.Add(this.panel1);
             this.Name = "FormChoiceTour";
             this.Text = "FormChoiceTour";
@@ -291,10 +291,10 @@
             this.Load += new System.EventHandler(this.FormChoiceTour_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.contextMenuStrip2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.cms_ex.ResumeLayout(false);
+            this.cms_hotel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_marks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,25 +304,25 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_doc;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cb_day;
+        private System.Windows.Forms.ComboBox cb_month;
+        private System.Windows.Forms.ListBox lb_ex;
+        private System.Windows.Forms.Button b_ex;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button b_marks;
+        private System.Windows.Forms.NumericUpDown nud_marks;
+        private System.Windows.Forms.TextBox tb_info;
+        private System.Windows.Forms.ContextMenuStrip cms_hotel;
         private System.Windows.Forms.ToolStripMenuItem информацияОбЭкскурсииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьЭкскурсиюВТурToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ListBox lb_hotel;
+        private System.Windows.Forms.ContextMenuStrip cms_ex;
         private System.Windows.Forms.ToolStripMenuItem выбратьОтельToolStripMenuItem;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button b_exdel;
         private System.Windows.Forms.Label label6;
     }
 }

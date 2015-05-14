@@ -52,7 +52,7 @@ namespace Cursach
         /// <param name="TourPr">Цена тура</param>
         /// <param name="ExPr">Цена Экскурсий</param>
         /// <param name="ExId">Номер экскурсий</param>
-        public void Dogovor(string ID, string IDTour, string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank, int TourPr, string ExPr, string ExId)
+        public void Dogovor(string ID, string IDTour, string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank, int TourPr, string ExPr, string ExId, List<string> listEx)
         {
             var doc = new Document();
             Number = now.ToString("ddMMyyyy") +""+ now.ToString("Hmss");
@@ -237,6 +237,31 @@ namespace Cursach
             cell4.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cell4);
             doc.Add(table);
+            if (usluga!="нет")
+            {
+                doc.NewPage();
+                iTextSharp.text.Phrase pr = new Phrase("Приложение",
+                new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)));
+                iTextSharp.text.Paragraph r1 = new iTextSharp.text.Paragraph(pr);
+                r1.Add(Environment.NewLine);
+                r1.Alignment = Element.ALIGN_CENTER;
+                r1.SpacingAfter = 5;
+                doc.Add(r1);
+                for (int i=0; i<listEx.Count; i++)
+                {
+                    iTextSharp.text.Phrase pr2 = new Phrase((i+1).ToString() +". "+ listEx[i],
+                        new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
+                    new BaseColor(Color.Black)));
+                    iTextSharp.text.Paragraph r2 = new iTextSharp.text.Paragraph(pr2);
+                    r2.Add(Environment.NewLine);
+                    r2.SpacingAfter = 5;
+                    doc.Add(r2);
+                }
+                
+            }
+
+
             doc.Close();
             string dateDOG = now.ToString("dd.MM.yyyy");
             db.CustomerTour(ID, IDTour, Convert.ToString(Number), Convert.ToString(TourPr), dateDOG, ExId, ExPr, Convert.ToString(summa));

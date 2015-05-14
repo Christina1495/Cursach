@@ -30,7 +30,7 @@ namespace Cursach
         private void button1_Click(object sender, EventArgs e)
         {
             BD db = new BD();
-            string Message = db.Authorization(textBox1.Text, textBox2.Text);
+            string Message = db.Authorization(tb_email.Text, tb_password.Text);
             if (Message == "ok")
             {
                 Hide();
