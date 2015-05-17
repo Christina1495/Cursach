@@ -7,8 +7,16 @@ using System.IO;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Класс для сохранения в файл форматом .txt и .docx
+    /// </summary>
     class SaveFile
     {
+        /// <summary>
+        /// сохранения в файл форматом .txt и .docx
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="info"></param>
         public void SaveAll(string path, string info)
         {
             FileStream f2 = new FileStream(path, FileMode.Append);

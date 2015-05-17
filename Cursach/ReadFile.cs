@@ -8,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Класс чтения файлов
+    /// </summary>
     class ReadFile
     {
-
+        /// <summary>
+        /// Чтение строки из файла
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public string text(string path)
         {
             string text = "";
@@ -26,7 +33,11 @@ namespace Cursach
             return text;
         }
         int counter;
-
+        /// <summary>
+        /// Чтение массива из файла
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public string[] mass_text(string path)
         {
             string[] masList = new string[1];

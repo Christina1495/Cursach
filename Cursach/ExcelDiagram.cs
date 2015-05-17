@@ -7,14 +7,16 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Класс создания отчета в Excel.
+    /// </summary>
     class ExcelDiagram
     {
         /// <summary>
-        /// Создание диаграммы прибыли по месяцам
+        /// Создание графика прибыли по месяцам в Excel
         /// </summary>
-        /// 
-
-        
+        /// <param name="exc"></param>
+        /// <returns></returns>    
         public string excel(int[] exc)
         {
             Excel.Application xlapp = new Excel.Application();

@@ -32,26 +32,28 @@ namespace Cursach
         BD db = new BD();
         string path;
         string Number;
+        
         /// <summary>
         /// Формирует договор об оказанной услуги
         /// </summary>
         /// <param name="ID"></param>
         /// <param name="IDTour"></param>
-        /// <param name="Fio">ФИО клиента</param>
-        /// <param name="usluga">Услуга</param>
-        /// <param name="hotel">Отель</param>
-        /// <param name="date">Дата</param>
-        /// <param name="datas">Дата начала</param>
-        /// <param name="col">Количество дней</param>
-        /// <param name="ex">экскурсии</param>
-        /// <param name="kol_tur">Кол-во туристов</param>
-        /// <param name="summa">общая сумма за тур</param>
-        /// <param name="address">Адресс</param>
-        /// <param name="paylist">расчетный счет</param>
-        /// <param name="Bank">Банк рассчетного счета</param>
-        /// <param name="TourPr">Цена тура</param>
-        /// <param name="ExPr">Цена Экскурсий</param>
-        /// <param name="ExId">Номер экскурсий</param>
+        /// <param name="Fio"></param>
+        /// <param name="usluga"></param>
+        /// <param name="hotel"></param>
+        /// <param name="date"></param>
+        /// <param name="datas"></param>
+        /// <param name="col"></param>
+        /// <param name="ex"></param>
+        /// <param name="kol_tur"></param>
+        /// <param name="summa"></param>
+        /// <param name="address"></param>
+        /// <param name="paylist"></param>
+        /// <param name="Bank"></param>
+        /// <param name="TourPr"></param>
+        /// <param name="ExPr"></param>
+        /// <param name="ExId"></param>
+        /// <param name="listEx"></param>   
         public void Dogovor(string ID, string IDTour, string Fio, string usluga, string hotel, int date, string datas, int col, string ex, int kol_tur, int summa, string address, string paylist, string Bank, int TourPr, string ExPr, string ExId, List<string> listEx)
         {
             var doc = new Document();
@@ -294,7 +296,6 @@ namespace Cursach
                     new BaseColor(Color.Black)));
             iTextSharp.text.Paragraph a1 = new iTextSharp.text.Paragraph(j);
             a1.Add(Environment.NewLine);
-            //a1.Alignment = Element.ALIGN_CENTER;
             a1.Add("Адрес: 354000, г.Сочи, ул. Конституции СССР, 18/В"); a1.Add(Environment.NewLine);
             a1.Add("ИНН: 123467890"); a1.Add(Environment.NewLine);
             a1.Add("Расчетный счет: 12345678901234567890"); a1.Add(Environment.NewLine);
@@ -308,7 +309,6 @@ namespace Cursach
                     new BaseColor(Color.Black)));
             iTextSharp.text.Paragraph a2 = new iTextSharp.text.Paragraph(j2);
             a2.Add(Environment.NewLine);
-            //a1.Alignment = Element.ALIGN_CENTER;
             a2.Add("Адрес: " + address); a2.Add(Environment.NewLine);
             a2.Add("Расчетный счет:" + paylist ); a2.Add(Environment.NewLine);
             a2.Add("Банк: " + bank); a2.Add(Environment.NewLine);
@@ -369,8 +369,6 @@ namespace Cursach
             a5.Add(new Phrase("Подпись турагента: _____________________/____________            М.П.", new iTextSharp.text.Font(baseFont, 11, iTextSharp.text.Font.BOLDITALIC,
                     new BaseColor(Color.Black))));
             doc.Add(a5);
-
-
             doc.Close();
         }
 
@@ -385,7 +383,6 @@ namespace Cursach
             TextDocument doc = new TextDocument();
             doc.New();
             Table table = new Table(spd, "First", "tablefirst");
-
             for (int i=l.Count-1; i>-1;i--)
             {
                 Cell cell = table.CreateCell("cell {0}");
@@ -395,11 +392,11 @@ namespace Cursach
                 p.TextContent.Add(new SimpleText(spd, l[i].name + "   Цена: " + l[i].price + "руб.   Продолжительность: " + l[i].duration + "   Курорт: " + l[i].resort + "   Даты тура: c " + l[i].dateS + " до " + l[i].dateE));
                 cell.Content.Add(p);
                 table.InsertCellAt(i+2, 4, cell);
-            }
-            
+            }            
             spd.TableCollection.Add(table);
             spd.SaveTo(@"doc\список_туров.ods");
         }
+
         /// <summary>
         /// Формирует отчет в PDF о скидках
         /// </summary>
@@ -428,7 +425,6 @@ namespace Cursach
                 doc.Add(a1);
             }
             doc.Close();   
-
         }
  
         DateTime Now = DateTime.Now;
@@ -463,8 +459,7 @@ namespace Cursach
             else
             {
                 clientBank.Add("Номер=" + Number2);
-            }
-            
+            } 
             clientBank.Add("Дата=" + Now.ToString("dd.MM.yyyy"));
             clientBank.Add("Сумма=" + prisenow.ToString());
             clientBank.Add("ПлательщикСчет=" + Fio);

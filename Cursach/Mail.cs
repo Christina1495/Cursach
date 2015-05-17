@@ -10,6 +10,9 @@ using System.IO;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Класс почты
+    /// </summary>
     class Mail
     {
         /// <summary>
