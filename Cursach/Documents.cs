@@ -262,8 +262,6 @@ namespace Cursach
                 }
                 
             }
-
-
             doc.Close();
             string dateDOG = now.ToString("dd.MM.yyyy");
             db.CustomerTour(ID, IDTour, Convert.ToString(Number), Convert.ToString(TourPr), dateDOG, ExId, ExPr, Convert.ToString(summa));

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Лист с Турами
+    /// </summary>
     public class Tour
     {
         public string id;
@@ -16,23 +19,33 @@ namespace Cursach
         public string dateS;
         public string dateE;
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class TourList
     {
         public TourList() { }
         public List<Tour> list;
     }
-
+    /// <summary>
+    /// Лист с Отелями
+    /// </summary>
     public class Hotel
     {
         public string id;
         public string name;
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class HotelList
     {
         public HotelList() { }
         public List<Hotel> list;
     }
-
+    /// <summary>
+    /// Лист с Экскурсиями
+    /// </summary>
     public class Excursion
     {
         public string id;
@@ -42,12 +55,17 @@ namespace Cursach
         public string description;
         public string marks;
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class ExcursionList
     {
         public ExcursionList() { }
         public List<Excursion> list;
     }
-
+    /// <summary>
+    /// Лист с информацией о пользователе
+    /// </summary>
     public class CustomerTour
     {
         public string id;
@@ -59,12 +77,17 @@ namespace Cursach
         public string paid;
         public string idTour;
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class CustomerTourList
     {
         public CustomerTourList() { }
         public List<CustomerTour> list;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class Discount
     {
         public string id;
@@ -75,12 +98,17 @@ namespace Cursach
         public string description;
         public string idResort;
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class DiscountList
     {
         public DiscountList() { }
         public List<Discount> list;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class Date_Tour
     {
         public string idTour;
@@ -88,6 +116,9 @@ namespace Cursach
         public string nameTour;
         public string date;
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class Date_TourList
     {
         public Date_TourList() { }

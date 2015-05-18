@@ -28,17 +28,17 @@ namespace Cursach
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text != null && textBox2.Text != null && textBox5.Text != null && textBox4.Text != null)
+            if(tb_fio.Text != null && tb_email.Text != null && tb_password1.Text != null && tb_password2.Text != null)
             {
-                if (textBox5.Text == textBox4.Text)
+                if (tb_password1.Text == tb_password2.Text)
                 {
                     BD db = new BD();
-                    db.Registration(textBox1.Text, textBox2.Text, textBox5.Text);
+                    db.Registration(tb_fio.Text, tb_email.Text, tb_password1.Text);
                 }
                 else
                 {
-                    textBox5.Text = "";
-                    textBox4.Text = "";
+                    tb_password1.Text = "";
+                    tb_password2.Text = "";
                     MessageBox.Show("Неверный пароль");
                 }
                 MessageBox.Show("Спасибо за регистрацию, теперь вы можите авторизироваться!");
@@ -52,21 +52,21 @@ namespace Cursach
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox3.Text = "";
+            tb_ginpassword.Text = "";
             Random r = new Random();
             string password = "qw1ert3yui2op4a5sdf7ghj6kl8z9xcvb0nm";
             int index;
             for (int i = 0; i < 8; i++)
             {
                 index = r.Next(0, 35);
-                textBox3.Text += password[index];
+                tb_ginpassword.Text += password[index];
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox5.Text = textBox3.Text;
-            textBox4.Text = textBox3.Text;
+            tb_password1.Text = tb_ginpassword.Text;
+            tb_password2.Text = tb_ginpassword.Text;
         }
 
         private void FormRegistration_Load(object sender, EventArgs e)

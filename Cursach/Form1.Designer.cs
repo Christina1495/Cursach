@@ -1,6 +1,6 @@
 ﻿namespace Cursach
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -54,7 +54,6 @@
             this.p_main = new System.Windows.Forms.Panel();
             this.l_cabinet = new System.Windows.Forms.Label();
             this.l_Client = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.p_resort2 = new System.Windows.Forms.Panel();
             this.p_3 = new System.Windows.Forms.Panel();
             this.l_datenow = new System.Windows.Forms.Label();
@@ -344,17 +343,6 @@
             this.l_Client.Size = new System.Drawing.Size(0, 23);
             this.l_Client.TabIndex = 17;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(671, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Отчет";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // p_resort2
             // 
             this.p_resort2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
@@ -367,7 +355,6 @@
             // p_3
             // 
             this.p_3.Controls.Add(this.l_datenow);
-            this.p_3.Controls.Add(this.button3);
             this.p_3.Controls.Add(this.b_Ok);
             this.p_3.Location = new System.Drawing.Point(12, 362);
             this.p_3.Name = "p_3";
@@ -461,7 +448,7 @@
             this.backgroundWorker2.WorkerReportsProgress = true;
             this.backgroundWorker2.WorkerSupportsCancellation = true;
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -470,8 +457,8 @@
             this.Controls.Add(this.tc_form1);
             this.Controls.Add(this.p_3);
             this.Controls.Add(this.p_main);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormMain";
+            this.Text = "Турфирам \"Ривьера-Сочи\"";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.p_resort.ResumeLayout(false);
             this.p_resort.PerformLayout();
@@ -516,7 +503,6 @@
         private System.Windows.Forms.Label l_admin;
         private System.Windows.Forms.Panel p_main;
         private System.Windows.Forms.Label l_Client;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label l_amount;
         private System.Windows.Forms.Label l_de;
         private System.Windows.Forms.Label l_ds;

@@ -28,223 +28,213 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.l_info1 = new System.Windows.Forms.Label();
+            this.p_main = new System.Windows.Forms.Panel();
+            this.b_ok = new System.Windows.Forms.Button();
+            this.gb_document = new System.Windows.Forms.GroupBox();
+            this.l_info2 = new System.Windows.Forms.Label();
+            this.tb_bank = new System.Windows.Forms.TextBox();
+            this.tb_payment = new System.Windows.Forms.TextBox();
+            this.l_bank = new System.Windows.Forms.Label();
+            this.l_payment = new System.Windows.Forms.Label();
+            this.gb_address = new System.Windows.Forms.GroupBox();
+            this.tb_numberkv = new System.Windows.Forms.TextBox();
+            this.tb_numberdom = new System.Windows.Forms.TextBox();
+            this.tb_street = new System.Windows.Forms.TextBox();
+            this.tb_city = new System.Windows.Forms.TextBox();
+            this.l_numberkv = new System.Windows.Forms.Label();
+            this.l_numberdom = new System.Windows.Forms.Label();
+            this.l_street = new System.Windows.Forms.Label();
+            this.l_city = new System.Windows.Forms.Label();
+            this.l_postindex = new System.Windows.Forms.Label();
+            this.tb_postindex = new System.Windows.Forms.TextBox();
+            this.p_main.SuspendLayout();
+            this.gb_document.SuspendLayout();
+            this.gb_address.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // l_info1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Для оформления договора и счета на оплату, заполните форму:";
+            this.l_info1.AutoSize = true;
+            this.l_info1.Location = new System.Drawing.Point(12, 9);
+            this.l_info1.Name = "l_info1";
+            this.l_info1.Size = new System.Drawing.Size(335, 13);
+            this.l_info1.TabIndex = 0;
+            this.l_info1.Text = "Для оформления договора и счета на оплату, заполните форму:";
             // 
-            // panel1
+            // p_main
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(15, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 261);
-            this.panel1.TabIndex = 1;
+            this.p_main.Controls.Add(this.b_ok);
+            this.p_main.Controls.Add(this.gb_document);
+            this.p_main.Controls.Add(this.gb_address);
+            this.p_main.Location = new System.Drawing.Point(15, 25);
+            this.p_main.Name = "p_main";
+            this.p_main.Size = new System.Drawing.Size(510, 261);
+            this.p_main.TabIndex = 1;
             // 
-            // button1
+            // b_ok
             // 
-            this.button1.Location = new System.Drawing.Point(153, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Составить договор и расчетный счет:";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.b_ok.Location = new System.Drawing.Point(153, 231);
+            this.b_ok.Name = "b_ok";
+            this.b_ok.Size = new System.Drawing.Size(210, 23);
+            this.b_ok.TabIndex = 2;
+            this.b_ok.Text = "Составить договор и расчетный счет:";
+            this.b_ok.UseVisualStyleBackColor = true;
+            this.b_ok.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // groupBox2
+            // gb_document
             // 
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(16, 131);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(472, 94);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Документы:";
+            this.gb_document.Controls.Add(this.l_info2);
+            this.gb_document.Controls.Add(this.tb_bank);
+            this.gb_document.Controls.Add(this.tb_payment);
+            this.gb_document.Controls.Add(this.l_bank);
+            this.gb_document.Controls.Add(this.l_payment);
+            this.gb_document.Location = new System.Drawing.Point(16, 131);
+            this.gb_document.Name = "gb_document";
+            this.gb_document.Size = new System.Drawing.Size(472, 94);
+            this.gb_document.TabIndex = 1;
+            this.gb_document.TabStop = false;
+            this.gb_document.Text = "Документы:";
             // 
-            // label9
+            // l_info2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 78);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 13);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "(*) - поля обязательные для заполнения.";
+            this.l_info2.AutoSize = true;
+            this.l_info2.Location = new System.Drawing.Point(6, 78);
+            this.l_info2.Name = "l_info2";
+            this.l_info2.Size = new System.Drawing.Size(213, 13);
+            this.l_info2.TabIndex = 11;
+            this.l_info2.Text = "(*) - поля обязательные для заполнения.";
             // 
-            // textBox7
+            // tb_bank
             // 
-            this.textBox7.Location = new System.Drawing.Point(106, 47);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(356, 20);
-            this.textBox7.TabIndex = 10;
+            this.tb_bank.Location = new System.Drawing.Point(106, 47);
+            this.tb_bank.Name = "tb_bank";
+            this.tb_bank.Size = new System.Drawing.Size(356, 20);
+            this.tb_bank.TabIndex = 10;
             // 
-            // textBox6
+            // tb_payment
             // 
-            this.textBox6.Location = new System.Drawing.Point(106, 23);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(356, 20);
-            this.textBox6.TabIndex = 9;
+            this.tb_payment.Location = new System.Drawing.Point(106, 23);
+            this.tb_payment.Name = "tb_payment";
+            this.tb_payment.Size = new System.Drawing.Size(356, 20);
+            this.tb_payment.TabIndex = 9;
             // 
-            // label8
+            // l_bank
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(61, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Банк:*";
+            this.l_bank.AutoSize = true;
+            this.l_bank.Location = new System.Drawing.Point(61, 50);
+            this.l_bank.Name = "l_bank";
+            this.l_bank.Size = new System.Drawing.Size(39, 13);
+            this.l_bank.TabIndex = 6;
+            this.l_bank.Text = "Банк:*";
             // 
-            // label7
+            // l_payment
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Расчетный счет:*";
+            this.l_payment.AutoSize = true;
+            this.l_payment.Location = new System.Drawing.Point(6, 26);
+            this.l_payment.Name = "l_payment";
+            this.l_payment.Size = new System.Drawing.Size(94, 13);
+            this.l_payment.TabIndex = 5;
+            this.l_payment.Text = "Расчетный счет:*";
             // 
-            // groupBox1
+            // gb_address
             // 
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 14);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(472, 111);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Адрес:";
+            this.gb_address.Controls.Add(this.tb_numberkv);
+            this.gb_address.Controls.Add(this.tb_numberdom);
+            this.gb_address.Controls.Add(this.tb_street);
+            this.gb_address.Controls.Add(this.tb_city);
+            this.gb_address.Controls.Add(this.l_numberkv);
+            this.gb_address.Controls.Add(this.l_numberdom);
+            this.gb_address.Controls.Add(this.l_street);
+            this.gb_address.Controls.Add(this.l_city);
+            this.gb_address.Controls.Add(this.l_postindex);
+            this.gb_address.Controls.Add(this.tb_postindex);
+            this.gb_address.Location = new System.Drawing.Point(16, 14);
+            this.gb_address.Name = "gb_address";
+            this.gb_address.Size = new System.Drawing.Size(472, 111);
+            this.gb_address.TabIndex = 0;
+            this.gb_address.TabStop = false;
+            this.gb_address.Text = "Адрес:";
             // 
-            // textBox5
+            // tb_numberkv
             // 
-            this.textBox5.Location = new System.Drawing.Point(172, 72);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(42, 20);
-            this.textBox5.TabIndex = 9;
+            this.tb_numberkv.Location = new System.Drawing.Point(172, 72);
+            this.tb_numberkv.Name = "tb_numberkv";
+            this.tb_numberkv.Size = new System.Drawing.Size(42, 20);
+            this.tb_numberkv.TabIndex = 9;
             // 
-            // textBox4
+            // tb_numberdom
             // 
-            this.textBox4.Location = new System.Drawing.Point(54, 72);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(42, 20);
-            this.textBox4.TabIndex = 8;
+            this.tb_numberdom.Location = new System.Drawing.Point(54, 72);
+            this.tb_numberdom.Name = "tb_numberdom";
+            this.tb_numberdom.Size = new System.Drawing.Size(42, 20);
+            this.tb_numberdom.TabIndex = 8;
             // 
-            // textBox3
+            // tb_street
             // 
-            this.textBox3.Location = new System.Drawing.Point(54, 47);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(408, 20);
-            this.textBox3.TabIndex = 7;
+            this.tb_street.Location = new System.Drawing.Point(54, 47);
+            this.tb_street.Name = "tb_street";
+            this.tb_street.Size = new System.Drawing.Size(408, 20);
+            this.tb_street.TabIndex = 7;
             // 
-            // textBox2
+            // tb_city
             // 
-            this.textBox2.Location = new System.Drawing.Point(291, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 20);
-            this.textBox2.TabIndex = 6;
+            this.tb_city.Location = new System.Drawing.Point(291, 19);
+            this.tb_city.Name = "tb_city";
+            this.tb_city.Size = new System.Drawing.Size(171, 20);
+            this.tb_city.TabIndex = 6;
             // 
-            // label6
+            // l_numberkv
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(108, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Квартира:";
+            this.l_numberkv.AutoSize = true;
+            this.l_numberkv.Location = new System.Drawing.Point(108, 75);
+            this.l_numberkv.Name = "l_numberkv";
+            this.l_numberkv.Size = new System.Drawing.Size(58, 13);
+            this.l_numberkv.TabIndex = 5;
+            this.l_numberkv.Text = "Квартира:";
             // 
-            // label5
+            // l_numberdom
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Дом:";
+            this.l_numberdom.AutoSize = true;
+            this.l_numberdom.Location = new System.Drawing.Point(15, 75);
+            this.l_numberdom.Name = "l_numberdom";
+            this.l_numberdom.Size = new System.Drawing.Size(33, 13);
+            this.l_numberdom.TabIndex = 4;
+            this.l_numberdom.Text = "Дом:";
             // 
-            // label4
+            // l_street
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Улица:";
+            this.l_street.AutoSize = true;
+            this.l_street.Location = new System.Drawing.Point(6, 50);
+            this.l_street.Name = "l_street";
+            this.l_street.Size = new System.Drawing.Size(42, 13);
+            this.l_street.TabIndex = 3;
+            this.l_street.Text = "Улица:";
             // 
-            // label3
+            // l_city
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(241, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Город:*";
+            this.l_city.AutoSize = true;
+            this.l_city.Location = new System.Drawing.Point(241, 22);
+            this.l_city.Name = "l_city";
+            this.l_city.Size = new System.Drawing.Size(44, 13);
+            this.l_city.TabIndex = 2;
+            this.l_city.Text = "Город:*";
             // 
-            // label2
+            // l_postindex
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Почтовый индекс:";
+            this.l_postindex.AutoSize = true;
+            this.l_postindex.Location = new System.Drawing.Point(6, 22);
+            this.l_postindex.Name = "l_postindex";
+            this.l_postindex.Size = new System.Drawing.Size(99, 13);
+            this.l_postindex.TabIndex = 1;
+            this.l_postindex.Text = "Почтовый индекс:";
             // 
-            // textBox1
+            // tb_postindex
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 285);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(113, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "экскурсии в договор";
+            this.tb_postindex.Location = new System.Drawing.Point(111, 19);
+            this.tb_postindex.Name = "tb_postindex";
+            this.tb_postindex.Size = new System.Drawing.Size(100, 20);
+            this.tb_postindex.TabIndex = 0;
             // 
             // FormDogovor
             // 
@@ -252,17 +242,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(542, 307);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.p_main);
+            this.Controls.Add(this.l_info1);
             this.Name = "FormDogovor";
-            this.Text = "FormDogovor";
+            this.Text = "Заполнение информации";
             this.Load += new System.EventHandler(this.FormDogovor_Load);
-            this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.p_main.ResumeLayout(false);
+            this.gb_document.ResumeLayout(false);
+            this.gb_document.PerformLayout();
+            this.gb_address.ResumeLayout(false);
+            this.gb_address.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,27 +259,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label l_info1;
+        private System.Windows.Forms.Panel p_main;
+        private System.Windows.Forms.Button b_ok;
+        private System.Windows.Forms.GroupBox gb_document;
+        private System.Windows.Forms.Label l_info2;
+        private System.Windows.Forms.TextBox tb_bank;
+        private System.Windows.Forms.TextBox tb_payment;
+        private System.Windows.Forms.Label l_bank;
+        private System.Windows.Forms.Label l_payment;
+        private System.Windows.Forms.GroupBox gb_address;
+        private System.Windows.Forms.TextBox tb_numberkv;
+        private System.Windows.Forms.TextBox tb_numberdom;
+        private System.Windows.Forms.TextBox tb_street;
+        private System.Windows.Forms.TextBox tb_city;
+        private System.Windows.Forms.Label l_numberkv;
+        private System.Windows.Forms.Label l_numberdom;
+        private System.Windows.Forms.Label l_street;
+        private System.Windows.Forms.Label l_city;
+        private System.Windows.Forms.Label l_postindex;
+        private System.Windows.Forms.TextBox tb_postindex;
 
     }
 }

@@ -286,7 +286,7 @@
             this.Controls.Add(this.lb_ex);
             this.Controls.Add(this.panel1);
             this.Name = "FormChoiceTour";
-            this.Text = "FormChoiceTour";
+            this.Text = "Выбор тура";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChoiceTour_FormClosing);
             this.Load += new System.EventHandler(this.FormChoiceTour_Load);
             this.panel1.ResumeLayout(false);

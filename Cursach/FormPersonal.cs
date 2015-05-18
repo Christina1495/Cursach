@@ -23,7 +23,7 @@ namespace Cursach
             InitializeComponent();
             FIO = FIO_;
             ID = ID_;
-            label1.Text = FIO;
+            l_nameclient.Text = FIO;
             
         }
 
@@ -56,7 +56,7 @@ namespace Cursach
                 }
                 CTL.list.Add(CT);
             }
-            listBox1.Items.Clear();
+            lb_tour.Items.Clear();
             for (int i = 0; i < CTL.list.Count; i++)
             {
                 string Status = "";
@@ -68,8 +68,8 @@ namespace Cursach
                 {
                     Status = "Оплачено";
                 }
-                listBox1.Items.Add("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                listBox1.Items.Add("Номер договора: " + CTL.list[i].contract + "  Тур: " + CTL.list[i].nameTour + "  Дата заключения договора: " + CTL.list[i].date + "  Сумма к оплате: " + CTL.list[i].price + "  Оплачено: " + CTL.list[i].paid + "   Статус: " + Status);
+                lb_tour.Items.Add("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                lb_tour.Items.Add("Номер договора: " + CTL.list[i].contract + "  Тур: " + CTL.list[i].nameTour + "  Дата заключения договора: " + CTL.list[i].date + "  Сумма к оплате: " + CTL.list[i].price + "  Оплачено: " + CTL.list[i].paid + "   Статус: " + Status);
             }
             connection.Close();
         }
@@ -78,10 +78,10 @@ namespace Cursach
         {
             BD db = new BD();
             string d = CurrentTime.ToString("dd.MM.yyyy");
-            if (listBox1.SelectedIndex != -1)
+            if (lb_tour.SelectedIndex != -1)
             {
                 Hide();
-                FormPayment FP = new FormPayment(ID, FIO, CTL.list[listBox1.SelectedIndex / 2].id, d, CTL.list[listBox1.SelectedIndex / 2].paid, Convert.ToString(Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].price) - Convert.ToInt32(CTL.list[listBox1.SelectedIndex / 2].paid)), CTL.list[listBox1.SelectedIndex / 2].idTour, CTL.list[listBox1.SelectedIndex / 2].contract, CTL.list[listBox1.SelectedIndex / 2].price );
+                FormPayment FP = new FormPayment(ID, FIO, CTL.list[lb_tour.SelectedIndex / 2].id, d, CTL.list[lb_tour.SelectedIndex / 2].paid, Convert.ToString(Convert.ToInt32(CTL.list[lb_tour.SelectedIndex / 2].price) - Convert.ToInt32(CTL.list[lb_tour.SelectedIndex / 2].paid)), CTL.list[lb_tour.SelectedIndex / 2].idTour, CTL.list[lb_tour.SelectedIndex / 2].contract, CTL.list[lb_tour.SelectedIndex / 2].price );
                 FP.Show();
                 this.Close();
             }

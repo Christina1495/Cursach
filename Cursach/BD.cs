@@ -8,8 +8,14 @@ using System.Data.Common;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Работа с БД
+    /// </summary>
     class BD
     {
+        /// <summary>
+        /// 
+        /// </summary>
         string userName;
         public string UserName
         { get { return userName; } }
@@ -54,6 +60,9 @@ namespace Cursach
         public string Bank
         { get { return bank; } }
 
+        /// <summary>
+        /// Создание таблиц
+        /// </summary>
         public void Сreate()
         {
             //SQLiteConnection.CreateFile("base.sqlite");//Создание бд
@@ -81,9 +90,11 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Заполнение табл. Предложений
+        /// </summary>
         public void Discount()
         {
-            ///Заполнение табл. Предложений
             Parser p = new Parser();
             string container = p.getRequest("http://www.riviera-sochi.ru/offers/");
             string Block = p.Block(container, "//div[@class='center_block']");
@@ -113,6 +124,9 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary> 
+        ///Заполнение табл. Экскурсии
+        /// </summary>
         public void Excursion()
         {
             Parser p = new Parser();
@@ -124,7 +138,6 @@ namespace Cursach
             connection.Open();
             SQLiteCommand command = new SQLiteCommand("DELETE FROM 'Excursion'", connection);
             command.ExecuteNonQuery();
-            ///Заполнение табл. Экскурсии
             while (p.STOP == false)
             {
                 Block = p.Block1(Block, "bottom", "excursion_thumb");
@@ -143,6 +156,9 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// ///Заполнение табл. Курорт
+        /// </summary>
         public void Resort()//Не торгать его
         {
             Parser p = new Parser();
@@ -152,7 +168,6 @@ namespace Cursach
             p.STOP = false;
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
             connection.Open();
-            ///Заполнение табл. Курорт
             while (p.STOP == false)
             {
                 Block = p.Block1(Block, "hotels_selector", "<h4>");
@@ -165,9 +180,11 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// ///Заполнение табл. Тур и Тур_Отель
+        /// </summary>
         public void Tour()
         {
-            ///Заполнение табл. Тур и Тур_Отель
             Parser p = new Parser();
             string container = p.getRequest("http://www.riviera-sochi.ru/tours/");
             string Block = p.Block(container, "//div[@class='entry']");
@@ -213,6 +230,9 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// ///Заполнение табл. Отели
+        /// </summary>
         public void Hotel()
         {
             Parser p = new Parser();
@@ -222,7 +242,6 @@ namespace Cursach
             string[] arr = s.Split(',');
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
             connection.Open();
-            ///Заполнение табл. Отели
             SQLiteCommand command = new SQLiteCommand("DELETE FROM 'Hotel'", connection);
             command.ExecuteNonQuery();
             for (int i = 0; i < arr.GetLength(0); i++)
@@ -234,6 +253,12 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Регистрация
+        /// </summary>
+        /// <param name="FIO"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
         public void Registration(string FIO, string email, string password)
         {
             //<--FormRegistration +
@@ -244,6 +269,12 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Авторизация
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public string Authorization(string email, string password)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -271,6 +302,17 @@ namespace Cursach
             return null;
         }
 
+        /// <summary>
+        /// ///Заполнение табл. Клиент
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="city"></param>
+        /// <param name="street"></param>
+        /// <param name="house"></param>
+        /// <param name="apartment"></param>
+        /// <param name="postcode"></param>
+        /// <param name="account"></param>
+        /// <param name="bank"></param>
         public void Customer(string id, string city, string street, string house, string apartment, string postcode, string account, string bank)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -280,6 +322,10 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Вывод данных на форму оформления договора
+        /// </summary>
+        /// <param name="id"></param>
         public void FormDog(string id)
         {
             city = "";
@@ -307,6 +353,9 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Вывод данных из табл. Курорт для ComboBox
+        /// </summary>
         public void ResortComboBox()
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -323,6 +372,11 @@ namespace Cursach
         }
 
         bool whereB = false;
+
+        /// <summary>
+        /// Составление SQL запроса к табл. Туры - 1
+        /// </summary>
+        /// <param name="Text"></param>
         public void Con(string Text)
         {
             string where = " WHERE ";
@@ -349,6 +403,16 @@ namespace Cursach
         string conditionDurationMin;
         string conditionDurationMax;
 
+        /// <summary>
+        /// Составление SQL запроса к табл. Туры - 2
+        /// </summary>
+        /// <param name="Resort"></param>
+        /// <param name="dateS"></param>
+        /// <param name="dateE"></param>
+        /// <param name="priceMin"></param>
+        /// <param name="priceMax"></param>
+        /// <param name="DurationMin"></param>
+        /// <param name="DurationMax"></param>
         public void UserRequestsTour(string Resort, string dateS, string dateE, string priceMin, string priceMax, string DurationMin, string DurationMax)
         {
             condition = "SELECT * FROM Tour";
@@ -442,6 +506,12 @@ namespace Cursach
             Con(conditionDurationMax);
         }
 
+        /// <summary>
+        /// Оценка Экскурсий
+        /// </summary>
+        /// <param name="mNew"></param>
+        /// <param name="mOld"></param>
+        /// <param name="id"></param>
         public void marks(int mNew, string mOld, string id)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -451,6 +521,17 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Заполнение табл. Customer_Tour и Tour_Excursion при оформлении тура
+        /// </summary>
+        /// <param name="id_customer"></param>
+        /// <param name="id_tour"></param>
+        /// <param name="contract"></param>
+        /// <param name="prices"></param>
+        /// <param name="date_contract"></param>
+        /// <param name="ExId"></param>
+        /// <param name="ExPr"></param>
+        /// <param name="allSum"></param>
         public void CustomerTour(string id_customer, string id_tour, string contract, string prices, string date_contract, string ExId, string ExPr, string allSum)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -470,6 +551,14 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Заполнение Bank_Customer при оплате 
+        /// </summary>
+        /// <param name="paid"></param>
+        /// <param name="date"></param>
+        /// <param name="id"></param>
+        /// <param name="sum"></param>
+        /// <param name="price"></param>
         public void BankCustomer(string paid, string date, string id, string sum, string price)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -486,6 +575,12 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Прибыль фирмы по месяцам
+        /// </summary>
+        /// <param name="sum"></param>
+        /// <param name="date"></param>
+        /// <param name="idTour"></param>
         public void DateTour(string sum, string date, string idTour)
         {
             bool Update = false;
@@ -509,6 +604,11 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Изменение
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="id"></param>
         public void UPDATE(string Text, string id)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -518,6 +618,10 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        /// <param name="Text"></param>
         public void INSERT(string Text)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");
@@ -527,6 +631,11 @@ namespace Cursach
             connection.Close();
         }
 
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="id"></param>
         public void DELETE(string Text, string id)
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=base.sqlite;Version=3");

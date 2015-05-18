@@ -34,7 +34,7 @@ namespace Cursach
             PRICE = price;
             IDTour = idTour;
             db.FormDog(ID_);
-            label2.Text += PRICE;
+            l_info.Text += PRICE;
             NUMBER = number_;
             allSUM = Allprise_;
             PayList = db.Account;
@@ -45,10 +45,10 @@ namespace Cursach
         private void button1_Click(object sender, EventArgs e)
         {            
             Documents doc = new Documents();
-            doc.Client_Bank(FIO, Convert.ToInt32(allSUM), Convert.ToInt32(textBox2.Text) + Convert.ToInt32(PAID), Convert.ToInt32(textBox2.Text), PayList, NUMBER);
-            int sum = Convert.ToInt32(textBox2.Text) + Convert.ToInt32(PAID);
-            db.BankCustomer(textBox2.Text, DATE, ID, Convert.ToString(sum), PRICE);
-            db.DateTour(textBox2.Text, Now.ToString("MM.yyyy"), IDTour);
+            doc.Client_Bank(FIO, Convert.ToInt32(allSUM), Convert.ToInt32(tb_summa.Text) + Convert.ToInt32(PAID), Convert.ToInt32(tb_summa.Text), PayList, NUMBER);
+            int sum = Convert.ToInt32(tb_summa.Text) + Convert.ToInt32(PAID);
+            db.BankCustomer(tb_summa.Text, DATE, ID, Convert.ToString(sum), PRICE);
+            db.DateTour(tb_summa.Text, Now.ToString("MM.yyyy"), IDTour);
             MessageBox.Show("Оплата произведена");
             Hide();
             FormPersonal FP = new FormPersonal(FIO, ID_);

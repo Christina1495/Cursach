@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.l_name = new System.Windows.Forms.Label();
+            this.l_discription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // l_name
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.l_name.AutoSize = true;
+            this.l_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_name.Location = new System.Drawing.Point(12, 9);
+            this.l_name.Name = "l_name";
+            this.l_name.Size = new System.Drawing.Size(51, 20);
+            this.l_name.TabIndex = 0;
+            this.l_name.Text = "label1";
+            this.l_name.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // l_discription
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(13, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.l_discription.AutoSize = true;
+            this.l_discription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_discription.Location = new System.Drawing.Point(13, 42);
+            this.l_discription.Name = "l_discription";
+            this.l_discription.Size = new System.Drawing.Size(46, 18);
+            this.l_discription.TabIndex = 1;
+            this.l_discription.Text = "label2";
             // 
             // FormDescription
             // 
@@ -59,10 +59,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(673, 101);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.l_discription);
+            this.Controls.Add(this.l_name);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormDescription";
-            this.Text = "FormDescription";
+            this.Text = "Описание Экскурсий";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,7 +72,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label l_name;
+        private System.Windows.Forms.Label l_discription;
     }
 }

@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tb_summa = new System.Windows.Forms.TextBox();
+            this.b_ok = new System.Windows.Forms.Button();
+            this.l_summa = new System.Windows.Forms.Label();
+            this.l_info = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox2
+            // tb_summa
             // 
-            this.textBox2.Location = new System.Drawing.Point(70, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 20);
-            this.textBox2.TabIndex = 1;
+            this.tb_summa.Location = new System.Drawing.Point(70, 37);
+            this.tb_summa.Name = "tb_summa";
+            this.tb_summa.Size = new System.Drawing.Size(187, 20);
+            this.tb_summa.TabIndex = 1;
             // 
-            // button1
+            // b_ok
             // 
-            this.button1.Location = new System.Drawing.Point(263, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Оплатить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.b_ok.Location = new System.Drawing.Point(263, 35);
+            this.b_ok.Name = "b_ok";
+            this.b_ok.Size = new System.Drawing.Size(75, 23);
+            this.b_ok.TabIndex = 2;
+            this.b_ok.Text = "Оплатить";
+            this.b_ok.UseVisualStyleBackColor = true;
+            this.b_ok.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // l_summa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Сумма:";
+            this.l_summa.AutoSize = true;
+            this.l_summa.Location = new System.Drawing.Point(20, 40);
+            this.l_summa.Name = "l_summa";
+            this.l_summa.Size = new System.Drawing.Size(44, 13);
+            this.l_summa.TabIndex = 7;
+            this.l_summa.Text = "Сумма:";
             // 
-            // label2
+            // l_info
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 25);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "К оплате: ";
+            this.l_info.AutoSize = true;
+            this.l_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_info.Location = new System.Drawing.Point(12, 9);
+            this.l_info.Name = "l_info";
+            this.l_info.Size = new System.Drawing.Size(114, 25);
+            this.l_info.TabIndex = 8;
+            this.l_info.Text = "К оплате: ";
             // 
             // FormPayment
             // 
@@ -76,12 +76,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(361, 69);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.l_info);
+            this.Controls.Add(this.l_summa);
+            this.Controls.Add(this.b_ok);
+            this.Controls.Add(this.tb_summa);
             this.Name = "FormPayment";
-            this.Text = "FormPayment";
+            this.Text = "Клиен-Банк";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +89,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_summa;
+        private System.Windows.Forms.Button b_ok;
+        private System.Windows.Forms.Label l_summa;
+        private System.Windows.Forms.Label l_info;
     }
 }

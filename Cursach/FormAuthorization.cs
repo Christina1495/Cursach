@@ -34,7 +34,7 @@ namespace Cursach
             if (Message == "ok")
             {
                 Hide();
-                Form1 f1 = new Form1(db.UserName, db.UserID);
+                FormMain f1 = new FormMain(db.UserName, db.UserID);
                 f1.ShowDialog();
                 this.Close();
             }

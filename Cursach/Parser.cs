@@ -9,6 +9,9 @@ using System.Net;
 
 namespace Cursach
 {
+    /// <summary>
+    /// Парсинг сайта
+    /// </summary>
     class Parser
     {
         string Name;
@@ -84,6 +87,11 @@ namespace Cursach
         public string HOTELS
         { get { return Hotels; } }
 
+        /// <summary>
+        /// Полученте HTML кода страниц
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public string getRequest(string url)
         {
             try
@@ -109,7 +117,11 @@ namespace Cursach
             }
         }
 
-        public void Check(string container)//Метод обработки отдельной страницы тура(Название, Дата, Отели)
+        /// <summary>
+        /// Метод обработки отдельной страницы тура(Название, Дата, Отели)
+        /// </summary>
+        /// <param name="container"></param>
+        public void Check(string container)
         {
             Name = "";
             string Date1 = "";
@@ -220,6 +232,15 @@ namespace Cursach
             }
         }
 
+        /// <summary>
+        /// Получение нужных данных 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Text1"></param>
+        /// <param name="Length"></param>
+        /// <param name="Length1"></param>
+        /// <param name="block"></param>
+        /// <returns></returns>
         public string Check1(string Text, string Text1, int Length, int Length1, string block)
         {
             string Variable = "";
@@ -243,6 +264,12 @@ namespace Cursach
             return Variable;
         }
 
+        /// <summary>
+        /// Разбитее котда на блоки -1
+        /// </summary>
+        /// <param name="container"></param>
+        /// <param name="Text"></param>
+        /// <returns></returns>
         public string Block(string container, string Text)
         {
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -256,6 +283,13 @@ namespace Cursach
             return BLOCK;
         }
 
+        /// <summary>
+        /// Разбитее котда на блоки -2
+        /// </summary>
+        /// <param name="block"></param>
+        /// <param name="Text"></param>
+        /// <param name="Text1"></param>
+        /// <returns></returns>
         public string Block1(string block, string Text, string Text1)
         {
             string temporary_block = "";
@@ -281,10 +315,12 @@ namespace Cursach
             return temporary_block;
         }
 
+        /// <summary>
+        /// Приведение дат к одному виду
+        /// </summary>
+        /// <param name="date"></param>
         public void Date_(string date)
         {
-            //string Text = "Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь";
-            //string[] arr_text = Text.Split(',');
             int[] arr_text = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
             string [] arr_m = new string [12];
             arr_m[0] = "Янв,янв,.01";
@@ -333,6 +369,10 @@ namespace Cursach
             }
         }
 
+        /// <summary>
+        /// Информация о Туре - 1
+        /// </summary>
+        /// <param name="block"></param>
         public void Tour(string block)
         {
             id = Check1("/tours/", ">", 7, 1, block);
@@ -344,6 +384,10 @@ namespace Cursach
             Resort = Check1("g>Курорт:", "</span>", 18, 0, block);
         }
 
+        /// <summary>
+        /// Информация о Туре - 2
+        /// </summary>
+        /// <param name="block"></param>
         public void Shares(string block)
         {
             Name = Check1("<a href", "</a>", 22, 0, block);
@@ -358,6 +402,10 @@ namespace Cursach
             Discount = Discount.Replace("%", "").Trim();
         }
 
+        /// <summary>
+        /// Информация о Экскурсии
+        /// </summary>
+        /// <param name="block"></param>
         public void Excursions(string block)
         {
             Name_Ex = "";
@@ -388,6 +436,10 @@ namespace Cursach
             }
         }
 
+        /// <summary>
+        /// Информация о Курортах
+        /// </summary>
+        /// <param name="block"></param>
         public void Resort_(string block)
         {
             Name_Res = Description = Check1("resorts/", "</a>", 8, 0, block);
@@ -398,6 +450,10 @@ namespace Cursach
             }
         }
 
+        /// <summary>
+        /// Информация о Отелях
+        /// </summary>
+        /// <param name="container"></param>
         public void Hotels_(string container)
         {
             string block_;

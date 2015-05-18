@@ -52,31 +52,31 @@ namespace Cursach
             ExPR = ExPr;
             ExID = ExId;
             db.FormDog(ID);
-            textBox1.Text = db.Postcode;
-            textBox2.Text = db.City;
-            textBox3.Text = db.Street;
-            textBox4.Text = db.House;
-            textBox5.Text = db.Apartment;
-            textBox6.Text = db.Account;
-            textBox7.Text = db.Bank;
+            tb_postindex.Text = db.Postcode;
+            tb_city.Text = db.City;
+            tb_street.Text = db.Street;
+            tb_numberdom.Text = db.House;
+            tb_numberkv.Text = db.Apartment;
+            tb_payment.Text = db.Account;
+            tb_bank.Text = db.Bank;
             listEx = ListEx;
         }
         
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if ((textBox2.Text != "") && (textBox6.Text != "") && (textBox7.Text != ""))
+            if ((tb_city.Text != "") && (tb_payment.Text != "") && (tb_bank.Text != ""))
             {
-                db.Customer(ID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox1.Text, textBox6.Text, textBox7.Text);
-                address = textBox1.Text + ", г. " + textBox2.Text + ", " + textBox3.Text + ", " + textBox4.Text + ", " + textBox5.Text;
-                paylist = textBox6.Text;
-                bank = textBox7.Text;
+                db.Customer(ID, tb_city.Text, tb_street.Text, tb_numberdom.Text, tb_numberkv.Text, tb_postindex.Text, tb_payment.Text, tb_bank.Text);
+                address = tb_postindex.Text + ", г. " + tb_city.Text + ", " + tb_street.Text + ", " + tb_numberdom.Text + ", " + tb_numberkv.Text;
+                paylist = tb_payment.Text;
+                bank = tb_bank.Text;
                 d.Dogovor(ID, IDTour, Fio, usluga, hotel, date, dates, col, ex, kol_tur, summa, address, paylist, bank, TourPR, ExPR, ExID, listEx);
                 
                 d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
                 d.Client_Bank(Fio, summa, 0, 0, paylist,"");
                 MessageBox.Show("Done");
                 Hide();
-                Form1 f1 = new Form1(Fio, ID);
+                FormMain f1 = new FormMain(Fio, ID);
                 f1.ShowDialog();
                 this.Close();
             }

@@ -28,171 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.tb_fio = new System.Windows.Forms.TextBox();
+            this.l_fio = new System.Windows.Forms.Label();
+            this.tb_email = new System.Windows.Forms.TextBox();
+            this.l_email = new System.Windows.Forms.Label();
+            this.p_password = new System.Windows.Forms.Panel();
+            this.p_ginpassword = new System.Windows.Forms.Panel();
+            this.b_ginpassword = new System.Windows.Forms.Button();
+            this.b_use = new System.Windows.Forms.Button();
+            this.tb_ginpassword = new System.Windows.Forms.TextBox();
+            this.l_password2 = new System.Windows.Forms.Label();
+            this.l_password1 = new System.Windows.Forms.Label();
+            this.tb_password2 = new System.Windows.Forms.TextBox();
+            this.tb_password1 = new System.Windows.Forms.TextBox();
+            this.l_password = new System.Windows.Forms.Label();
+            this.b_register = new System.Windows.Forms.Button();
+            this.p_password.SuspendLayout();
+            this.p_ginpassword.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tb_fio
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(509, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb_fio.Location = new System.Drawing.Point(12, 60);
+            this.tb_fio.Name = "tb_fio";
+            this.tb_fio.Size = new System.Drawing.Size(509, 20);
+            this.tb_fio.TabIndex = 2;
             // 
-            // label1
+            // l_fio
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(12, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "ФИО";
+            this.l_fio.AutoSize = true;
+            this.l_fio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_fio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_fio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_fio.Location = new System.Drawing.Point(12, 40);
+            this.l_fio.Name = "l_fio";
+            this.l_fio.Size = new System.Drawing.Size(42, 17);
+            this.l_fio.TabIndex = 3;
+            this.l_fio.Text = "ФИО";
             // 
-            // textBox2
+            // tb_email
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(509, 20);
-            this.textBox2.TabIndex = 4;
+            this.tb_email.Location = new System.Drawing.Point(12, 107);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(509, 20);
+            this.tb_email.TabIndex = 4;
             // 
-            // label3
+            // l_email
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(12, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Адрес электронной почты";
+            this.l_email.AutoSize = true;
+            this.l_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_email.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_email.Location = new System.Drawing.Point(12, 87);
+            this.l_email.Name = "l_email";
+            this.l_email.Size = new System.Drawing.Size(182, 17);
+            this.l_email.TabIndex = 5;
+            this.l_email.Text = "Адрес электронной почты";
             // 
-            // panel1
+            // p_password
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Location = new System.Drawing.Point(12, 159);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(509, 193);
-            this.panel1.TabIndex = 6;
+            this.p_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_password.Controls.Add(this.p_ginpassword);
+            this.p_password.Controls.Add(this.l_password2);
+            this.p_password.Controls.Add(this.l_password1);
+            this.p_password.Controls.Add(this.tb_password2);
+            this.p_password.Controls.Add(this.tb_password1);
+            this.p_password.Location = new System.Drawing.Point(12, 159);
+            this.p_password.Name = "p_password";
+            this.p_password.Size = new System.Drawing.Size(509, 193);
+            this.p_password.TabIndex = 6;
             // 
-            // panel2
+            // p_ginpassword
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Location = new System.Drawing.Point(19, 79);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 100);
-            this.panel2.TabIndex = 15;
+            this.p_ginpassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_ginpassword.Controls.Add(this.b_ginpassword);
+            this.p_ginpassword.Controls.Add(this.b_use);
+            this.p_ginpassword.Controls.Add(this.tb_ginpassword);
+            this.p_ginpassword.Location = new System.Drawing.Point(19, 79);
+            this.p_ginpassword.Name = "p_ginpassword";
+            this.p_ginpassword.Size = new System.Drawing.Size(267, 100);
+            this.p_ginpassword.TabIndex = 15;
             // 
-            // button2
+            // b_ginpassword
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(19, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Сгенерировать пароль";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.b_ginpassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.b_ginpassword.Location = new System.Drawing.Point(19, 12);
+            this.b_ginpassword.Name = "b_ginpassword";
+            this.b_ginpassword.Size = new System.Drawing.Size(163, 23);
+            this.b_ginpassword.TabIndex = 14;
+            this.b_ginpassword.Text = "Сгенерировать пароль";
+            this.b_ginpassword.UseVisualStyleBackColor = false;
+            this.b_ginpassword.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // b_use
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(19, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Использовать";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.b_use.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.b_use.Location = new System.Drawing.Point(19, 67);
+            this.b_use.Name = "b_use";
+            this.b_use.Size = new System.Drawing.Size(163, 23);
+            this.b_use.TabIndex = 13;
+            this.b_use.Text = "Использовать";
+            this.b_use.UseVisualStyleBackColor = false;
+            this.b_use.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // tb_ginpassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(19, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(234, 20);
-            this.textBox3.TabIndex = 8;
+            this.tb_ginpassword.Location = new System.Drawing.Point(19, 41);
+            this.tb_ginpassword.Name = "tb_ginpassword";
+            this.tb_ginpassword.Size = new System.Drawing.Size(234, 20);
+            this.tb_ginpassword.TabIndex = 8;
             // 
-            // label6
+            // l_password2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(256, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Подтвердите пароль:";
+            this.l_password2.AutoSize = true;
+            this.l_password2.Location = new System.Drawing.Point(256, 28);
+            this.l_password2.Name = "l_password2";
+            this.l_password2.Size = new System.Drawing.Size(115, 13);
+            this.l_password2.TabIndex = 12;
+            this.l_password2.Text = "Подтвердите пароль:";
             // 
-            // label5
+            // l_password1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Пароль:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.l_password1.AutoSize = true;
+            this.l_password1.Location = new System.Drawing.Point(16, 28);
+            this.l_password1.Name = "l_password1";
+            this.l_password1.Size = new System.Drawing.Size(48, 13);
+            this.l_password1.TabIndex = 11;
+            this.l_password1.Text = "Пароль:";
+            this.l_password1.Click += new System.EventHandler(this.label5_Click);
             // 
-            // textBox4
+            // tb_password2
             // 
-            this.textBox4.Location = new System.Drawing.Point(259, 44);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(234, 20);
-            this.textBox4.TabIndex = 9;
+            this.tb_password2.Location = new System.Drawing.Point(259, 44);
+            this.tb_password2.Name = "tb_password2";
+            this.tb_password2.Size = new System.Drawing.Size(234, 20);
+            this.tb_password2.TabIndex = 9;
             // 
-            // textBox5
+            // tb_password1
             // 
-            this.textBox5.Location = new System.Drawing.Point(19, 44);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(234, 20);
-            this.textBox5.TabIndex = 10;
+            this.tb_password1.Location = new System.Drawing.Point(19, 44);
+            this.tb_password1.Name = "tb_password1";
+            this.tb_password1.Size = new System.Drawing.Size(234, 20);
+            this.tb_password1.TabIndex = 10;
             // 
-            // label4
+            // l_password
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(12, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Пароль";
+            this.l_password.AutoSize = true;
+            this.l_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.l_password.Location = new System.Drawing.Point(12, 139);
+            this.l_password.Name = "l_password";
+            this.l_password.Size = new System.Drawing.Size(57, 17);
+            this.l_password.TabIndex = 7;
+            this.l_password.Text = "Пароль";
             // 
-            // button3
+            // b_register
             // 
-            this.button3.Location = new System.Drawing.Point(358, 358);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(163, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Зарегистрироваться ";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.b_register.Location = new System.Drawing.Point(358, 358);
+            this.b_register.Name = "b_register";
+            this.b_register.Size = new System.Drawing.Size(163, 23);
+            this.b_register.TabIndex = 8;
+            this.b_register.Text = "Зарегистрироваться ";
+            this.b_register.UseVisualStyleBackColor = true;
+            this.b_register.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormRegistration
             // 
@@ -200,20 +200,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(539, 393);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.b_register);
+            this.Controls.Add(this.l_password);
+            this.Controls.Add(this.p_password);
+            this.Controls.Add(this.l_email);
+            this.Controls.Add(this.tb_email);
+            this.Controls.Add(this.l_fio);
+            this.Controls.Add(this.tb_fio);
             this.Name = "FormRegistration";
             this.Text = "Регистрация ";
             this.Load += new System.EventHandler(this.FormRegistration_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.p_password.ResumeLayout(false);
+            this.p_password.PerformLayout();
+            this.p_ginpassword.ResumeLayout(false);
+            this.p_ginpassword.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,20 +221,20 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox tb_fio;
+        private System.Windows.Forms.Label l_fio;
+        private System.Windows.Forms.TextBox tb_email;
+        private System.Windows.Forms.Label l_email;
+        private System.Windows.Forms.Panel p_password;
+        private System.Windows.Forms.Label l_password2;
+        private System.Windows.Forms.Label l_password1;
+        private System.Windows.Forms.TextBox tb_ginpassword;
+        private System.Windows.Forms.TextBox tb_password2;
+        private System.Windows.Forms.TextBox tb_password1;
+        private System.Windows.Forms.Label l_password;
+        private System.Windows.Forms.Button b_ginpassword;
+        private System.Windows.Forms.Button b_use;
+        private System.Windows.Forms.Button b_register;
+        private System.Windows.Forms.Panel p_ginpassword;
     }
 }

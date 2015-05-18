@@ -15,8 +15,8 @@ namespace Cursach
         public FormDescription(string name, string description)
         {
             InitializeComponent();
-            label1.Text = name;
-            label2.Text = description;
+            l_name.Text = name;
+            l_discription.Text = description;
         }
 
         private void label1_Click(object sender, EventArgs e)

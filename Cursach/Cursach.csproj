@@ -103,12 +103,6 @@
     <Compile Include="FormDogovor.Designer.cs">
       <DependentUpon>FormDogovor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHotel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHotel.Designer.cs">
-      <DependentUpon>FormHotel.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormListThings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,9 +151,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDogovor.resx">
       <DependentUpon>FormDogovor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHotel.resx">
-      <DependentUpon>FormHotel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListThings.resx">
       <DependentUpon>FormListThings.cs</DependentUpon>

@@ -13,7 +13,7 @@ using System.Data.Common;
 
 namespace Cursach
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
         string FIO;
         string ID;
@@ -21,7 +21,7 @@ namespace Cursach
         DiscountList DL = new DiscountList();
         Documents doc = new Documents();
 
-        public Form1(string FIO_, string ID_)
+        public FormMain(string FIO_, string ID_)
         {
             DateTime CurrentTime = DateTime.Now;
             InitializeComponent();

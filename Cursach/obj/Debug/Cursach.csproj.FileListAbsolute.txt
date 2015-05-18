@@ -5,7 +5,6 @@ C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\Cursach.pdb
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\HtmlAgilityPack.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\HtmlAgilityPack.xml
-C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.Form1.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.Properties.Resources.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.csproj.GenerateResource.Cache
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.exe
@@ -34,7 +33,6 @@ C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.Properties.Resour
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.csproj.GenerateResource.Cache
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\itextsharp.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDogovor.resources
-C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormHotel.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormChoiceTour.resources
 C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormDescription.resources
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormChoiceTour.resources
@@ -50,3 +48,5 @@ C:\Users\Christina_R\Desktop\Cursach\Cursach\bin\Debug\ICSharpCode.SharpZipLib.d
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\AODL.dll
 C:\Users\Анна\Desktop\Cursach\Cursach\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\Christina_R\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormListThings.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormMain.resources
+C:\Users\Анна\Desktop\Cursach\Cursach\obj\Debug\Cursach.FormListThings.resources
