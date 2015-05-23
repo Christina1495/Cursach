@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChoiceTour));
             this.panel1 = new System.Windows.Forms.Panel();
             this.b_exdel = new System.Windows.Forms.Button();
             this.b_doc = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.nud_marks = new System.Windows.Forms.NumericUpDown();
             this.b_marks = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.cms_ex.SuspendLayout();
@@ -60,6 +62,8 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.b_exdel);
             this.panel1.Controls.Add(this.b_doc);
             this.panel1.Controls.Add(this.lb_hotel);
@@ -176,7 +180,7 @@
             // cb_day
             // 
             this.cb_day.FormattingEnabled = true;
-            this.cb_day.Location = new System.Drawing.Point(508, 18);
+            this.cb_day.Location = new System.Drawing.Point(508, 3);
             this.cb_day.Name = "cb_day";
             this.cb_day.Size = new System.Drawing.Size(42, 21);
             this.cb_day.TabIndex = 3;
@@ -184,7 +188,7 @@
             // cb_month
             // 
             this.cb_month.FormattingEnabled = true;
-            this.cb_month.Location = new System.Drawing.Point(556, 18);
+            this.cb_month.Location = new System.Drawing.Point(556, 3);
             this.cb_month.Name = "cb_month";
             this.cb_month.Size = new System.Drawing.Size(121, 21);
             this.cb_month.TabIndex = 2;
@@ -232,6 +236,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.nud_marks);
             this.panel2.Controls.Add(this.b_marks);
             this.panel2.Location = new System.Drawing.Point(12, 383);
@@ -266,25 +271,35 @@
             this.b_marks.UseVisualStyleBackColor = true;
             this.b_marks.Click += new System.EventHandler(this.button5_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(138, 397);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(462, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "*Для выбора отеля и просмотра экскурсий нажмите на названии правой кнопкой мыши.";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(245, 389);
+            this.label6.Location = new System.Drawing.Point(426, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(303, 13);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Сделать закрытие формы с переходом на главную форму";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Дата вылета:";
             // 
             // FormChoiceTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(739, 413);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lb_ex);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChoiceTour";
             this.Text = "Выбор тура";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormChoiceTour_FormClosing);
@@ -324,5 +339,6 @@
         private System.Windows.Forms.ToolStripMenuItem выбратьОтельToolStripMenuItem;
         private System.Windows.Forms.Button b_exdel;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
     }
 }

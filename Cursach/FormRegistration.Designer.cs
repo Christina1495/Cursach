@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistration));
             this.tb_fio = new System.Windows.Forms.TextBox();
             this.l_fio = new System.Windows.Forms.Label();
             this.tb_email = new System.Windows.Forms.TextBox();
@@ -49,7 +50,7 @@
             // 
             // tb_fio
             // 
-            this.tb_fio.Location = new System.Drawing.Point(12, 60);
+            this.tb_fio.Location = new System.Drawing.Point(12, 29);
             this.tb_fio.Name = "tb_fio";
             this.tb_fio.Size = new System.Drawing.Size(509, 20);
             this.tb_fio.TabIndex = 2;
@@ -57,10 +58,10 @@
             // l_fio
             // 
             this.l_fio.AutoSize = true;
-            this.l_fio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_fio.BackColor = System.Drawing.Color.White;
             this.l_fio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_fio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_fio.Location = new System.Drawing.Point(12, 40);
+            this.l_fio.Location = new System.Drawing.Point(12, 9);
             this.l_fio.Name = "l_fio";
             this.l_fio.Size = new System.Drawing.Size(42, 17);
             this.l_fio.TabIndex = 3;
@@ -68,7 +69,7 @@
             // 
             // tb_email
             // 
-            this.tb_email.Location = new System.Drawing.Point(12, 107);
+            this.tb_email.Location = new System.Drawing.Point(12, 76);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(509, 20);
             this.tb_email.TabIndex = 4;
@@ -76,10 +77,10 @@
             // l_email
             // 
             this.l_email.AutoSize = true;
-            this.l_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_email.BackColor = System.Drawing.Color.White;
             this.l_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_email.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_email.Location = new System.Drawing.Point(12, 87);
+            this.l_email.Location = new System.Drawing.Point(12, 56);
             this.l_email.Name = "l_email";
             this.l_email.Size = new System.Drawing.Size(182, 17);
             this.l_email.TabIndex = 5;
@@ -87,20 +88,21 @@
             // 
             // p_password
             // 
-            this.p_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_password.BackColor = System.Drawing.Color.White;
             this.p_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p_password.Controls.Add(this.p_ginpassword);
             this.p_password.Controls.Add(this.l_password2);
             this.p_password.Controls.Add(this.l_password1);
             this.p_password.Controls.Add(this.tb_password2);
             this.p_password.Controls.Add(this.tb_password1);
-            this.p_password.Location = new System.Drawing.Point(12, 159);
+            this.p_password.Location = new System.Drawing.Point(12, 128);
             this.p_password.Name = "p_password";
             this.p_password.Size = new System.Drawing.Size(509, 193);
             this.p_password.TabIndex = 6;
             // 
             // p_ginpassword
             // 
+            this.p_ginpassword.BackColor = System.Drawing.Color.White;
             this.p_ginpassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p_ginpassword.Controls.Add(this.b_ginpassword);
             this.p_ginpassword.Controls.Add(this.b_use);
@@ -112,7 +114,7 @@
             // 
             // b_ginpassword
             // 
-            this.b_ginpassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.b_ginpassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.b_ginpassword.Location = new System.Drawing.Point(19, 12);
             this.b_ginpassword.Name = "b_ginpassword";
             this.b_ginpassword.Size = new System.Drawing.Size(163, 23);
@@ -123,7 +125,7 @@
             // 
             // b_use
             // 
-            this.b_use.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.b_use.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.b_use.Location = new System.Drawing.Point(19, 67);
             this.b_use.Name = "b_use";
             this.b_use.Size = new System.Drawing.Size(163, 23);
@@ -175,10 +177,10 @@
             // l_password
             // 
             this.l_password.AutoSize = true;
-            this.l_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_password.BackColor = System.Drawing.Color.White;
             this.l_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_password.Location = new System.Drawing.Point(12, 139);
+            this.l_password.Location = new System.Drawing.Point(12, 108);
             this.l_password.Name = "l_password";
             this.l_password.Size = new System.Drawing.Size(57, 17);
             this.l_password.TabIndex = 7;
@@ -186,20 +188,21 @@
             // 
             // b_register
             // 
-            this.b_register.Location = new System.Drawing.Point(358, 358);
+            this.b_register.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.b_register.Location = new System.Drawing.Point(358, 327);
             this.b_register.Name = "b_register";
             this.b_register.Size = new System.Drawing.Size(163, 23);
             this.b_register.TabIndex = 8;
             this.b_register.Text = "Зарегистрироваться ";
-            this.b_register.UseVisualStyleBackColor = true;
+            this.b_register.UseVisualStyleBackColor = false;
             this.b_register.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(539, 393);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(530, 355);
             this.Controls.Add(this.b_register);
             this.Controls.Add(this.l_password);
             this.Controls.Add(this.p_password);
@@ -207,6 +210,7 @@
             this.Controls.Add(this.tb_email);
             this.Controls.Add(this.l_fio);
             this.Controls.Add(this.tb_fio);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistration";
             this.Text = "Регистрация ";
             this.Load += new System.EventHandler(this.FormRegistration_Load);

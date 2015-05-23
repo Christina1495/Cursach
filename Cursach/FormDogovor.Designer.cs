@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDogovor));
             this.l_info1 = new System.Windows.Forms.Label();
             this.p_main = new System.Windows.Forms.Panel();
             this.b_ok = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             // 
             // p_main
             // 
+            this.p_main.BackColor = System.Drawing.Color.White;
             this.p_main.Controls.Add(this.b_ok);
             this.p_main.Controls.Add(this.gb_document);
             this.p_main.Controls.Add(this.gb_address);
@@ -240,10 +242,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(542, 307);
             this.Controls.Add(this.p_main);
             this.Controls.Add(this.l_info1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDogovor";
             this.Text = "Заполнение информации";
             this.Load += new System.EventHandler(this.FormDogovor_Load);

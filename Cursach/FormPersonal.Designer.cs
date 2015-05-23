@@ -53,29 +53,31 @@
             // 
             // b_pay
             // 
+            this.b_pay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.b_pay.Location = new System.Drawing.Point(12, 204);
             this.b_pay.Name = "b_pay";
             this.b_pay.Size = new System.Drawing.Size(75, 23);
             this.b_pay.TabIndex = 2;
             this.b_pay.Text = "Оплата";
-            this.b_pay.UseVisualStyleBackColor = true;
+            this.b_pay.UseVisualStyleBackColor = false;
             this.b_pay.Click += new System.EventHandler(this.button1_Click);
             // 
             // b_listthings
             // 
+            this.b_listthings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.b_listthings.Location = new System.Drawing.Point(93, 204);
             this.b_listthings.Name = "b_listthings";
             this.b_listthings.Size = new System.Drawing.Size(171, 23);
             this.b_listthings.TabIndex = 3;
             this.b_listthings.Text = "Сформировать список вещей";
-            this.b_listthings.UseVisualStyleBackColor = true;
+            this.b_listthings.UseVisualStyleBackColor = false;
             this.b_listthings.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 232);
             this.Controls.Add(this.b_listthings);
             this.Controls.Add(this.b_pay);

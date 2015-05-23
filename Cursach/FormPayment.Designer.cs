@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPayment));
             this.tb_summa = new System.Windows.Forms.TextBox();
             this.b_ok = new System.Windows.Forms.Button();
             this.l_summa = new System.Windows.Forms.Label();
@@ -43,12 +44,14 @@
             // 
             // b_ok
             // 
+            this.b_ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.b_ok.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.b_ok.Location = new System.Drawing.Point(263, 35);
             this.b_ok.Name = "b_ok";
             this.b_ok.Size = new System.Drawing.Size(75, 23);
             this.b_ok.TabIndex = 2;
             this.b_ok.Text = "Оплатить";
-            this.b_ok.UseVisualStyleBackColor = true;
+            this.b_ok.UseVisualStyleBackColor = false;
             this.b_ok.Click += new System.EventHandler(this.button1_Click);
             // 
             // l_summa
@@ -74,12 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(361, 69);
             this.Controls.Add(this.l_info);
             this.Controls.Add(this.l_summa);
             this.Controls.Add(this.b_ok);
             this.Controls.Add(this.tb_summa);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPayment";
             this.Text = "Клиен-Банк";
             this.ResumeLayout(false);

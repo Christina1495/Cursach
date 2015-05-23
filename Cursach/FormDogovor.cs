@@ -74,7 +74,7 @@ namespace Cursach
                 
                 d.PaymentAccount(Fio, usluga, ex, summa, kol_tur, address, paylist, bank);
                 d.Client_Bank(Fio, summa, 0, 0, paylist,"");
-                MessageBox.Show("Done");
+                MessageBox.Show("Документы находятся в папках:" + Environment.NewLine + "Договор на услугу: bin/dogovor" + Environment.NewLine + "Счет на оплату: bin/paylist", "Инфо");
                 Hide();
                 FormMain f1 = new FormMain(Fio, ID);
                 f1.ShowDialog();

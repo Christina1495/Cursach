@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.p_resort = new System.Windows.Forms.Panel();
             this.l_amount = new System.Windows.Forms.Label();
             this.l_de = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             this.nud_amount2 = new System.Windows.Forms.NumericUpDown();
             this.lb_sale = new System.Windows.Forms.ListBox();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.p_resort.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_countdayE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_countdayS)).BeginInit();
@@ -81,7 +83,7 @@
             // 
             // p_resort
             // 
-            this.p_resort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_resort.BackColor = System.Drawing.Color.White;
             this.p_resort.Controls.Add(this.l_amount);
             this.p_resort.Controls.Add(this.l_de);
             this.p_resort.Controls.Add(this.l_ds);
@@ -142,7 +144,7 @@
             // 
             // b_Find
             // 
-            this.b_Find.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.b_Find.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.b_Find.Location = new System.Drawing.Point(797, 38);
             this.b_Find.Name = "b_Find";
             this.b_Find.Size = new System.Drawing.Size(75, 23);
@@ -275,8 +277,8 @@
             // 
             // b_Ok
             // 
-            this.b_Ok.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.b_Ok.Location = new System.Drawing.Point(780, 2);
+            this.b_Ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.b_Ok.Location = new System.Drawing.Point(790, 300);
             this.b_Ok.Name = "b_Ok";
             this.b_Ok.Size = new System.Drawing.Size(99, 23);
             this.b_Ok.TabIndex = 4;
@@ -287,10 +289,10 @@
             // l_authoriz
             // 
             this.l_authoriz.AutoSize = true;
-            this.l_authoriz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.l_authoriz.BackColor = System.Drawing.Color.White;
             this.l_authoriz.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_authoriz.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_authoriz.Location = new System.Drawing.Point(10, 0);
+            this.l_authoriz.Location = new System.Drawing.Point(3, 0);
             this.l_authoriz.Name = "l_authoriz";
             this.l_authoriz.Size = new System.Drawing.Size(137, 23);
             this.l_authoriz.TabIndex = 14;
@@ -300,9 +302,10 @@
             // l_admin
             // 
             this.l_admin.AutoSize = true;
+            this.l_admin.BackColor = System.Drawing.Color.White;
             this.l_admin.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_admin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_admin.Location = new System.Drawing.Point(695, 0);
+            this.l_admin.Location = new System.Drawing.Point(540, 0);
             this.l_admin.Name = "l_admin";
             this.l_admin.Size = new System.Drawing.Size(207, 23);
             this.l_admin.TabIndex = 16;
@@ -311,22 +314,23 @@
             // 
             // p_main
             // 
-            this.p_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_main.BackColor = System.Drawing.Color.White;
             this.p_main.Controls.Add(this.l_cabinet);
             this.p_main.Controls.Add(this.l_Client);
             this.p_main.Controls.Add(this.l_authoriz);
             this.p_main.Controls.Add(this.l_admin);
-            this.p_main.Location = new System.Drawing.Point(12, 2);
+            this.p_main.Location = new System.Drawing.Point(11, 7);
             this.p_main.Name = "p_main";
-            this.p_main.Size = new System.Drawing.Size(902, 23);
+            this.p_main.Size = new System.Drawing.Size(747, 23);
             this.p_main.TabIndex = 17;
             // 
             // l_cabinet
             // 
             this.l_cabinet.AutoSize = true;
+            this.l_cabinet.BackColor = System.Drawing.Color.White;
             this.l_cabinet.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_cabinet.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.l_cabinet.Location = new System.Drawing.Point(737, 0);
+            this.l_cabinet.Location = new System.Drawing.Point(579, 0);
             this.l_cabinet.Name = "l_cabinet";
             this.l_cabinet.Size = new System.Drawing.Size(168, 23);
             this.l_cabinet.TabIndex = 19;
@@ -345,7 +349,7 @@
             // 
             // p_resort2
             // 
-            this.p_resort2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_resort2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.p_resort2.Controls.Add(this.lb_tourlist);
             this.p_resort2.Location = new System.Drawing.Point(3, 76);
             this.p_resort2.Name = "p_resort2";
@@ -355,38 +359,39 @@
             // p_3
             // 
             this.p_3.Controls.Add(this.l_datenow);
-            this.p_3.Controls.Add(this.b_Ok);
-            this.p_3.Location = new System.Drawing.Point(12, 362);
+            this.p_3.Location = new System.Drawing.Point(12, 36);
             this.p_3.Name = "p_3";
-            this.p_3.Size = new System.Drawing.Size(902, 25);
+            this.p_3.Size = new System.Drawing.Size(387, 43);
             this.p_3.TabIndex = 18;
             // 
             // l_datenow
             // 
             this.l_datenow.AutoSize = true;
+            this.l_datenow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_datenow.Location = new System.Drawing.Point(3, 5);
             this.l_datenow.Name = "l_datenow";
-            this.l_datenow.Size = new System.Drawing.Size(0, 13);
+            this.l_datenow.Size = new System.Drawing.Size(0, 25);
             this.l_datenow.TabIndex = 18;
             // 
             // tc_form1
             // 
             this.tc_form1.Controls.Add(this.tp_tour);
             this.tc_form1.Controls.Add(this.tp_Sale);
-            this.tc_form1.Location = new System.Drawing.Point(12, 31);
+            this.tc_form1.Location = new System.Drawing.Point(11, 80);
             this.tc_form1.Name = "tc_form1";
             this.tc_form1.SelectedIndex = 0;
-            this.tc_form1.Size = new System.Drawing.Size(905, 325);
+            this.tc_form1.Size = new System.Drawing.Size(905, 355);
             this.tc_form1.TabIndex = 20;
             // 
             // tp_tour
             // 
             this.tp_tour.Controls.Add(this.p_resort);
+            this.tp_tour.Controls.Add(this.b_Ok);
             this.tp_tour.Controls.Add(this.p_resort2);
             this.tp_tour.Location = new System.Drawing.Point(4, 22);
             this.tp_tour.Name = "tp_tour";
             this.tp_tour.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_tour.Size = new System.Drawing.Size(897, 299);
+            this.tp_tour.Size = new System.Drawing.Size(897, 329);
             this.tp_tour.TabIndex = 0;
             this.tp_tour.Text = "Туры";
             this.tp_tour.UseVisualStyleBackColor = true;
@@ -397,7 +402,7 @@
             this.tp_Sale.Location = new System.Drawing.Point(4, 22);
             this.tp_Sale.Name = "tp_Sale";
             this.tp_Sale.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_Sale.Size = new System.Drawing.Size(897, 299);
+            this.tp_Sale.Size = new System.Drawing.Size(897, 329);
             this.tp_Sale.TabIndex = 1;
             this.tp_Sale.Text = "Акции";
             this.tp_Sale.UseVisualStyleBackColor = true;
@@ -405,19 +410,19 @@
             // 
             // p_sale
             // 
-            this.p_sale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_sale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.p_sale.Controls.Add(this.l_amount2);
             this.p_sale.Controls.Add(this.nud_amount2);
             this.p_sale.Controls.Add(this.lb_sale);
             this.p_sale.Location = new System.Drawing.Point(3, 3);
             this.p_sale.Name = "p_sale";
-            this.p_sale.Size = new System.Drawing.Size(891, 293);
+            this.p_sale.Size = new System.Drawing.Size(891, 320);
             this.p_sale.TabIndex = 0;
             // 
             // l_amount2
             // 
             this.l_amount2.AutoSize = true;
-            this.l_amount2.Location = new System.Drawing.Point(14, 266);
+            this.l_amount2.Location = new System.Drawing.Point(3, 298);
             this.l_amount2.Name = "l_amount2";
             this.l_amount2.Size = new System.Drawing.Size(110, 13);
             this.l_amount2.TabIndex = 19;
@@ -425,7 +430,7 @@
             // 
             // nud_amount2
             // 
-            this.nud_amount2.Location = new System.Drawing.Point(130, 264);
+            this.nud_amount2.Location = new System.Drawing.Point(119, 296);
             this.nud_amount2.Name = "nud_amount2";
             this.nud_amount2.Size = new System.Drawing.Size(45, 20);
             this.nud_amount2.TabIndex = 18;
@@ -440,7 +445,7 @@
             this.lb_sale.FormattingEnabled = true;
             this.lb_sale.Location = new System.Drawing.Point(3, 3);
             this.lb_sale.Name = "lb_sale";
-            this.lb_sale.Size = new System.Drawing.Size(885, 251);
+            this.lb_sale.Size = new System.Drawing.Size(885, 290);
             this.lb_sale.TabIndex = 0;
             // 
             // backgroundWorker2
@@ -448,17 +453,27 @@
             this.backgroundWorker2.WorkerReportsProgress = true;
             this.backgroundWorker2.WorkerSupportsCancellation = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Cursach.Properties.Resources.logo;
+            this.panel1.Location = new System.Drawing.Point(764, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(152, 93);
+            this.panel1.TabIndex = 21;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(928, 396);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(928, 440);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tc_form1);
             this.Controls.Add(this.p_3);
             this.Controls.Add(this.p_main);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
-            this.Text = "Турфирам \"Ривьера-Сочи\"";
+            this.Text = "Турфирма \"Ривьера-Сочи\"";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.p_resort.ResumeLayout(false);
             this.p_resort.PerformLayout();
@@ -519,6 +534,7 @@
         private System.Windows.Forms.NumericUpDown nud_amount2;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Label l_cabinet;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

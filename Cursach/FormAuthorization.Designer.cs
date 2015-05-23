@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAuthorization));
             this.tb_email = new System.Windows.Forms.TextBox();
             this.tb_password = new System.Windows.Forms.TextBox();
             this.l_email = new System.Windows.Forms.Label();
@@ -84,7 +85,7 @@
             // 
             // p_auth
             // 
-            this.p_auth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.p_auth.BackColor = System.Drawing.Color.White;
             this.p_auth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p_auth.Controls.Add(this.tb_email);
             this.p_auth.Controls.Add(this.ll_reg);
@@ -100,7 +101,7 @@
             // ll_reg
             // 
             this.ll_reg.AutoSize = true;
-            this.ll_reg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.ll_reg.BackColor = System.Drawing.Color.White;
             this.ll_reg.Cursor = System.Windows.Forms.Cursors.No;
             this.ll_reg.LinkColor = System.Drawing.Color.Black;
             this.ll_reg.Location = new System.Drawing.Point(3, 144);
@@ -113,9 +114,9 @@
             // 
             // b_start
             // 
-            this.b_start.Location = new System.Drawing.Point(297, 191);
+            this.b_start.Location = new System.Drawing.Point(238, 191);
             this.b_start.Name = "b_start";
-            this.b_start.Size = new System.Drawing.Size(97, 23);
+            this.b_start.Size = new System.Drawing.Size(156, 23);
             this.b_start.TabIndex = 7;
             this.b_start.Text = "Начать работу";
             this.b_start.UseVisualStyleBackColor = true;
@@ -125,10 +126,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(426, 226);
             this.Controls.Add(this.b_start);
             this.Controls.Add(this.p_auth);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAuthorization";
             this.Text = "Авторизация";
             this.p_auth.ResumeLayout(false);

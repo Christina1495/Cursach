@@ -48,7 +48,8 @@ namespace Cursach
                 }
                  
             string d = CurrentTime.ToString("dd.MM.yyyy");
-            l_datenow.Text = "Сегодня: " + d ;
+            string h = CurrentTime.ToString("H:m");
+            l_datenow.Text = "Сегодня: " + d + "  " + h;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
