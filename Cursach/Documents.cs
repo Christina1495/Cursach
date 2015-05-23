@@ -442,9 +442,9 @@ namespace Cursach
             clientBank.Add("1CCLIENTBANKExchenge");
             clientBank.Add("Версияфората=1.01");
             clientBank.Add("Кодировка=Windows");
-            clientBank.Add("РасчСчет=" + paylist);
+            clientBank.Add("РасчСчет=12345678901234567890");
             clientBank.Add("СекцияРасчСчет");
-            clientBank.Add("РасчСчет=" + paylist);
+            clientBank.Add("РасчСчет=12345678901234567890");
             clientBank.Add("Всего=" + summa);
             clientBank.Add("Поступило="+ price);
             clientBank.Add("Остаток=" + (summa-price));
@@ -460,7 +460,7 @@ namespace Cursach
             } 
             clientBank.Add("Дата=" + Now.ToString("dd.MM.yyyy"));
             clientBank.Add("Сумма=" + prisenow.ToString());
-            clientBank.Add("ПлательщикСчет=" + Fio);
+            clientBank.Add("ПлательщикСчет=" + paylist);
             SaveFile sf = new SaveFile(); 
             for (int i = 0; i < clientBank.Count; i++)
             {
