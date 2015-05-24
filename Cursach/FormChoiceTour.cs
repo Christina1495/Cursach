@@ -211,19 +211,27 @@ namespace Cursach
 
         private void добавитьЭкскурсиюВТурToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (lb_ex.SelectedIndex != -1)
+            int ind = lb_ex.Text.IndexOf("----");
+            if (ind == -1)
             {
-                tb_info.Text += "Экскурсия: " + EL.list[lb_ex.SelectedIndex / 2].name + Environment.NewLine;
-                listEx.Add("Экскурсия:" + EL.list[lb_ex.SelectedIndex / 2].name + " Цена:" + EL.list[lb_ex.SelectedIndex / 2].price);
-                ExId += EL.list[lb_ex.SelectedIndex / 2].id + "|";
-                ExCost += Convert.ToString(Quantity * Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].price)) + "|";
-                allCost += Quantity * Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].price);
-                label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
-                flag = true;
+                if (lb_ex.SelectedIndex != -1)
+                {
+                    tb_info.Text += "Экскурсия: " + EL.list[lb_ex.SelectedIndex / 2].name + Environment.NewLine;
+                    listEx.Add("Экскурсия:" + EL.list[lb_ex.SelectedIndex / 2].name + " Цена:" + EL.list[lb_ex.SelectedIndex / 2].price);
+                    ExId += EL.list[lb_ex.SelectedIndex / 2].id + "|";
+                    ExCost += Convert.ToString(Quantity * Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].price)) + "|";
+                    allCost += Quantity * Convert.ToInt32(EL.list[lb_ex.SelectedIndex / 2].price);
+                    label5.Text = "Сумма к оплате: " + Convert.ToString(allCost);
+                    flag = true;
+                }
+                else
+                {
+                    MessageBox.Show("Выберите экскурсию");
+                }
             }
             else
             {
-                MessageBox.Show("Выберите экскурсию");
+                lb_ex.ClearSelected();
             }
         }
 
@@ -234,54 +242,36 @@ namespace Cursach
 
         private void выбратьОтельToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (H == true)
+            int ind = lb_hotel.Text.IndexOf("----");
+            if (ind == -1)
             {
-                int index = tb_info.Text.IndexOf("Отель: ");
-                if (index != -1)
+                if (H == true)
                 {
-                    int index2 = tb_info.Text.IndexOf(" * ");
-                    if (index2 != -1)
+                    int index = tb_info.Text.IndexOf("Отель: ");
+                    if (index != -1)
                     {
-                        tb_info.Text = tb_info.Text.Remove(index - 1, index2 - index + 3);
+                        int index2 = tb_info.Text.IndexOf(" * ");
+                        if (index2 != -1)
+                        {
+                            tb_info.Text = tb_info.Text.Remove(index - 1, index2 - index + 3);
+                        }
                     }
                 }
-            }
-            if (lb_hotel.SelectedIndex != -1)
-            {
-                HotelTour = HL.list[lb_hotel.SelectedIndex / 2].name;
-                tb_info.Text += "Отель: " + HL.list[lb_hotel.SelectedIndex / 2].name + " * " + Environment.NewLine;
-                H = true;
+                if (lb_hotel.SelectedIndex != -1)
+                {
+                    HotelTour = HL.list[lb_hotel.SelectedIndex / 2].name;
+                    tb_info.Text += "Отель: " + HL.list[lb_hotel.SelectedIndex / 2].name + " * " + Environment.NewLine;
+                    H = true;
+                }
+                else
+                {
+                    MessageBox.Show("Выберите отель");
+                }
             }
             else
             {
-                MessageBox.Show("Выберите отель");
+                lb_hotel.ClearSelected();
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)//переделать 
-        {
-            //if(H == true)
-            //{
-            //    int index = textBox1.Text.IndexOf("Отель: ");
-            //    if(index != -1)
-            //    {
-            //        int index2 = textBox1.Text.IndexOf(" * ");
-            //        if (index2 != -1)
-            //        {
-            //            textBox1.Text = textBox1.Text.Remove(index - 1, index2 - index + 3);
-            //        }
-            //    }
-            //}
-            //if (listBox2.SelectedIndex != -1)
-            //{
-            //    HotelTour = HL.list[listBox2.SelectedIndex / 2].name;
-            //    textBox1.Text += "Отель: " + HL.list[listBox2.SelectedIndex / 2].name + " * " + Environment.NewLine;
-            //    H = true;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Выберите отель");
-            //}
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -297,6 +287,11 @@ namespace Cursach
         {
             //Form1 f1 = new Form1(FIO, ID);
             //f1.Show();
+        }
+
+        private void cms_hotel_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

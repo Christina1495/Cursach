@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChoiceTour));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.b_exdel = new System.Windows.Forms.Button();
             this.b_doc = new System.Windows.Forms.Button();
             this.lb_hotel = new System.Windows.Forms.ListBox();
@@ -52,7 +53,6 @@
             this.nud_marks = new System.Windows.Forms.NumericUpDown();
             this.b_marks = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.cms_ex.SuspendLayout();
             this.cms_hotel.SuspendLayout();
@@ -79,6 +79,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(715, 226);
             this.panel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(426, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Дата вылета:";
             // 
             // b_exdel
             // 
@@ -218,7 +227,8 @@
             this.информацияОбЭкскурсииToolStripMenuItem,
             this.добавитьЭкскурсиюВТурToolStripMenuItem});
             this.cms_hotel.Name = "contextMenuStrip1";
-            this.cms_hotel.Size = new System.Drawing.Size(226, 48);
+            this.cms_hotel.Size = new System.Drawing.Size(226, 70);
+            this.cms_hotel.Opening += new System.ComponentModel.CancelEventHandler(this.cms_hotel_Opening);
             // 
             // информацияОбЭкскурсииToolStripMenuItem
             // 
@@ -279,15 +289,6 @@
             this.label2.Size = new System.Drawing.Size(462, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "*Для выбора отеля и просмотра экскурсий нажмите на названии правой кнопкой мыши.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(426, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Дата вылета:";
             // 
             // FormChoiceTour
             // 

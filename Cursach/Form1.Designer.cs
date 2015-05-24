@@ -67,6 +67,9 @@
             this.lb_sale = new System.Windows.Forms.ListBox();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.p_resort.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_countdayE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_countdayS)).BeginInit();
@@ -278,7 +281,7 @@
             // b_Ok
             // 
             this.b_Ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.b_Ok.Location = new System.Drawing.Point(790, 300);
+            this.b_Ok.Location = new System.Drawing.Point(813, 412);
             this.b_Ok.Name = "b_Ok";
             this.b_Ok.Size = new System.Drawing.Size(99, 23);
             this.b_Ok.TabIndex = 4;
@@ -363,14 +366,15 @@
             this.p_3.Name = "p_3";
             this.p_3.Size = new System.Drawing.Size(387, 43);
             this.p_3.TabIndex = 18;
+            this.p_3.Paint += new System.Windows.Forms.PaintEventHandler(this.p_3_Paint);
             // 
             // l_datenow
             // 
             this.l_datenow.AutoSize = true;
-            this.l_datenow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_datenow.Font = new System.Drawing.Font("Showcard Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_datenow.Location = new System.Drawing.Point(3, 5);
             this.l_datenow.Name = "l_datenow";
-            this.l_datenow.Size = new System.Drawing.Size(0, 25);
+            this.l_datenow.Size = new System.Drawing.Size(0, 22);
             this.l_datenow.TabIndex = 18;
             // 
             // tc_form1
@@ -380,18 +384,17 @@
             this.tc_form1.Location = new System.Drawing.Point(11, 80);
             this.tc_form1.Name = "tc_form1";
             this.tc_form1.SelectedIndex = 0;
-            this.tc_form1.Size = new System.Drawing.Size(905, 355);
+            this.tc_form1.Size = new System.Drawing.Size(905, 326);
             this.tc_form1.TabIndex = 20;
             // 
             // tp_tour
             // 
             this.tp_tour.Controls.Add(this.p_resort);
-            this.tp_tour.Controls.Add(this.b_Ok);
             this.tp_tour.Controls.Add(this.p_resort2);
             this.tp_tour.Location = new System.Drawing.Point(4, 22);
             this.tp_tour.Name = "tp_tour";
             this.tp_tour.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_tour.Size = new System.Drawing.Size(897, 329);
+            this.tp_tour.Size = new System.Drawing.Size(897, 300);
             this.tp_tour.TabIndex = 0;
             this.tp_tour.Text = "Туры";
             this.tp_tour.UseVisualStyleBackColor = true;
@@ -402,7 +405,7 @@
             this.tp_Sale.Location = new System.Drawing.Point(4, 22);
             this.tp_Sale.Name = "tp_Sale";
             this.tp_Sale.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_Sale.Size = new System.Drawing.Size(897, 329);
+            this.tp_Sale.Size = new System.Drawing.Size(897, 300);
             this.tp_Sale.TabIndex = 1;
             this.tp_Sale.Text = "Акции";
             this.tp_Sale.UseVisualStyleBackColor = true;
@@ -411,18 +414,21 @@
             // p_sale
             // 
             this.p_sale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.p_sale.Controls.Add(this.button1);
+            this.p_sale.Controls.Add(this.label1);
+            this.p_sale.Controls.Add(this.comboBox1);
             this.p_sale.Controls.Add(this.l_amount2);
             this.p_sale.Controls.Add(this.nud_amount2);
             this.p_sale.Controls.Add(this.lb_sale);
             this.p_sale.Location = new System.Drawing.Point(3, 3);
             this.p_sale.Name = "p_sale";
-            this.p_sale.Size = new System.Drawing.Size(891, 320);
+            this.p_sale.Size = new System.Drawing.Size(891, 293);
             this.p_sale.TabIndex = 0;
             // 
             // l_amount2
             // 
             this.l_amount2.AutoSize = true;
-            this.l_amount2.Location = new System.Drawing.Point(3, 298);
+            this.l_amount2.Location = new System.Drawing.Point(3, 270);
             this.l_amount2.Name = "l_amount2";
             this.l_amount2.Size = new System.Drawing.Size(110, 13);
             this.l_amount2.TabIndex = 19;
@@ -430,7 +436,7 @@
             // 
             // nud_amount2
             // 
-            this.nud_amount2.Location = new System.Drawing.Point(119, 296);
+            this.nud_amount2.Location = new System.Drawing.Point(119, 269);
             this.nud_amount2.Name = "nud_amount2";
             this.nud_amount2.Size = new System.Drawing.Size(45, 20);
             this.nud_amount2.TabIndex = 18;
@@ -445,7 +451,7 @@
             this.lb_sale.FormattingEnabled = true;
             this.lb_sale.Location = new System.Drawing.Point(3, 3);
             this.lb_sale.Name = "lb_sale";
-            this.lb_sale.Size = new System.Drawing.Size(885, 290);
+            this.lb_sale.Size = new System.Drawing.Size(885, 264);
             this.lb_sale.TabIndex = 0;
             // 
             // backgroundWorker2
@@ -461,6 +467,34 @@
             this.panel1.Size = new System.Drawing.Size(152, 93);
             this.panel1.TabIndex = 21;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(180, 270);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Курорт";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(228, 269);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 20;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button1.Location = new System.Drawing.Point(365, 268);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Найти";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +502,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(928, 440);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.b_Ok);
             this.Controls.Add(this.tc_form1);
             this.Controls.Add(this.p_3);
             this.Controls.Add(this.p_main);
@@ -535,6 +570,9 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Label l_cabinet;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
