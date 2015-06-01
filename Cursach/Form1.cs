@@ -196,10 +196,10 @@ namespace Cursach
                 int ind = lb_tourlist.Text.IndexOf("----");
                 if (ind == -1)
                 {
-                    Hide();
+                    //Hide();
                     FormChoiceTour fct = new FormChoiceTour(TL.list[lb_tourlist.SelectedIndex / 2].id, FIO, ID, TL.list[lb_tourlist.SelectedIndex / 2].name, TL.list[lb_tourlist.SelectedIndex / 2].price, TL.list[lb_tourlist.SelectedIndex / 2].duration, TL.list[lb_tourlist.SelectedIndex / 2].resort, TL.list[lb_tourlist.SelectedIndex / 2].dateS, TL.list[lb_tourlist.SelectedIndex / 2].dateE, "", Convert.ToInt32(nud_count.Value));
                     fct.ShowDialog();
-                    this.Close();
+                    //this.Close();
                 }
                 else
                 {
@@ -214,10 +214,10 @@ namespace Cursach
                     int ind2 = lb_sale.Text.IndexOf("Описание");
                     if (ind1 == -1 && ind2 == -1)
                     {
-                        Hide();
+                        //Hide();
                         FormChoiceTour fct = new FormChoiceTour(DL.list[lb_sale.SelectedIndex / 3].id, FIO, ID, DL.list[lb_sale.SelectedIndex / 3].nameTour, DL.list[lb_sale.SelectedIndex / 3].price, "10", DL.list[lb_sale.SelectedIndex / 3].nameResort, "Января", "Декабрь", "", Convert.ToInt32(nud_amount2.Value));
                         fct.ShowDialog();
-                        this.Close();
+                        //this.Close();
                     }
                     else
                     {
@@ -238,10 +238,10 @@ namespace Cursach
 
         private void label5_Click(object sender, EventArgs e)
         {
-            Hide();
+            //Hide();
             FormAuthorization fa = new FormAuthorization();
             fa.ShowDialog();
-            this.Close();
+            //this.Close();
         }
 
         private void label7_Click(object sender, EventArgs e)
